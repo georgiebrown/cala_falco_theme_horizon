@@ -941,7 +941,7 @@
         "blog": "",
         "layout_type": "grid",
         "carousel_on_mobile": false,
-        "post_limit": 2,
+        "post_limit": 1,
         "columns": 1,
         "mobile_columns": "2",
         "mobile_card_size": "60cqw",
