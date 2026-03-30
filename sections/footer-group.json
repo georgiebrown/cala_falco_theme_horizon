@@ -54,6 +54,26 @@
             "padding-inline-end": 0
           },
           "blocks": {
+            "logo_NQ3f6D": {
+              "type": "logo",
+              "name": "t:names.logo",
+              "settings": {
+                "inverse": false,
+                "font": "heading",
+                "unit": "pixel",
+                "percent_width": 100,
+                "pixel_height": 112,
+                "custom_mobile_size": false,
+                "unit_mobile": "percent",
+                "percent_width_mobile": 100,
+                "pixel_height_mobile": 120,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
             "text_pF6rVi": {
               "type": "text",
               "name": "Heading",
@@ -108,6 +128,7 @@
             }
           },
           "block_order": [
+            "logo_NQ3f6D",
             "text_pF6rVi",
             "text_HafH7P"
           ]
@@ -158,12 +179,33 @@
             "padding-inline-end": 0
           },
           "blocks": {}
+        },
+        "social_links_86EMM6": {
+          "type": "social-links",
+          "name": "t:names.social_media_links",
+          "settings": {
+            "facebook_url": "",
+            "instagram_url": "https://www.instagram.com/calafalco/",
+            "youtube_url": "",
+            "tiktok_url": "",
+            "twitter_url": "",
+            "threads_url": "",
+            "linkedin_url": "",
+            "bluesky_url": "",
+            "snapchat_url": "",
+            "pinterest_url": "",
+            "tumblr_url": "",
+            "vimeo_url": "",
+            "custom_url": ""
+          },
+          "blocks": {}
         }
       },
       "block_order": [
         "group_wErUQf",
         "email-signup_HafH7P",
-        "menu_XCWhbM"
+        "menu_XCWhbM",
+        "social_links_86EMM6"
       ],
       "name": "t:names.footer",
       "settings": {
