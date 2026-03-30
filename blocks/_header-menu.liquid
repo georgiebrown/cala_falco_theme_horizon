@@ -3,6 +3,7 @@
 
   @param {string} [variant] - What version of the menu to render. Defaults to header menu.
   @param {string} [transparent] - Show a transparent menu
+  @param {string} [split_part] - Render only half of menu links ('left' or 'right')
 {%- enddoc -%}
 
 {% liquid
@@ -55,10 +56,19 @@
       assign block_settings = block.settings
       assign menu_content_type = block_settings.menu_style | default: 'text'
       assign image_border_radius = block_settings.image_border_radius
+      assign split_part = split_part | default: ''
       assign color_scheme_classes = ''
       assign color_scheme_setting_id = 'color_scheme_' | append: section.settings.menu_row
       assign current_color_scheme = block_settings.color_scheme
       assign parent_color_scheme = section.settings[color_scheme_setting_id]
+      assign split_menu_index = block_settings.menu.links.size | plus: 1 | divided_by: 2
+      assign header_menu_class = 'header-menu'
+
+      if split_part == 'left'
+        assign header_menu_class = header_menu_class | append: ' header-menu--split-left'
+      elsif split_part == 'right'
+        assign header_menu_class = header_menu_class | append: ' header-menu--split-right'
+      endif
 
       if parent_color_scheme.id != current_color_scheme.id
         assign color_scheme_classes = ' color-' | append: current_color_scheme
@@ -78,6 +88,21 @@
 
     {% capture children %}
       {% for link in block_settings.menu.links %}
+        {% if split_part == 'left' and forloop.index > split_menu_index %}
+          {% continue %}
+        {% elsif split_part == 'right' and forloop.index <= split_menu_index %}
+          {% continue %}
+        {% endif %}
+
+        {% liquid
+          assign submenu_id = 'submenu-' | append: forloop.index
+          assign list_id = 'MegaMenuList-' | append: forloop.index
+
+          if split_part != blank
+            assign submenu_id = submenu_id | append: '-' | append: split_part
+            assign list_id = list_id | append: '-' | append: split_part
+          endif
+        %}
         <li
           role="presentation"
           class="menu-list__list-item"
@@ -91,7 +116,7 @@
             data-skip-node-update="true"
             class="menu-list__link{% if link.active %} menu-list__link--active{% endif %}"
             {%- if link.links != blank -%}
-              aria-controls="submenu-{{ forloop.index }}"
+              aria-controls="{{ submenu_id }}"
               aria-haspopup="true"
               aria-expanded="false"
             {%- endif -%}
@@ -105,11 +130,10 @@
           {%- if link.links != blank -%}
             <div class="menu-list__submenu{{ color_scheme_classes }}" ref="submenu[]">
               <div
-                id="submenu-{{ forloop.index }}"
+                id="{{ submenu_id }}"
                 class="menu-list__submenu-inner"
                 style="{% render 'submenu-font-styles', settings: block_settings %}"
               >
-                {% assign list_id = 'MegaMenuList-' | append: forloop.index %}
                 <div class="mega-menu section section--full-width-margin section--{{ section.settings.section_width }}">
                   <div
                     class="mega-menu__grid"
@@ -150,7 +174,7 @@
 
     <header-menu
       ref="headerMenu"
-      class="header-menu"
+      class="{{ header_menu_class }}"
       {{ block.shopify_attributes }}
       data-hydration-key="header-menu"
     >

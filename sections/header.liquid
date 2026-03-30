@@ -49,6 +49,14 @@
     content_for 'block', type: '_header-menu', id: 'header-menu'
   endcapture
 
+  capture menu_left
+    content_for 'block', type: '_header-menu', id: 'header-menu-left', split_part: 'left'
+  endcapture
+
+  capture menu_right
+    content_for 'block', type: '_header-menu', id: 'header-menu-right', split_part: 'right'
+  endcapture
+
   capture drawer_menu
     content_for 'block', type: '_header-menu', id: 'header-menu', variant: 'mobile'
   endcapture
@@ -291,6 +299,8 @@
   id="header-component"
   class="{{ class }}"
   data-theme-color="rgb({{ section.settings.color_scheme_top.settings.background.rgb }})"
+  data-menu-position="{{ section.settings.menu_position }}"
+  data-logo-position="{{ section.settings.logo_position }}"
   {% if transparent %}
     transparent="{{ transparent }}"
   {% endif %}
@@ -363,6 +373,8 @@
         first: first,
         logo: logo,
         menu: menu,
+        menu_left: menu_left,
+        menu_right: menu_right,
         actions: actions,
         localization: localization_markup,
         search: search,
@@ -720,6 +732,39 @@
 
     .overflow-menu::part(list) {
       justify-content: flex-end;
+    }
+  }
+
+  @media screen and (min-width: 750px) {
+    #header-component[data-menu-position='split'] .header__column--left:has(.header-menu--split-left) {
+      justify-content: flex-start;
+    }
+
+    #header-component[data-menu-position='split'] .header__column--right .header-menu--split-right .overflow-menu::part(list) {
+      justify-content: flex-end;
+    }
+
+    #header-component[data-menu-position='split'][data-logo-position='center'] :is(.header-menu--split-left, .header-menu--split-right) {
+      --split-line-width: clamp(3rem, 10vw, 10rem);
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    #header-component[data-menu-position='split'][data-logo-position='center'] .header-menu--split-left::after,
+    #header-component[data-menu-position='split'][data-logo-position='center'] .header-menu--split-right::before {
+      content: '';
+      flex: 0 0 var(--split-line-width);
+      border-top: 1px solid rgb(var(--color-foreground-rgb) / var(--opacity-subdued-text));
+      pointer-events: none;
+    }
+
+    #header-component[data-menu-position='split'][data-logo-position='center'] .header-menu--split-left::after {
+      margin-inline-start: var(--padding-2xs);
+    }
+
+    #header-component[data-menu-position='split'][data-logo-position='center'] .header-menu--split-right::before {
+      margin-inline-end: var(--padding-2xs);
     }
   }
 
@@ -1165,6 +1210,10 @@
         {
           "value": "right",
           "label": "t:options.right"
+        },
+        {
+          "value": "split",
+          "label": "Split"
         }
       ],
       "default": "left"

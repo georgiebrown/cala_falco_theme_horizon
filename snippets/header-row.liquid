@@ -8,6 +8,8 @@
   @param {string} [first] - Optional captured HTML for the first item (typically drawer menu for top row)
   @param {string} [logo] - Captured HTML for the logo element
   @param {string} [menu] - Captured HTML for the menu navigation
+  @param {string} [menu_left] - Captured HTML for left half of split menu
+  @param {string} [menu_right] - Captured HTML for right half of split menu
   @param {string} [actions] - Captured HTML for header actions (cart, account buttons, etc.)
   @param {string} [localization] - Captured HTML for language/country selector
   @param {string} [search] - Captured HTML for search input
@@ -19,6 +21,11 @@
   assign left = ''
   assign center = ''
   assign right = ''
+  assign split_menu_enabled = false
+
+  if settings.logo_position == 'center' and settings.menu_position == 'split'
+    assign split_menu_enabled = true
+  endif
 
   if first != blank
     assign left = 'first '
@@ -36,6 +43,16 @@
     endcase
 
     if item_row == row
+      if item == 'menu' and split_menu_enabled
+        assign left = left | append: 'menu_left '
+        assign right = right | append: 'menu_right '
+        continue
+      endif
+
+      if item_column == 'split'
+        assign item_column = 'center'
+      endif
+
       case item_column
         when 'left'
           assign left = left | append: item | append: ' '
@@ -78,6 +95,10 @@
               {{ logo }}
             {% when 'menu' %}
               {{ menu }}
+            {% when 'menu_left' %}
+              {{ menu_left }}
+            {% when 'menu_right' %}
+              {{ menu_right }}
             {% when 'localization' %}
               {{ localization }}
             {% when 'search' %}
