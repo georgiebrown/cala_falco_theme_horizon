@@ -1,0 +1,31 @@
+{
+  "name": "theme_horizon",
+  "version": "1.0.0",
+  "description": "[Getting started](#getting-started) | [Staying up to date with Horizon changes](#staying-up-to-date-with-horizon-changes) | [Developer tools](#developer-tools) | [Contributing](#contributing) | [License](#license)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+     "watch": "npx @tailwindcss/cli -i ./assets/tailwind.css -o ./assets/global.css --watch",
+  "build": "npx @tailwindcss/cli -i ./assets/tailwind.css -o ./assets/global.css --minify"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/georgiebrown/theme_horizon.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/georgiebrown/theme_horizon/issues"
+  },
+  "homepage": "https://github.com/georgiebrown/theme_horizon#readme",
+  "dependencies": {
+    "autoprefixer": "^10.4.27",
+    "postcss": "^8.5.8"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.2.2",
+    "tailwindcss": "^4.2.2"
+  }
+}
