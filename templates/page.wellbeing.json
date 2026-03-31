@@ -2009,6 +2009,50 @@
         "padding-block-start": 40,
         "padding-block-end": 40
       }
+    },
+    "column_callouts_qDgchW": {
+      "type": "column-callouts",
+      "blocks": {
+        "callout_TVjixr": {
+          "type": "callout",
+          "settings": {
+            "icon": "shopify://shop_images/Vector_27.png",
+            "title": "Natural",
+            "text": "<p>We are committed to sourcing the most exceptional natural  ingredients, to craft sustainable fragrances that elevate mood and  well-being.</p>"
+          }
+        },
+        "callout_NHxFjf": {
+          "type": "callout",
+          "settings": {
+            "icon": "shopify://shop_images/Vector_26.png",
+            "title": "Artisanal",
+            "text": "<p>Our perfumers, artisans in their own right, delve into the essence  of natural beauty to bring forth fragrances that are complex and  captivating.</p>"
+          }
+        },
+        "callout_437Hdg": {
+          "type": "callout",
+          "settings": {
+            "icon": "shopify://shop_images/Vector_25.png",
+            "title": "Sustainable",
+            "text": "<p>From sustainable sourcing to eco-friendly packaging options, our  fragrances uphold the principles of environmental stewardship.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "callout_TVjixr",
+        "callout_NHxFjf",
+        "callout_437Hdg"
+      ],
+      "name": "Column callouts",
+      "settings": {
+        "background_image": "shopify://shop_images/Mask_group_9.jpg",
+        "heading": "",
+        "content_width": 980,
+        "section_height": "620px",
+        "color_scheme": "",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
     }
   },
   "order": [
@@ -2021,6 +2065,7 @@
     "product_list_Ddz9mc",
     "hero_xbJPf6",
     "section_MMJTd9",
-    "section_XrMqJ3"
+    "section_XrMqJ3",
+    "column_callouts_qDgchW"
   ]
 }
