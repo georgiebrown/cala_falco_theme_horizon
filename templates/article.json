@@ -90,9 +90,20 @@
         "padding-block-start": 40,
         "padding-block-end": 80
       }
+    },
+    "related_articles": {
+      "type": "related-articles",
+      "settings": {
+        "heading": "Related Articles",
+        "button_label": "Next Article",
+        "color_scheme": "",
+        "padding-block-start": 40,
+        "padding-block-end": 80
+      }
     }
   },
   "order": [
-    "section"
+    "section",
+    "related_articles"
   ]
 }

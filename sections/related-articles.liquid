@@ -1,0 +1,166 @@
+{% liquid
+  assign next_article = article.next_article
+  assign has_next_article = false
+  if next_article != blank
+    assign has_next_article = true
+  endif
+%}
+
+{% if has_next_article %}
+  <div class="section-background color-{{ section.settings.color_scheme }}"></div>
+  <section
+    class="section section--page-width related-articles color-{{ section.settings.color_scheme }} spacing-style"
+    style="{% render 'spacing-style', settings: section.settings %}"
+    data-testid="related-articles"
+  >
+    <div class="related-articles__inner">
+      {% if section.settings.heading != blank %}
+        <h2 class="related-articles__heading">{{ section.settings.heading }}</h2>
+      {% endif %}
+
+      <a class="related-articles__card" href="{{ next_article.url }}">
+        {% if next_article.image != blank %}
+          <div class="related-articles__media">
+            {{
+              next_article.image
+              | image_url: width: 600
+              | image_tag:
+                widths: '240, 360, 480, 600',
+                sizes: '(max-width: 749px) 100vw, 240px',
+                class: 'related-articles__image',
+                alt: next_article.image.alt
+            }}
+          </div>
+        {% endif %}
+
+        <div class="related-articles__content">
+          <p class="related-articles__title">{{ next_article.title }}</p>
+          <span class="related-articles__button">
+            {{- section.settings.button_label -}}
+            <span aria-hidden="true"> &rarr;</span>
+          </span>
+        </div>
+      </a>
+    </div>
+  </section>
+{% endif %}
+
+{% stylesheet %}
+  .related-articles__inner {
+    width: min(100%, 760px);
+    margin: 0 auto;
+  }
+
+  .related-articles__heading {
+    margin: 0 0 var(--padding-md);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .related-articles__card {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--padding-md);
+    text-decoration: none;
+    color: var(--color-foreground);
+    align-items: center;
+  }
+
+  @media screen and (min-width: 750px) {
+    .related-articles__card {
+      grid-template-columns: 240px 1fr;
+      gap: var(--gap-lg);
+    }
+  }
+
+  .related-articles__media {
+    border-radius: var(--style-border-radius-inputs);
+    overflow: hidden;
+    border: var(--style-border-width) solid rgb(var(--color-foreground-rgb) / var(--opacity-10-25));
+  }
+
+  .related-articles__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    aspect-ratio: 16 / 9;
+    display: block;
+  }
+
+  .related-articles__content {
+    display: grid;
+    gap: var(--padding-sm);
+    align-content: start;
+  }
+
+  .related-articles__title {
+    margin: 0;
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .related-articles__button {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    padding: var(--padding-2xs) var(--padding-md);
+    border-radius: 999px;
+    background: rgb(var(--color-foreground-rgb) / var(--opacity-10-25));
+    color: var(--color-foreground);
+    font-size: var(--font-size--body-sm);
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Related articles",
+  "class": "section-wrapper",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Related Articles"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Next Article"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 60
+    }
+  ],
+  "presets": []
+}
+{% endschema %}
