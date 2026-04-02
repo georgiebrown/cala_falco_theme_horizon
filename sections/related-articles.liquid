@@ -1,12 +1,42 @@
 {% liquid
-  assign next_article = article.next_article
-  assign has_next_article = false
-  if next_article != blank
-    assign has_next_article = true
+  assign related_article = article.next_article
+
+  if related_article == blank
+    assign related_article = article.previous_article
+  endif
+
+  # Fallback for contexts where next/previous are not populated
+  if related_article == blank
+    assign previous_in_blog = blank
+    assign next_in_blog = blank
+    assign found_current_article = false
+
+    for blog_article in blog.articles
+      if found_current_article and next_in_blog == blank
+        assign next_in_blog = blog_article
+      endif
+
+      if blog_article.id == article.id
+        assign found_current_article = true
+      else
+        assign previous_in_blog = blog_article
+      endif
+    endfor
+
+    if next_in_blog != blank
+      assign related_article = next_in_blog
+    elsif previous_in_blog != blank
+      assign related_article = previous_in_blog
+    endif
+  endif
+
+  assign has_related_article = false
+  if related_article != blank
+    assign has_related_article = true
   endif
 %}
 
-{% if has_next_article %}
+{% if has_related_article %}
   <div class="section-background color-{{ section.settings.color_scheme }}"></div>
   <section
     class="section section--page-width related-articles color-{{ section.settings.color_scheme }} spacing-style"
@@ -18,24 +48,24 @@
         <h2 class="related-articles__heading">{{ section.settings.heading }}</h2>
       {% endif %}
 
-      <a class="related-articles__card" href="{{ next_article.url }}">
-        {% if next_article.image != blank %}
+      <a class="related-articles__card" href="{{ related_article.url }}">
+        {% if related_article.image != blank %}
           <div class="related-articles__media">
             {{
-              next_article.image
+              related_article.image
               | image_url: width: 600
               | image_tag:
                 widths: '240, 360, 480, 600',
                 sizes: '(max-width: 749px) 100vw, 240px',
                 class: 'related-articles__image',
-                alt: next_article.image.alt
+                alt: related_article.image.alt
             }}
           </div>
         {% endif %}
 
         <div class="related-articles__content">
-          <p class="related-articles__title">{{ next_article.title }}</p>
-          <span class="related-articles__button">
+          <p class="related-articles__title">{{ related_article.title }}</p>
+          <span class=" button">
             {{- section.settings.button_label -}}
             <span aria-hidden="true"> &rarr;</span>
           </span>
