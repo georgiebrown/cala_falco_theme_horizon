@@ -70,6 +70,9 @@
 
     <div class="testimonials-card__media" aria-hidden="false">
       {% if block_settings.image != blank %}
+        {% liquid
+          assign testimonial_image_alt = block_settings.image.alt | default: block_settings.author | default: 'Testimonial image'
+        %}
         {{
           block_settings.image
           | image_url: width: 2000
@@ -78,7 +81,7 @@
             sizes: '100vw',
             class: 'testimonials-card__image',
             loading: 'lazy',
-            alt: (block_settings.image.alt | default: block_settings.author | default: 'Testimonial image')
+            alt: testimonial_image_alt
         }}
       {% endif %}
     </div>
@@ -97,38 +100,41 @@
 
 {% schema %}
 {
-  "name": "Testimonial",
+  "name": "t:names.testimonial",
   "tag": null,
   "settings": [
     {
-      "type": "image_picker",
-      "id": "image",
-      "label": "Image"
-    },
-    {
       "type": "richtext",
       "id": "quote_short",
-      "label": "Quote (short)"
+      "label": "t:settings.testimonial_quote_visible"
     },
     {
       "type": "richtext",
       "id": "quote_full",
-      "label": "Quote (full, expands)"
+      "label": "t:settings.testimonial_quote_expand"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:settings.image"
     },
     {
       "type": "text",
       "id": "author",
-      "label": "Author"
+      "label": "t:settings.testimonial_author",
+      "default": ""
     },
     {
       "type": "text",
       "id": "author_title",
-      "label": "Author title"
+      "label": "t:settings.testimonial_author_title",
+      "default": ""
     }
   ],
   "presets": [
     {
-      "name": "Testimonial"
+      "name": "t:names.testimonial",
+      "category": "t:categories.storytelling"
     }
   ]
 }
