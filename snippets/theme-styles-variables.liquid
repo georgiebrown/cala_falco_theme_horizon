@@ -123,6 +123,23 @@
     endunless
   %}
 
+  /* Custom brand fonts: @font-face must be top-level (not inside :root) or browsers ignore it. */
+  @font-face {
+    font-family: 'Sofia Pro';
+    src: url('https://cdn.shopify.com/s/files/1/0956/6116/2824/files/Sofia_Pro_Regular_Az.otf?v=1775583692') format('opentype');
+    font-weight: {{ settings.type_body_font.weight | default: 400 }};
+    font-style: {{ settings.type_body_font.style | default: 'normal' }};
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Christel Display';
+    src: url('https://cdn.shopify.com/s/files/1/0956/6116/2824/files/ChristelDisplay-Regular.otf?v=1775583676') format('opentype');
+    font-weight: {{ settings.type_heading_font.weight | default: 400 }};
+    font-style: {{ settings.type_heading_font.style | default: 'normal' }};
+    font-display: swap;
+  }
+
   :root {
     /* Page Layout */
     --sidebar-width: 25rem;
@@ -155,13 +172,13 @@
     --letter-spacing-md: 0.13em;
 
     /* Font families */
-    --font-body--family: {{ settings.type_body_font.family }}, {{ settings.type_body_font.fallback_families }};
+    --font-body--family: 'Sofia Pro', {{ settings.type_body_font.fallback_families }};
     --font-body--style: {{ settings.type_body_font.style }};
     --font-body--weight: {{ settings.type_body_font.weight }};
     --font-subheading--family: {{ settings.type_subheading_font.family }}, {{ settings.type_subheading_font.fallback_families }};
     --font-subheading--style: {{ settings.type_subheading_font.style }};
     --font-subheading--weight: {{ settings.type_subheading_font.weight }};
-    --font-heading--family: {{ settings.type_heading_font.family }}, {{ settings.type_heading_font.fallback_families }};
+    --font-heading--family: 'Christel Display', {{ settings.type_heading_font.fallback_families }};
     --font-heading--style: {{ settings.type_heading_font.style }};
     --font-heading--weight: {{ settings.type_heading_font.weight }};
     --font-accent--family: {{ settings.type_accent_font.family }}, {{ settings.type_accent_font.fallback_families }};

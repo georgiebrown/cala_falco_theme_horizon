@@ -390,15 +390,23 @@
   ],
   "blocks": [
     {
-      "type": "testimonial",
-      "name": "Testimonial"
+      "type": "testimonial"
     }
   ],
   "max_blocks": 6,
   "presets": [
     {
       "name": "t:names.testimonials",
-      "category": "t:categories.storytelling"
+      "category": "t:categories.storytelling",
+      "blocks": {
+        "testimonial_1": {
+          "type": "testimonial"
+        },
+        "testimonial_2": {
+          "type": "testimonial"
+        }
+      },
+      "block_order": ["testimonial_1", "testimonial_2"]
     }
   ]
 }
