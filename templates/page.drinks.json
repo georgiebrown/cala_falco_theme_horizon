@@ -475,6 +475,41 @@
         "padding-block-end": 40
       }
     },
+    "ingredients_q6pchk": {
+      "type": "ingredients",
+      "blocks": {
+        "ingredient_mAx4gW": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Honey",
+            "description": "<p>A natural antibacterial and antioxidant. Acts as a dietary supplement for cardiovascular and immune health. Enhances digestion.</p>",
+            "image": "shopify://shop_images/6886308d49247233db8c1cb0_HONEY_ILLUSTRATION-p-500_1.png"
+          }
+        },
+        "ingredient_9FDRzw": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Lemon",
+            "description": "",
+            "image": "shopify://shop_images/68861fa4ad2c5c0d13872c0c_LEMON_ILLUSTRATION-p-500_1.png"
+          }
+        }
+      },
+      "block_order": [
+        "ingredient_mAx4gW",
+        "ingredient_9FDRzw"
+      ],
+      "name": "Ingredients",
+      "settings": {
+        "heading": "Nature's notes - the botanicals within",
+        "description": "<p>All ingredients are 100% natural, organically grown or harvested directly from the Cala Falcó estate.</p>",
+        "section_width": "page-width",
+        "color_scheme": "",
+        "arrow_size": 52,
+        "padding-block-start": 56,
+        "padding-block-end": 56
+      }
+    },
     "section_CeJXxN": {
       "type": "section",
       "blocks": {
@@ -680,6 +715,7 @@
     "section_HNtiHk",
     "testimonials_6rfhgc",
     "section_9jwXwa",
+    "ingredients_q6pchk",
     "section_CeJXxN",
     "column_callouts_qDgchW"
   ]
