@@ -424,19 +424,31 @@
             "author_title": "Founder of The Trove"
           }
         },
-        "testimonial_peiUBx": {
+        "testimonial_Hd3JD4": {
           "type": "testimonial",
           "settings": {
-            "quote_short": "<p>Elegant flavor profile and exceptional finish. It feels premium in every way.</p>",
-            "quote_full": "<p>Our guests ask for it by name. The balance, bottle design, and overall experience are all best-in-class.</p>",
-            "author": "Maria Doyle",
-            "author_title": "Beverage Director"
+            "quote_short": "<p>Cala Falco is a refined, nuanced non-alcoholic aperitivo, crafted with  passion, exclusivity and remarkable botanical complexity.\"</p>",
+            "quote_full": "<p>Cala Falco is a refined, nuanced non-alcoholic aperitivo, crafted with  passion, exclusivity and remarkable botanical complexity.</p>",
+            "image": "shopify://shop_images/Group_20685.png",
+            "author": "Theo Hitchcock",
+            "author_title": "Founder of The Trove"
+          }
+        },
+        "testimonial_34Qi8A": {
+          "type": "testimonial",
+          "settings": {
+            "quote_short": "<p>Cala Falco is a refined, nuanced non-alcoholic aperitivo, crafted with  passion, exclusivity and remarkable botanical complexity.\"</p>",
+            "quote_full": "<p>Cala Falco is a refined, nuanced non-alcoholic aperitivo, crafted with  passion, exclusivity and remarkable botanical complexity.</p>",
+            "image": "shopify://shop_images/Group_20685.png",
+            "author": "Theo Hitchcock",
+            "author_title": "Founder of The Trove"
           }
         }
       },
       "block_order": [
         "testimonial_np63Kb",
-        "testimonial_peiUBx"
+        "testimonial_Hd3JD4",
+        "testimonial_34Qi8A"
       ],
       "name": "t:names.testimonials",
       "settings": {
