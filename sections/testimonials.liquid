@@ -1,203 +1,381 @@
 {% liquid
   assign slide_count = section.blocks.size
-  assign autoplay = section.settings.autoplay
-  assign show_arrows = false
-  if section.settings.icons_style != 'none' and slide_count > 1
-    assign show_arrows = true
-  endif
-
   assign section_width_class = 'section--' | append: section.settings.section_width
--%}
-
-{% assign controls = '' %}
-{% if slide_count > 1 %}
-  {% capture controls %}
-    {%- render 'slideshow-controls',
-      style: section.settings.slideshow_controls_style,
-      autoplay: autoplay,
-      item_count: slide_count,
-      show_arrows: false,
-      arrows_on_media: true,
-      controls_on_media: true,
-      pagination_position: 'center',
-      icon_style: section.settings.icons_style
-    -%}
-  {% endcapture %}
-{% endif %}
-
-{% capture slides %}
-  {% content_for 'blocks' %}
-{% endcapture %}
+%}
 
 <div class="section-background color-{{ section.settings.color_scheme }}"></div>
 
-<div
-  class="testimonials-section spacing-style section {{ section_width_class }} color-{{ section.settings.color_scheme }} disable-section-top-offset"
+<section
+  class="testimonials-swiper-section spacing-style section {{ section_width_class }} color-{{ section.settings.color_scheme }}"
   style="
     {% render 'spacing-padding', settings: section.settings %};
-    --slideshow-gap: {{ section.settings.slideshow_gap }}px;
-    --corner-radius: {{ section.settings.corner_radius }}px;
+    --testimonials-corner-radius: {{ section.settings.corner_radius }}px;
+    --testimonials-slide-gap: {{ section.settings.slide_gap }}px;
   "
 >
-  {% render 'slideshow',
-    class: 'testimonials__slideshow',
-    controls: controls,
-    show_arrows: show_arrows,
-    icon_style: section.settings.icons_style,
-    icon_shape: section.settings.icons_shape,
-    arrows_position: 'right',
-    autoplay: autoplay,
-    autoplay_speed: section.settings.autoplay_speed,
-    slides: slides,
-    slide_count: slide_count,
-    slide_size: section.settings.slide_height
-  %}
-</div>
+  <testimonials-swiper
+    class="testimonials-swiper"
+    data-slide-count="{{ slide_count }}"
+    data-autoplay="{{ section.settings.autoplay }}"
+    data-autoplay-speed="{{ section.settings.autoplay_speed | times: 1000 }}"
+  >
+    <div class="testimonials-swiper__viewport">
+      <div class="testimonials-swiper__track" data-track>
+        {% for block in section.blocks %}
+          {% liquid
+            assign block_settings = block.settings
+            assign image_alt = block_settings.image.alt | default: block_settings.author | default: 'Testimonial image'
+          %}
+          <article
+            class="testimonials-swiper__slide"
+            data-slide
+            data-index="{{ forloop.index0 }}"
+            aria-hidden="{% if forloop.first %}false{% else %}true{% endif %}"
+            {{ block.shopify_attributes }}
+          >
+            <div class="testimonials-card">
+              <div class="testimonials-card__quote">
+                <div class="testimonials-card__quote-mark" aria-hidden="true">&ldquo;</div>
 
-{% stylesheet %}
-  .testimonials-section {
-    /* Match screenshot: keep navigation visible */
-    slideshow-arrows .slideshow-control {
-      opacity: 1;
-      animation: none;
+                {% if block_settings.quote_short != blank %}
+                  <div class="testimonials-card__quote-short rte">
+                    {{ block_settings.quote_short }}
+                  </div>
+                {% endif %}
+
+                {% if block_settings.quote_full != blank %}
+                  <show-more-component class="testimonials-card__show-more show-more" data-expanded="false">
+                    <button
+                      class="show-more__button button-unstyled button-unstyled--with-icon"
+                      type="button"
+                      ref="showMoreButton"
+                      on:click="/toggle"
+                      aria-expanded="false"
+                      aria-controls="Testimonials-{{ section.id }}-{{ block.id }}-quote-more"
+                    >
+                      <span class="show-more__label show-more__label--more">Read full testimonial</span>
+                      <span class="show-more__label show-more__label--less">Read less</span>
+                      <span class="svg-wrapper icon-arrow">{{- 'icon-arrow.svg' | inline_asset_content -}}</span>
+                    </button>
+
+                    <div
+                      id="Testimonials-{{ section.id }}-{{ block.id }}-quote-more"
+                      ref="showMoreContent"
+                      class="testimonials-card__expand-content"
+                    >
+                      <div ref="showMoreItems[]" class="hidden testimonials-card__quote-full rte">
+                        {{ block_settings.quote_full }}
+                      </div>
+                    </div>
+                  </show-more-component>
+                {% endif %}
+
+                <div class="testimonials-card__author">
+                  {% if block_settings.author != blank %}
+                    <span class="testimonials-card__author-name">{{ block_settings.author }}</span>
+                  {% endif %}
+                  {% if block_settings.author_title != blank %}
+                    <span class="testimonials-card__author-title">{{ block_settings.author_title }}</span>
+                  {% endif %}
+                </div>
+              </div>
+
+              <div class="testimonials-card__media">
+                {% if block_settings.image != blank %}
+                  {{
+                    block_settings.image
+                    | image_url: width: 2000
+                    | image_tag:
+                      widths: '750, 1100, 1500, 2000',
+                      sizes: '(min-width: 750px) 50vw, 100vw',
+                      class: 'testimonials-card__image',
+                      loading: 'lazy',
+                      alt: image_alt
+                  }}
+                {% endif %}
+              </div>
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+    </div>
+
+    {% if slide_count > 1 %}
+      <div class="testimonials-swiper__navigation">
+        <button
+          class="testimonials-swiper__nav-button testimonials-swiper__nav-button--prev button button-unstyled button-unstyled--transparent"
+          type="button"
+          data-prev
+          aria-label="{{ 'accessibility.slideshow_previous' | t }}"
+        >
+          <span class="svg-wrapper icon-arrow flip-x">{{- 'icon-arrow.svg' | inline_asset_content -}}</span>
+        </button>
+        <button
+          class="testimonials-swiper__nav-button testimonials-swiper__nav-button--next button button-unstyled button-unstyled--transparent"
+          type="button"
+          data-next
+          aria-label="{{ 'accessibility.slideshow_next' | t }}"
+        >
+          <span class="svg-wrapper icon-arrow">{{- 'icon-arrow.svg' | inline_asset_content -}}</span>
+        </button>
+      </div>
+    {% endif %}
+  </testimonials-swiper>
+</section>
+
+{% javascript %}
+  class TestimonialsSwiper extends HTMLElement {
+    connectedCallback() {
+      this.track = this.querySelector('[data-track]');
+      this.slides = Array.from(this.querySelectorAll('[data-slide]'));
+      this.prevButton = this.querySelector('[data-prev]');
+      this.nextButton = this.querySelector('[data-next]');
+
+      this.currentIndex = 0;
+      this.slideCount = Number(this.dataset.slideCount || this.slides.length);
+      this.autoplay = this.dataset.autoplay === 'true';
+      this.autoplaySpeed = Number(this.dataset.autoplaySpeed || 4000);
+
+      if (!this.track || this.slideCount <= 1) return;
+
+      this.bindEvents();
+      this.update();
+      this.startAutoplay();
+    }
+
+    disconnectedCallback() {
+      this.stopAutoplay();
+      if (this.handleResizeBound) {
+        window.removeEventListener('resize', this.handleResizeBound);
+      }
+    }
+
+    bindEvents() {
+      if (this.prevButton) {
+        this.prevButton.addEventListener('click', () => this.goTo(this.currentIndex - 1));
+      }
+      if (this.nextButton) {
+        this.nextButton.addEventListener('click', () => this.goTo(this.currentIndex + 1));
+      }
+
+      this.handleResizeBound = () => this.update(false);
+      window.addEventListener('resize', this.handleResizeBound);
+
+      this.addEventListener('mouseenter', () => this.stopAutoplay());
+      this.addEventListener('mouseleave', () => this.startAutoplay());
+
+      document.addEventListener('shopify:block:select', (event) => {
+        if (!(event.target instanceof HTMLElement)) return;
+        if (!this.contains(event.target)) return;
+        const selectedSlide = event.target.closest('[data-slide]');
+        if (!selectedSlide) return;
+        const selectedIndex = Number(selectedSlide.dataset.index || 0);
+        this.goTo(selectedIndex, false);
+      });
+    }
+
+    goTo(index, animate = true) {
+      const maxIndex = this.slideCount - 1;
+      if (index < 0) {
+        this.currentIndex = maxIndex;
+      } else if (index > maxIndex) {
+        this.currentIndex = 0;
+      } else {
+        this.currentIndex = index;
+      }
+      this.update(animate);
+      this.startAutoplay();
+    }
+
+    update(animate = true) {
+      if (!this.track) return;
+      this.track.style.transitionDuration = animate ? '420ms' : '0ms';
+      this.track.style.transform = `translate3d(-${this.currentIndex * 100}%, 0, 0)`;
+      this.slides.forEach((slide, index) => {
+        slide.setAttribute('aria-hidden', index === this.currentIndex ? 'false' : 'true');
+      });
+    }
+
+    startAutoplay() {
+      this.stopAutoplay();
+      if (!this.autoplay || this.slideCount <= 1) return;
+      this.timer = window.setInterval(() => {
+        this.goTo(this.currentIndex + 1);
+      }, this.autoplaySpeed);
+    }
+
+    stopAutoplay() {
+      if (this.timer) {
+        window.clearInterval(this.timer);
+        this.timer = null;
+      }
     }
   }
 
-  /* Make our card fill the slideshow slide */
-  slideshow-slide.testimonials-card__slide > .testimonials-card {
-    position: absolute;
-    inset: 0;
-    height: 100%;
+  if (!customElements.get('testimonials-swiper')) {
+    customElements.define('testimonials-swiper', TestimonialsSwiper);
+  }
+{% endjavascript %}
+
+{% stylesheet %}
+  .testimonials-swiper {
+    display: block;
+    position: relative;
+  }
+
+  .testimonials-swiper__viewport {
+    overflow: hidden;
+  }
+
+  .testimonials-swiper__track {
+    display: flex;
+    width: 100%;
+    transition: transform 420ms ease;
+    will-change: transform;
+  }
+
+  .testimonials-swiper__slide {
+    flex: 0 0 100%;
+    min-width: 100%;
   }
 
   .testimonials-card {
     display: grid;
-    grid-template-columns: 0.95fr 1.05fr;
+    grid-template-columns: 1fr 1.2fr;
+    gap: var(--testimonials-slide-gap, 0px);
+    border-radius: var(--testimonials-corner-radius, 24px);
+    background: #2f3818;
+    color: #f4efdf;
     overflow: hidden;
-    border-radius: var(--corner-radius, 0px);
-    background: rgb(var(--color-background-rgb) / 0.9);
-    border: 1px solid rgb(var(--color-foreground-rgb) / var(--opacity-10-25));
+    min-height: 520px;
   }
 
   .testimonials-card__quote {
-    padding: var(--padding-xl);
+    padding: clamp(1.5rem, 3.2vw, 3rem);
     position: relative;
     display: flex;
     flex-direction: column;
+    border-right: 1px solid rgb(244 239 223 / 0.22);
   }
 
   .testimonials-card__quote-mark {
-    position: absolute;
-    top: var(--padding-xl);
-    left: var(--padding-xl);
-    font-size: 6rem;
+    font-size: clamp(3rem, 6vw, 5rem);
+    opacity: 0.35;
     line-height: 1;
-    opacity: 0.12;
-    pointer-events: none;
-  }
-
-  .testimonials-card__quote-short p:first-child {
-    margin-top: 0;
-  }
-
-  .testimonials-card__quote-short p:last-child {
-    margin-bottom: 0;
+    margin-bottom: 1rem;
   }
 
   .testimonials-card__quote-short {
     text-transform: uppercase;
-    letter-spacing: 0.04em;
-    font-family: var(--font-heading--family);
-    font-style: var(--font-heading--style);
-    font-weight: var(--font-heading--weight);
-    font-size: var(--font-size--lg);
-    margin-top: 2.75rem;
+    letter-spacing: 0.05em;
+    line-height: 1.6;
   }
 
-  .testimonials-card__show-more {
-    margin-top: var(--padding-md);
-    align-self: flex-start;
-  }
-
-  .testimonials-card__show-more .show-more__button {
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-  }
-
-  .testimonials-card__expand-content {
-    /* Height animation is handled by JS; we only ensure a stable layout */
-    width: 100%;
-  }
-
+  .testimonials-card__quote-short p:first-child,
   .testimonials-card__quote-full p:first-child {
     margin-top: 0;
   }
 
+  .testimonials-card__quote-short p:last-child,
   .testimonials-card__quote-full p:last-child {
     margin-bottom: 0;
   }
 
+  .testimonials-card__show-more {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .testimonials-card__show-more .show-more__button {
+    color: inherit;
+    font-size: 0.9rem;
+    letter-spacing: 0.02em;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .testimonials-card__show-more .svg-wrapper {
+    width: 0.95rem;
+    height: 0.95rem;
+  }
+
   .testimonials-card__author {
     margin-top: auto;
+    padding-top: 1.2rem;
+    border-top: 1px solid rgb(244 239 223 / 0.22);
     display: grid;
     gap: 0.35rem;
   }
 
   .testimonials-card__author-name {
-    text-transform: uppercase;
     font-family: var(--font-heading--family);
     font-style: var(--font-heading--style);
     font-weight: var(--font-heading--weight);
-    font-size: var(--font-size--md);
-    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
   }
 
   .testimonials-card__author-title {
-    font-size: var(--font-size--xs);
-    opacity: 0.8;
+    opacity: 0.85;
+    font-size: 0.9rem;
   }
 
   .testimonials-card__media {
-    padding: var(--padding-xs);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    position: relative;
+    min-height: 100%;
   }
 
   .testimonials-card__image {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: calc(var(--corner-radius, 0px) - var(--padding-xs));
     display: block;
   }
 
-  @media screen and (max-width: 749px) {
+  .testimonials-swiper__navigation {
+    position: absolute;
+    right: 1.25rem;
+    bottom: 1.25rem;
+    display: flex;
+    gap: 0.6rem;
+    z-index: 2;
+  }
+
+  .testimonials-swiper__nav-button {
+    width: 2.8rem;
+    height: 2.8rem;
+    border-radius: 999px;
+    border: 1px solid rgb(244 239 223 / 0.55);
+    background: #e9d3a9;
+    color: #1b1f14;
+    display: grid;
+    place-items: center;
+  }
+
+  .testimonials-swiper__nav-button .svg-wrapper {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .testimonials-swiper__nav-button:focus-visible,
+  .testimonials-card__show-more .show-more__button:focus-visible {
+    outline: 2px solid #f4efdf;
+    outline-offset: 3px;
+  }
+
+  @media screen and (max-width: 989px) {
     .testimonials-card {
       grid-template-columns: 1fr;
+      min-height: auto;
     }
 
     .testimonials-card__quote {
-      padding: var(--padding-lg);
-    }
-
-    .testimonials-card__quote-mark {
-      top: var(--padding-lg);
-      left: var(--padding-lg);
-      font-size: 4rem;
-    }
-
-    .testimonials-card__quote-short {
-      margin-top: 2.1rem;
+      border-right: 0;
     }
 
     .testimonials-card__media {
-      padding: 0;
-      min-height: 260px;
-    }
-
-    .testimonials-card__image {
-      border-radius: 0;
+      min-height: 280px;
     }
   }
 {% endstylesheet %}
@@ -216,14 +394,8 @@
       "id": "section_width",
       "label": "t:settings.width",
       "options": [
-        {
-          "value": "page-width",
-          "label": "t:options.page"
-        },
-        {
-          "value": "full-width",
-          "label": "t:options.full"
-        }
+        { "value": "page-width", "label": "t:options.page" },
+        { "value": "full-width", "label": "t:options.full" }
       ],
       "default": "full-width"
     },
@@ -232,109 +404,6 @@
       "id": "color_scheme",
       "label": "t:settings.color_scheme",
       "default": "scheme-1"
-    },
-    {
-      "type": "select",
-      "id": "icons_style",
-      "label": "t:settings.icon",
-      "options": [
-        {
-          "value": "arrow",
-          "label": "t:options.arrows"
-        },
-        {
-          "value": "chevron",
-          "label": "t:options.chevrons"
-        },
-        {
-          "value": "arrows_large",
-          "label": "t:options.large_arrows"
-        },
-        {
-          "value": "chevron_large",
-          "label": "t:options.large_chevrons"
-        },
-        {
-          "value": "none",
-          "label": "t:options.none"
-        }
-      ],
-      "default": "arrows_large"
-    },
-    {
-      "type": "select",
-      "id": "icons_shape",
-      "label": "t:settings.icon_background",
-      "options": [
-        {
-          "value": "none",
-          "label": "t:options.none"
-        },
-        {
-          "value": "circle",
-          "label": "t:options.circle"
-        },
-        {
-          "value": "square",
-          "label": "t:options.square"
-        }
-      ],
-      "default": "circle",
-      "visible_if": "{{ section.settings.icons_style != 'none' }}"
-    },
-    {
-      "type": "select",
-      "id": "slideshow_controls_style",
-      "label": "t:settings.pagination",
-      "options": [
-        {
-          "value": "none",
-          "label": "t:options.none"
-        },
-        {
-          "value": "dots",
-          "label": "t:options.dots"
-        },
-        {
-          "value": "counter",
-          "label": "t:options.counter"
-        }
-      ],
-      "default": "none"
-    },
-    {
-      "type": "select",
-      "id": "slide_height",
-      "label": "t:settings.media_height",
-      "options": [
-        {
-          "value": "auto",
-          "label": "t:options.auto"
-        },
-        {
-          "value": "small",
-          "label": "t:options.small"
-        },
-        {
-          "value": "medium",
-          "label": "t:options.medium"
-        },
-        {
-          "value": "large",
-          "label": "t:options.large"
-        }
-      ],
-      "default": "large"
-    },
-    {
-      "type": "range",
-      "id": "slideshow_gap",
-      "label": "t:settings.gap",
-      "min": 0,
-      "max": 30,
-      "step": 1,
-      "unit": "px",
-      "default": 0
     },
     {
       "type": "range",
@@ -347,6 +416,16 @@
       "default": 24
     },
     {
+      "type": "range",
+      "id": "slide_gap",
+      "label": "t:settings.gap",
+      "min": 0,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
       "type": "checkbox",
       "id": "autoplay",
       "label": "t:settings.auto_rotate_slides",
@@ -357,7 +436,7 @@
       "id": "autoplay_speed",
       "label": "t:settings.speed",
       "min": 3,
-      "max": 7,
+      "max": 8,
       "step": 1,
       "unit": "s",
       "default": 4,
@@ -390,10 +469,40 @@
   ],
   "blocks": [
     {
-      "type": "testimonial"
+      "type": "testimonial",
+      "name": "t:names.testimonial",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "quote_short",
+          "label": "Quote"
+        },
+        {
+          "type": "richtext",
+          "id": "quote_full",
+          "label": "Read more text"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "t:settings.image"
+        },
+        {
+          "type": "text",
+          "id": "author",
+          "label": "Author",
+          "default": "Theo Hitchcock"
+        },
+        {
+          "type": "text",
+          "id": "author_title",
+          "label": "Title",
+          "default": "Founder"
+        }
+      ]
     }
   ],
-  "max_blocks": 6,
+  "max_blocks": 8,
   "presets": [
     {
       "name": "t:names.testimonials",
@@ -401,22 +510,20 @@
       "blocks": {
         "testimonial_1": {
           "type": "testimonial",
-          "name": "t:names.testimonial",
           "settings": {
-            "quote_short": "t:html_defaults.testimonial_quote_sample",
-            "quote_full": "t:html_defaults.testimonial_quote_extended",
-            "author": "Alex Morgan",
-            "author_title": "Creative Director"
+            "quote_short": "<p>Cala Falco is a refined, nuanced non-alcoholic aperitivo, crafted with passion and remarkable botanical complexity.</p>",
+            "quote_full": "<p>From first pour to final sip, every detail feels intentional. It's now a staple in our members club.</p>",
+            "author": "Theo Hitchcock",
+            "author_title": "Founder of The Trove"
           }
         },
         "testimonial_2": {
           "type": "testimonial",
-          "name": "t:names.testimonial",
           "settings": {
-            "quote_short": "t:html_defaults.make_things_better",
-            "quote_full": "t:html_defaults.goal_for_every_customer",
-            "author": "Jordan Lee",
-            "author_title": "Operations Lead"
+            "quote_short": "<p>Elegant flavor profile and exceptional finish. It feels premium in every way.</p>",
+            "quote_full": "<p>Our guests ask for it by name. The balance, bottle design, and overall experience are all best-in-class.</p>",
+            "author": "Maria Doyle",
+            "author_title": "Beverage Director"
           }
         }
       },
@@ -425,4 +532,3 @@
   ]
 }
 {% endschema %}
-
