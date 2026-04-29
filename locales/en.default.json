@@ -158,7 +158,7 @@
     "account_title_personalized": "Hi {{ first_name }}",
     "account_orders": "Orders",
     "account_profile": "Profile",
-    "blog_details_separator": "|",
+    "blog_details_separator": "-",
     "cart_estimated_total": "Estimated total",
     "cart_title": "Cart",
     "cart_subtotal": "Subtotal",

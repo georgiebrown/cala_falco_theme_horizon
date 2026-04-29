@@ -1,5 +1,9 @@
 {% liquid
   assign max_items = section.settings.post_limit
+  assign view_all_link = section.settings.view_all_url
+  if view_all_link == blank and section.settings.blog != blank
+    assign view_all_link = section.settings.blog.url
+  endif
 %}
 
 <div class="section-background color-{{ section.settings.color_scheme }}"></div>
@@ -10,6 +14,8 @@
     section--{{ section.settings.section_width }}
     color-{{ section.settings.color_scheme }}
     section-resource-list
+    featured-blog-posts-section
+    {% if section.settings.layout_type == 'carousel' %}featured-blog-posts-section--carousel{% endif %}
     spacing-style
     gap-style
   "
@@ -18,7 +24,22 @@
     {%- render 'gap-style', value: section.settings.gap -%}
   "
 >
-  {% content_for 'block', id: 'static-blog-title', type: '_featured-blog-posts-title' %}
+  <div class="featured-blog-posts-section__header">
+    <div class="featured-blog-posts-section__header-content">
+      {% content_for 'block', id: 'static-blog-title', type: '_featured-blog-posts-title' %}
+      {% if section.settings.additional_line_text != blank %}
+        <div class="featured-blog-posts-section__additional-line rte">
+          {{ section.settings.additional_line_text }}
+        </div>
+      {% endif %}
+    </div>
+    {% if section.settings.layout_type == 'carousel' and section.settings.show_view_all_button and view_all_link != blank %}
+      <a class="button featured-blog-posts-section__view-all" href="{{ view_all_link }}">
+        <span>{{ section.settings.view_all_label }}</span>
+        <span class="svg-wrapper icon-arrow">{{- 'icon-arrow.svg' | inline_asset_content -}}</span>
+      </a>
+    {% endif %}
+  </div>
 
   {% if section.settings.blog != blank and section.settings.blog.articles_count > 0 %}
     {% paginate section.settings.blog.articles by max_items %}
@@ -58,6 +79,123 @@
   %}
 </div>
 
+{% stylesheet %}
+  .featured-blog-posts-section--carousel {
+    --peek-next-slide-size: 0px;
+    --column-count: 1;
+  }
+
+  .featured-blog-posts-section--carousel > .featured-blog-posts-section__header,
+  .featured-blog-posts-section--carousel > .resource-list.force-full-width {
+    grid-column: 2;
+    padding-inline: var(--padding-xl);
+  }
+
+  .featured-blog-posts-section__header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--padding-md);
+    width: 100%;
+  }
+
+  .featured-blog-posts-section__header-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--padding-3xs);
+    max-width: 38rem;
+  }
+
+  .featured-blog-posts-section__additional-line {
+    margin: 0;
+  }
+
+  .featured-blog-posts-section__additional-line p {
+    margin: 0;
+  }
+
+  .featured-blog-posts-section__view-all {
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--padding-3xs);
+    white-space: nowrap;
+    margin-inline-start: auto;
+  }
+
+  .featured-blog-posts-section__view-all .svg-wrapper {
+    width: 0.95rem;
+    height: 0.95rem;
+  }
+
+  .featured-blog-posts-section--carousel .resource-list__carousel slideshow-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--padding-sm);
+  }
+
+  .featured-blog-posts-section--carousel .resource-list__carousel slideshow-arrows {
+    position: static;
+    inset: auto;
+    order: 2;
+    justify-content: flex-start;
+    align-items: center;
+    gap: var(--padding-2xs);
+    mix-blend-mode: normal;
+    pointer-events: auto;
+    width: fit-content;
+  }
+
+  .featured-blog-posts-section--carousel .resource-list__carousel slideshow-slides {
+    order: 1;
+  }
+
+  .featured-blog-posts-section--carousel .resource-list__carousel slideshow-slides[gutters*='start'] {
+    padding-inline-start: 0;
+    scroll-padding-inline-start: 0;
+  }
+
+  .featured-blog-posts-section--carousel .resource-list__carousel slideshow-arrows .slideshow-control {
+    opacity: 1;
+    animation: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    min-height: 2.5rem;
+    padding: 0;
+    border-radius: 999px;
+    background: var(--color-primary-button-background);
+    color: var(--color-primary-button-text);
+  }
+
+  .featured-blog-posts-section--carousel .resource-list__carousel slideshow-arrows .slideshow-control .svg-wrapper {
+    display: none;
+  }
+
+  .featured-blog-posts-section--carousel .resource-list__carousel slideshow-arrows .slideshow-control::after {
+    content: '';
+    width: 0.75rem;
+    height: 0.5rem;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11.3536 4.03568C11.5488 3.84042 11.5488 3.52384 11.3536 3.32858L8.17157 0.146595C7.97631 -0.0486672 7.65973 -0.0486672 7.46447 0.146595C7.2692 0.341857 7.2692 0.65844 7.46447 0.853702L10.2929 3.68213L7.46447 6.51056C7.2692 6.70582 7.2692 7.0224 7.46447 7.21766C7.65973 7.41293 7.97631 7.41293 8.17157 7.21766L11.3536 4.03568ZM0 3.68213V4.18213H11V3.68213V3.18213H0V3.68213Z' fill='%2331331D'/%3E%3C/svg%3E");
+  }
+
+  .featured-blog-posts-section--carousel .resource-list__carousel slideshow-arrows .slideshow-control--previous::after {
+    transform: rotate(180deg);
+  }
+
+  @media screen and (max-width: 749px) {
+    .featured-blog-posts-section__header {
+      flex-direction: column;
+    }
+  }
+{% endstylesheet %}
+
 {% schema %}
 {
   "name": "t:names.blog_posts",
@@ -82,6 +220,30 @@
       "type": "blog",
       "id": "blog",
       "label": "t:settings.blog"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_view_all_button",
+      "label": "Show view all button",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "view_all_label",
+      "label": "View all button label",
+      "default": "View all articles",
+      "visible_if": "{{ section.settings.show_view_all_button }}"
+    },
+    {
+      "type": "url",
+      "id": "view_all_url",
+      "label": "View all button link",
+      "visible_if": "{{ section.settings.show_view_all_button }}"
+    },
+    {
+      "type": "richtext",
+      "id": "additional_line_text",
+      "label": "Additional line text"
     },
     {
       "type": "header",
@@ -364,6 +526,8 @@
         "mobile_card_size": "60cqw",
         "icons_style": "arrow",
         "icons_shape": "circle",
+        "show_view_all_button": true,
+        "view_all_label": "View all articles",
         "gap": 12,
         "padding-block-start": 48,
         "padding-block-end": 48

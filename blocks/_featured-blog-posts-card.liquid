@@ -92,9 +92,13 @@
     {% endif %}
 
     <div class="featured-blog-posts-card__content layout-panel-flex--column">
-      <h4>{{ title }}</h4>
       {{ details }}
-      {{ description }}
+      <div class="featured-blog-posts-card__body-row">
+        <h4 class="featured-blog-posts-card__body-title">{{ title }}</h4>
+        <div class="featured-blog-posts-card__body-description">
+          {{ description }}
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -144,6 +148,37 @@
 
   .featured-blog-posts-card__content h4 {
     margin: 0;
+  }
+
+  .featured-blog-posts-section--carousel .featured-blog-posts-card__image {
+    aspect-ratio: 16 / 7;
+    border: 1px solid rgb(var(--color-foreground-rgb) / 0.14);
+    border-radius: 1.25rem;
+    padding: 0.9rem;
+    box-sizing: border-box;
+  }
+
+  .featured-blog-posts-section--carousel .featured-blog-posts-card__body-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: var(--padding-md);
+    align-items: start;
+  }
+
+  .featured-blog-posts-section--carousel .featured-blog-posts-card__body-description .blog-post-card__content-text {
+    margin: 0;
+    padding-block: 0;
+  }
+
+  .featured-blog-posts-section--carousel .featured-blog-posts-card__body-description .blog-post-card__content-text p {
+    margin: 0;
+  }
+
+  @media screen and (max-width: 749px) {
+    .featured-blog-posts-section--carousel .featured-blog-posts-card__body-row {
+      grid-template-columns: 1fr;
+      gap: var(--padding-xs);
+    }
   }
 {% endstylesheet %}
 
