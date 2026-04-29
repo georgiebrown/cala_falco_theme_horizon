@@ -890,9 +890,9 @@
       "settings": {
         "blog": "the-journal",
         "show_view_all_button": true,
-        "view_all_label": "View all articles",
-        "view_all_url": "",
-        "additional_line_text": "",
+        "view_all_label": "View All Articles",
+        "view_all_url": "shopify://blogs/the-journal",
+        "additional_line_text": "<p>Explore nature's rhythms and scent stories from the Estate</p>",
         "layout_type": "carousel",
         "carousel_on_mobile": false,
         "post_limit": 4,
