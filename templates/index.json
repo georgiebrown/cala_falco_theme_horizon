@@ -111,10 +111,11 @@
     "hero_hgyjqP": {
       "type": "hero",
       "blocks": {
-        "text_M8gLFk": {
+        "text_XAkmtc": {
           "type": "text",
+          "name": "t:names.heading",
           "settings": {
-            "text": "<p>Luxury That Heals The Soil</p>",
+            "text": "<h2>Luxury That Heals The Soil</h2>",
             "width": "fit-content",
             "max_width": "narrow",
             "alignment": "left",
@@ -125,7 +126,7 @@
             "letter_spacing": "normal",
             "case": "none",
             "wrap": "pretty",
-            "color": "var(--color-foreground)",
+            "color": "var(--color-foreground-heading)",
             "background": false,
             "background_color": "#00000026",
             "corner_radius": 0,
@@ -178,7 +179,7 @@
         }
       },
       "block_order": [
-        "text_M8gLFk",
+        "text_XAkmtc",
         "text_cTJxAJ",
         "button_ka38xA"
       ],
