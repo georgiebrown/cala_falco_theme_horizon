@@ -4444,9 +4444,7 @@ slideshow-arrows .slideshow-control.slideshow-control--style-none {
   padding-block: 16px;
 }
 
-.resource-list__carousel slideshow-arrows {
-  padding-inline: var(--util-page-margin-offset);
-}
+
 
 .resource-list__carousel .resource-list__slide {
   width: var(--slide-width);
