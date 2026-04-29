@@ -476,7 +476,7 @@
     z-index: var(--layer-overlay);
 
     &[transparent='not-sticky'][data-sticky-state='active'],
-    &:has(.menu-list__link:not([aria-haspopup]):hover) {
+    &:has(.menu-list__link[aria-haspopup]:is(:hover, [aria-expanded='true'])) {
       --header-logo-display: unset;
       --header-logo-inverse-display: unset;
       --color-foreground: inherit;
@@ -489,7 +489,7 @@
     }
 
     /** For transparent header, apply inherit to rows when menu is not hovered */
-    &:not([data-sticky-state='active']):not(:has(.menu-list__link:is(:hover, [aria-expanded='true']))) .header__row {
+    &:not([data-sticky-state='active']):not(:has(.menu-list__link[aria-haspopup]:is(:hover, [aria-expanded='true']))) .header__row {
       --color-foreground: inherit;
       --color-foreground-rgb: inherit;
       --color-border: inherit;
@@ -500,7 +500,7 @@
 
     /* Multiple selectors for performance: each simple :has() check is faster than one complex selector with multiple conditions */
     &:has(.mega-menu__list:hover),
-    &:has(.menu-list__link:is(:hover, [aria-expanded='true'])),
+    &:has(.menu-list__link[aria-haspopup]:is(:hover, [aria-expanded='true'])),
     &:has(.menu-list__list-item[slot='overflow'] .menu-list__link:is(:hover, [aria-expanded='true'])) {
       --header-logo-display: unset;
       --header-logo-inverse-display: unset;
@@ -751,20 +751,20 @@
       align-items: center;
     }
 
-    #header-component[data-menu-position='split'][data-logo-position='center'] .header-menu--split-left::after,
+    /* #header-component[data-menu-position='split'][data-logo-position='center'] .header-menu--split-left::after,
     #header-component[data-menu-position='split'][data-logo-position='center'] .header-menu--split-right::before {
       content: '';
       flex: 0 0 var(--split-line-width);
-      border-top: 1px solid rgb(var(--color-foreground-rgb) / var(--opacity-subdued-text));
+      border-top: 1px solid #F4C077;
       pointer-events: none;
-    }
+    } */
 
     #header-component[data-menu-position='split'][data-logo-position='center'] .header-menu--split-left::after {
-      margin-inline-start: var(--padding-2xs);
+      margin-inline-start: var(--padding-6xl);
     }
 
     #header-component[data-menu-position='split'][data-logo-position='center'] .header-menu--split-right::before {
-      margin-inline-end: var(--padding-2xs);
+      margin-inline-end: var(--padding-6xl);
     }
   }
 
