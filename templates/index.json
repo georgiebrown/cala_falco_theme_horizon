@@ -886,9 +886,9 @@
       "name": "t:names.blog_posts_grid",
       "settings": {
         "blog": "the-journal",
-        "layout_type": "grid",
+        "layout_type": "carousel",
         "carousel_on_mobile": false,
-        "post_limit": 1,
+        "post_limit": 4,
         "columns": 1,
         "mobile_columns": "2",
         "mobile_card_size": "60cqw",
