@@ -662,6 +662,11 @@
     position: relative;
   }
 
+  /* Keep narrow text measure consistent across heading + paragraph in Hero */
+  .hero .text-block--max-width-narrow > * {
+    max-inline-size: min(100%, var(--narrow-content-width));
+  }
+
   .hero__media-grid {
     position: absolute;
     inset: 0;

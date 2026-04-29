@@ -25,6 +25,7 @@
   endif
 
   capture text_block_classes
+    echo ' text-block--max-width-' | append: block_settings.max_width
     if text_width == '100%'
       echo 'text-block--align-' | append: block_settings.alignment
       if block_settings.max_width == 'none'

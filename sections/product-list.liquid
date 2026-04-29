@@ -78,6 +78,38 @@
   </div>
 </div>
 
+{% stylesheet %}
+  .ui-test-product-list[style*='--layout-type: carousel'] .section-resource-list__header,
+  .ui-test-product-list:has(.resource-list__carousel) .section-resource-list__header {
+    display: flex;
+    justify-content: center;
+  }
+
+  .ui-test-product-list[style*='--layout-type: carousel'] .section-resource-list__header .group-block-content,
+  .ui-test-product-list:has(.resource-list__carousel) .section-resource-list__header .group-block-content {
+    align-items: center;
+    text-align: center;
+    width: 100%;
+  }
+
+  .ui-test-product-list[style*='--layout-type: carousel'] .section-resource-list__header .layout-panel-flex,
+  .ui-test-product-list:has(.resource-list__carousel) .section-resource-list__header .layout-panel-flex {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--padding-xs);
+  }
+
+  .ui-test-product-list:has(.resource-list__carousel) .resource-list__carousel slideshow-arrows {
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .ui-test-product-list:has(.resource-list__carousel) .resource-list__carousel slideshow-arrows .slideshow-control {
+    opacity: 1;
+    animation: none;
+  }
+{% endstylesheet %}
+
 {% schema %}
 {
   "name": "t:names.product_list",
@@ -137,6 +169,12 @@
       "max": 16,
       "step": 1,
       "default": 4
+    },
+    {
+      "type": "checkbox",
+      "id": "show_view_all_button",
+      "label": "Show view all button",
+      "default": true
     },
     {
       "type": "range",
