@@ -67,6 +67,19 @@
     },
     {
       "type": "checkbox",
+      "id": "show_primary_button",
+      "label": "Show primary button",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "primary_button_label",
+      "label": "Primary button label",
+      "default": "Discover",
+      "visible_if": "{{ block.settings.show_primary_button }}"
+    },
+    {
+      "type": "checkbox",
       "id": "inherit_color_scheme",
       "label": "t:settings.inherit_color_scheme",
       "default": true
