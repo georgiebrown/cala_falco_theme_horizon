@@ -98,6 +98,12 @@
         "gradient_direction": "to bottom",
         "blurred_reflection": false,
         "reflection_opacity": 75,
+        "enable_module_frame": false,
+        "module_frame_padding": 16,
+        "module_frame_radius": 20,
+        "module_frame_border_width": 1,
+        "show_scroll_prompt": true,
+        "scroll_prompt_text": "Scroll down for more",
         "padding-block-start": 100,
         "padding-block-end": 100
       }
@@ -198,13 +204,19 @@
         "section_width": "page-width",
         "section_height": "medium",
         "section_height_custom": 50,
-        "color_scheme": "scheme-cfa9c273-456f-45a2-b18d-d73976dc71f5",
+        "color_scheme": "scheme-f57b5e90-83d9-4547-94b8-aea957d42386",
         "toggle_overlay": true,
         "overlay_color": "#00000026",
         "overlay_style": "gradient",
         "gradient_direction": "to top",
         "blurred_reflection": false,
         "reflection_opacity": 75,
+        "enable_module_frame": true,
+        "module_frame_padding": 16,
+        "module_frame_radius": 20,
+        "module_frame_border_width": 1,
+        "show_scroll_prompt": false,
+        "scroll_prompt_text": "Scroll down for more",
         "padding-block-start": 40,
         "padding-block-end": 40
       }
