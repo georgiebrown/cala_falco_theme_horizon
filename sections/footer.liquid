@@ -25,22 +25,39 @@
       assign has_isolated_grid_item_tablet = true
     endif
   %}
-  <div
-    class="
-      footer-content
-      spacing-style
-      {% if has_isolated_grid_item_desktop %}footer-content--isolated-grid-item-desktop{% endif %}
-      {% if has_isolated_grid_item_tablet %}footer-content--isolated-grid-item-tablet{% endif %}
-    "
-    style="
-      {%  render 'spacing-style', settings: section.settings %}
-      --footer-gap: {{ section.settings.gap }}px;
-      --grid-columns: {{ grid_columns }};
-      --last-row-count: {{ last_row_count }};
-      --tablet-last-row-count: {{ tablet_last_row_count }};
-    "
-  >
-    {% content_for 'blocks' %}
+  <div class="footer-shell">
+    {% if section.settings.footer_logo != blank %}
+      <div class="footer-shell__floating-logo">
+        {{
+          section.settings.footer_logo
+          | image_url: width: 640
+          | image_tag:
+            widths: '120, 180, 240, 320, 480, 640',
+            class: 'footer-shell__floating-logo-image',
+            loading: 'lazy',
+            alt: section.settings.footer_logo.alt | default: shop.name
+        }}
+      </div>
+    {% endif %}
+    <div class="footer-shell__frame">
+      <div
+        class="
+          footer-content
+          spacing-style
+          {% if has_isolated_grid_item_desktop %}footer-content--isolated-grid-item-desktop{% endif %}
+          {% if has_isolated_grid_item_tablet %}footer-content--isolated-grid-item-tablet{% endif %}
+        "
+        style="
+          {%  render 'spacing-style', settings: section.settings %}
+          --footer-gap: {{ section.settings.gap }}px;
+          --grid-columns: {{ grid_columns }};
+          --last-row-count: {{ last_row_count }};
+          --tablet-last-row-count: {{ tablet_last_row_count }};
+        "
+      >
+        {% content_for 'blocks' %}
+      </div>
+    </div>
   </div>
 </div>
 
@@ -53,24 +70,159 @@
     gap: var(--footer-gap);
   }
 
+  .footer-shell {
+    position: relative;
+    padding-block-start: 2rem;
+  }
+
+  .footer-shell__frame {
+    border: 1px solid #F4C077;
+    border-radius: 1.2rem;
+    padding: clamp(1.5rem, 3vw, 2.5rem);
+  }
+
+  .footer-shell__floating-logo {
+    position: absolute;
+    top: 0;
+    right: clamp(1rem, 3vw, 2.5rem);
+    transform: translateY(-45%);
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .footer-shell__floating-logo-image {
+    width: min(180px, 24vw);
+    height: auto;
+    display: block;
+  }
+
+  .footer-content > .logo-block {
+    display: none;
+  }
+
+  .footer-content > .email-signup-block {
+    grid-column: 1;
+  }
+
+  .footer-content .email-signup__input-group {
+    position: relative;
+    align-items: center;
+    border: 1px solid #686868;
+    border-radius: 100px;
+    background: transparent;
+    min-height: 3.25rem;
+    gap: 0;
+  }
+
+  .footer-content .email-signup__input-group .email-signup__input {
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    min-height: 3.25rem;
+    padding-inline-end: 10.5rem;
+  }
+
+  .footer-content .email-signup__input-group .email-signup__button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: none;
+    margin: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: auto;
+    min-width: 7.75rem;
+    height: 100%;
+    border-radius: 999px;
+  }
+
+  .footer-content .email-signup__button.email-signup__button--text {
+    padding-inline: 1.75rem;
+  }
+
+  .footer-content .email-signup__button.email-signup__button--text::after {
+    content: '';
+    width: 12px;
+    height: 8px;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-size: 12px 8px;
+    background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11.3536 4.03568C11.5488 3.84042 11.5488 3.52384 11.3536 3.32858L8.17157 0.146595C7.97631 -0.0486672 7.65973 -0.0486672 7.46447 0.146595C7.2692 0.341857 7.2692 0.65844 7.46447 0.853702L10.2929 3.68213L7.46447 6.51056C7.2692 6.70582 7.2692 7.0224 7.46447 7.21766C7.65973 7.41293 7.97631 7.41293 8.17157 7.21766L11.3536 4.03568ZM0 3.68213V4.18213H11V3.68213V3.18213H0V3.68213Z' fill='%2331331D'/%3E%3C/svg%3E");
+  }
+
+  .footer-content > .menu::before {
+    content: 'Quick Links';
+    display: block;
+    margin-block-end: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+  }
+
+  .footer-content > .social-icons__wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+  }
+
+  .footer-content > .social-icons__wrapper::before {
+    content: 'Follow us';
+    display: inline-block;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    white-space: nowrap;
+  }
+
   @media screen and (min-width: 750px) and (max-width: 989px) {
     .footer-content {
-      grid-template-columns: repeat(min(var(--grid-columns), 3), 1fr);
-      grid-auto-flow: row;
-    }
-
-    .footer-content[style*='--grid-columns: 4'] {
       grid-template-columns: repeat(2, 1fr);
+      grid-auto-flow: row;
+      align-items: start;
+      row-gap: var(--footer-gap);
+      column-gap: calc(var(--footer-gap) * 2);
     }
 
     .footer-content--isolated-grid-item-tablet > :last-child {
       grid-column: 1 / -1;
     }
+
+    .footer-content > .group-block {
+      grid-column: 1;
+      grid-row: 1;
+    }
+
+    .footer-content > .email-signup-block {
+      grid-column: 1;
+      grid-row: 2;
+    }
+
+    .footer-content > .footer-utilities__group-copyright {
+      grid-column: 1;
+      grid-row: 3;
+    }
+
+    .footer-content > .menu {
+      grid-column: 2;
+      grid-row: 1;
+      justify-self: start;
+    }
+
+    .footer-content > .social-icons__wrapper {
+      grid-column: 2;
+      grid-row: 2;
+      justify-self: start;
+    }
   }
 
   @media screen and (min-width: 990px) {
     .footer-content {
-      grid-template-columns: repeat(var(--grid-columns), 1fr);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      align-items: start;
+      row-gap: var(--footer-gap);
+      column-gap: calc(var(--footer-gap) * 2);
     }
 
     /* Single item centered */
@@ -80,6 +232,33 @@
 
     .footer-content--isolated-grid-item-desktop > :last-child {
       grid-column: 1 / -1;
+    }
+
+    .footer-content > .group-block {
+      grid-column: 1;
+      grid-row: 1;
+    }
+
+    .footer-content > .email-signup-block {
+      grid-column: 1;
+      grid-row: 2;
+    }
+
+    .footer-content > .footer-utilities__group-copyright {
+      grid-column: 1;
+      grid-row: 3;
+    }
+
+    .footer-content > .menu {
+      grid-column: 2;
+      grid-row: 1;
+      justify-self: start;
+    }
+
+    .footer-content > .social-icons__wrapper {
+      grid-column: 2;
+      grid-row: 2;
+      justify-self: start;
     }
   }
 {% endstylesheet %}
@@ -167,6 +346,11 @@
       "id": "color_scheme",
       "label": "t:settings.color_scheme",
       "default": "scheme-1"
+    },
+    {
+      "type": "image_picker",
+      "id": "footer_logo",
+      "label": "Footer border logo"
     },
     {
       "type": "header",

@@ -10,6 +10,10 @@
     </div>
   {% endif %}
   {% assign form_id = block.id | prepend: 'EmailSignup-' %}
+  {% assign email_placeholder = block_settings.placeholder %}
+  {% if email_placeholder == blank %}
+    {% assign email_placeholder = 'blocks.email_signup.placeholder' | t %}
+  {% endif %}
   {%- form 'customer', class: 'email-signup__form spacing-style' %}
     <input
       name="contact[id]"
@@ -35,7 +39,7 @@
         autocorrect="off"
         autocapitalize="off"
         autocomplete="email"
-        placeholder="{{ 'blocks.email_signup.placeholder' | t }}"
+        placeholder="{{ email_placeholder }}"
         required
         {% if form.errors and form.id == form_id %}
           autofocus
@@ -553,6 +557,12 @@
       ],
       "default": "paragraph",
       "info": "t:info.edit_presets_in_theme_settings"
+    },
+    {
+      "type": "text",
+      "id": "placeholder",
+      "label": "Placeholder",
+      "default": "Your Email Address"
     },
     {
       "type": "header",
