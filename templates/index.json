@@ -63,38 +63,11 @@
             "padding-inline-end": 0
           },
           "blocks": {}
-        },
-        "text_ExqCpy": {
-          "type": "text",
-          "name": "t:names.text",
-          "settings": {
-            "text": "<p>Scroll down for more</p>",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "rte",
-            "font": "var(--font-body--family)",
-            "font_size": "1rem",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "color": "var(--color-foreground)",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 100,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
         }
       },
       "block_order": [
         "text_YLPk4p",
-        "text_VhtikW",
-        "text_ExqCpy"
+        "text_VhtikW"
       ],
       "name": "t:names.hero",
       "settings": {
@@ -139,7 +112,7 @@
             "width": "fit-content",
             "max_width": "narrow",
             "alignment": "left",
-            "type_preset": "h1",
+            "type_preset": "h2",
             "font": "var(--font-body--family)",
             "font_size": "1rem",
             "line_height": "normal",
@@ -310,7 +283,7 @@
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "left",
-                "type_preset": "h4",
+                "type_preset": "h3",
                 "font": "var(--font-body--family)",
                 "font_size": "1rem",
                 "line_height": "normal",
@@ -448,7 +421,7 @@
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "left",
-                "type_preset": "h4",
+                "type_preset": "h3",
                 "font": "var(--font-body--family)",
                 "font_size": "1rem",
                 "line_height": "normal",
