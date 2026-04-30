@@ -54,26 +54,6 @@
             "padding-inline-end": 0
           },
           "blocks": {
-            "logo_NQ3f6D": {
-              "type": "logo",
-              "name": "t:names.logo",
-              "settings": {
-                "inverse": false,
-                "font": "heading",
-                "unit": "pixel",
-                "percent_width": 100,
-                "pixel_height": 112,
-                "custom_mobile_size": false,
-                "unit_mobile": "percent",
-                "percent_width_mobile": 100,
-                "pixel_height_mobile": 120,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
             "text_pF6rVi": {
               "type": "text",
               "name": "Heading",
@@ -128,7 +108,6 @@
             }
           },
           "block_order": [
-            "logo_NQ3f6D",
             "text_pF6rVi",
             "text_HafH7P"
           ]
@@ -147,6 +126,7 @@
             "border_width": 1,
             "border_radius": 100,
             "input_type_preset": "paragraph",
+            "placeholder": "Your Email Address",
             "style_class": "button",
             "display_type": "text",
             "label": "Sign up",
@@ -212,6 +192,7 @@
         "section_width": "page-width",
         "gap": 20,
         "color_scheme": "scheme-cfa9c273-456f-45a2-b18d-d73976dc71f5",
+        "footer_logo": "shopify://shop_images/Frame_1.jpg",
         "padding-block-start": 36,
         "padding-block-end": 36
       }
