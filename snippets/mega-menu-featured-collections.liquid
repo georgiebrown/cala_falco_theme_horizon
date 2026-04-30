@@ -1,0 +1,81 @@
+{%- doc -%}
+  Renders featured collections mega menu layout with left links and right collection cards.
+
+  @param {object} parent_link - Parent navigation link containing submenu links.
+  @param {object} block_settings - Header menu block settings.
+  @param {number} [image_border_radius] - Border radius for collection card images.
+  @param {object} [section] - Section object used for image loading behavior.
+{%- enddoc -%}
+
+{% liquid
+  assign featured_collection_1 = block_settings.featured_collection_1
+  assign featured_collection_2 = block_settings.featured_collection_2
+  assign featured_collection_3 = block_settings.featured_collection_3
+  assign cta_label = block_settings.featured_collections_cta_label
+  assign cta_link = block_settings.featured_collections_cta_link
+%}
+
+{%- capture image_sizes -%}
+  {%- render 'util-mega-menu-img-sizes-attr',
+    menu_content_type: 'featured_collections',
+    settings: section.settings
+  -%}
+{%- endcapture -%}
+
+<div class="mega-menu-featured-collections">
+  <div class="mega-menu-featured-collections__links">
+    <ul class="mega-menu-featured-collections__links-list list-unstyled">
+      {% for link in parent_link.links %}
+        <li class="mega-menu-featured-collections__links-item">
+          <a href="{{ link.url }}" class="mega-menu-featured-collections__link">
+            <span class="wrap-text">{{ link.title }}</span>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+    {% if cta_label != blank and cta_link != blank %}
+      <a href="{{ cta_link }}" class="button mega-menu-featured-collections__cta">
+        {{ cta_label | escape }}
+      </a>
+    {% endif %}
+  </div>
+
+  <ul
+    class="mega-menu-featured-collections__cards list-unstyled"
+    style="--resource-card-corner-radius: {{ image_border_radius }}px;"
+  >
+    {% if featured_collection_1 %}
+      <li class="mega-menu-featured-collections__card">
+        {% render 'resource-card',
+          resource: featured_collection_1,
+          resource_type: 'collection',
+          style: 'overlay',
+          image_aspect_ratio: '4 / 5',
+          image_sizes: image_sizes
+        %}
+      </li>
+    {% endif %}
+    {% if featured_collection_2 %}
+      <li class="mega-menu-featured-collections__card">
+        {% render 'resource-card',
+          resource: featured_collection_2,
+          resource_type: 'collection',
+          style: 'overlay',
+          image_aspect_ratio: '4 / 5',
+          image_sizes: image_sizes
+        %}
+      </li>
+    {% endif %}
+    {% if featured_collection_3 %}
+      <li class="mega-menu-featured-collections__card">
+        {% render 'resource-card',
+          resource: featured_collection_3,
+          resource_type: 'collection',
+          style: 'overlay',
+          image_aspect_ratio: '4 / 5',
+          image_sizes: image_sizes
+        %}
+      </li>
+    {% endif %}
+  </ul>
+</div>

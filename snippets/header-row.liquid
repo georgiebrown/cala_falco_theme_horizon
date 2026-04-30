@@ -86,8 +86,28 @@
       class="header__column header__column--{{ column }}"
       data-testid="header-{{ row }}-{{ column }}"
     >
+      {%- assign render_grouped_utilities = false -%}
+      {%- if column == 'right' and split_menu_enabled and settings.logo_position == 'center' -%}
+        {%- assign render_grouped_utilities = true -%}
+      {%- endif -%}
+
+      {%- capture grouped_utilities_markup -%}{%- endcapture -%}
       {% for key in items_array %}
         {% unless key == blank %}
+          {% if render_grouped_utilities and key == 'search' %}
+            {% capture grouped_utilities_markup %}
+              {{ grouped_utilities_markup }}
+              {{ search }}
+            {% endcapture %}
+            {% continue %}
+          {% endif %}
+          {% if render_grouped_utilities and key == 'actions' %}
+            {% capture grouped_utilities_markup %}
+              {{ grouped_utilities_markup }}
+              {{ actions }}
+            {% endcapture %}
+            {% continue %}
+          {% endif %}
           {% case key %}
             {% when 'first' %}
               {{ first }}
@@ -110,6 +130,12 @@
           {% endcase %}
         {% endunless %}
       {% endfor %}
+
+      {% if render_grouped_utilities and grouped_utilities_markup != blank %}
+        <div class="header__utilities-group">
+          {{ grouped_utilities_markup }}
+        </div>
+      {% endif %}
     </div>
   {%- endif -%}
 {%- endfor -%}

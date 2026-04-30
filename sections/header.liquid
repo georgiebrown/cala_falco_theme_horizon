@@ -15,12 +15,15 @@
   if section.settings.enable_transparent_header_home and template.name == 'index'
     assign transparent = 'always'
     assign transparent_color_scheme = section.settings.home_color_scheme
+    assign transparent_page = 'home'
   elsif section.settings.enable_transparent_header_product and template.name == 'product'
     assign transparent = 'always'
     assign transparent_color_scheme = section.settings.product_color_scheme
+    assign transparent_page = 'product'
   elsif section.settings.enable_transparent_header_collection and template.name == 'collection'
     assign transparent = 'always'
     assign transparent_color_scheme = section.settings.collection_color_scheme
+    assign transparent_page = 'collection'
   endif
 
   if section.settings.enable_sticky_header == 'always'
@@ -304,6 +307,9 @@
   {% if transparent %}
     transparent="{{ transparent }}"
   {% endif %}
+  {% if transparent_page %}
+    data-transparent-page="{{ transparent_page }}"
+  {% endif %}
   {% if sticky %}
     sticky="{{ sticky }}"
   {% endif %}
@@ -326,10 +332,6 @@
     {% endif %}
   "
 >
-  <div class="header__underlay header__underlay-closed"></div>
-  <div
-    class="header__underlay header__underlay-open"
-  ></div>
   {%- if request.page_type == 'index' -%}
     <h1 class="visually-hidden">{{ shop.name }}</h1>
   {%- endif -%}
@@ -419,13 +421,13 @@
 
   .header {
     /* Set header paddings based on height setting */
-    --header-padding: var(--padding-sm);
+    --header-padding: var(--padding-3xl);
     --font-paragraph--line-height: 1;
     --header-content-transition-timing: 0s;
 
     display: block;
     contain: layout style;
-    background: transparent;
+    background: var(--color-scheme-top-row);
 
     a,
     .button,
@@ -463,6 +465,7 @@
       var(--animation-speed-fast) var(--ease-out-cubic);
 
     --closed-underlay-height: 0px;
+    --transparent-popup-background: var(--color-scheme-top-row);
 
     /* used to display the appropriate logo based on transparency state */
     --header-logo-display: none;
@@ -486,6 +489,7 @@
       --color-border: inherit;
       --color-border-rgb: inherit;
       --closed-underlay-height: 100%;
+      background: var(--transparent-popup-background);
     }
 
     /** For transparent header, apply inherit to rows when menu is not hovered */
@@ -511,7 +515,17 @@
       --color-border: inherit;
       --color-border-rgb: inherit;
       --header-content-transition-timing: var(--submenu-animation-speed) var(--ease-out-cubic);
+      background: var(--transparent-popup-background);
     }
+  }
+
+  .header[transparent][data-transparent-page='home'] {
+    background: linear-gradient(180deg, var(--color-scheme-top-row) 0%, transparent 80%);
+    --transparent-popup-background: linear-gradient(180deg, var(--color-scheme-top-row) 0%, transparent 80%);
+  }
+
+  .header[transparent]:not([data-transparent-page='home']) {
+    background: var(--color-scheme-top-row);
   }
 
   /* When top row has transparent background, make it inherit colors from header component */
@@ -583,78 +597,9 @@
     opacity: 0;
   }
 
-  /* ================================
-     * Underlays
-     * ================================ */
-  .header__underlay {
-    position: absolute;
-    inset: 0;
-  }
-
-  .header__underlay-closed {
-    height: var(--closed-underlay-height, 100%);
+  [data-submenu-overlap-bottom-row] .header__row--bottom {
     z-index: var(--layer-lowest);
-    background: linear-gradient(
-      var(--color-scheme-top-row) 0 var(--top-row-height),
-      var(--color-scheme-bottom-row) var(--top-row-height) var(--header-height)
-    );
-    transition: height var(--animation-speed-slow) var(--ease-out-cubic);
   }
-
-  .header__underlay-open {
-    height: var(--full-open-header-height);
-    background: linear-gradient(
-      var(--color-scheme-top-row) 0 var(--top-row-height),
-      var(--color-scheme-bottom-row) var(--top-row-height) var(--header-height),
-      var(--color-submenu) var(--header-height) 100%
-    );
-    /* header-height is updated via js, the transition works automagically */
-    transition: height var(--submenu-animation-speed) var(--ease-out-cubic);
-  }
-
-  .header__underlay-open::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    box-shadow: var(--shadow-popover);
-    clip-path: inset(var(--header-height) 0 -100px 0); /* stylelint-disable-line */
-    transition: height var(--submenu-animation-speed) var(--ease-out-cubic);
-  }
-
-  /* When top row has transparent background, make underlay inherit colors from header component */
-  [data-transparent-color-scheme='top']:hover,
-  [data-transparent-color-scheme='top']:focus-within,
-  [data-transparent-color-scheme='both']:hover,
-  [data-transparent-color-scheme='both']:focus-within {
-    :is(.header__underlay-open, .header__underlay-closed) {
-      --color-scheme-top-row: var(--color-background);
-    }
-  }
-
-  /* When bottom row has transparent background, make underlay inherit colors from header component */
-  [data-transparent-color-scheme='bottom']:hover,
-  [data-transparent-color-scheme='bottom']:focus-within,
-  [data-transparent-color-scheme='both']:hover,
-  [data-transparent-color-scheme='both']:focus-within {
-    :is(.header__underlay-open, .header__underlay-closed) {
-      --color-scheme-bottom-row: var(--color-background);
-    }
-  }
-
-  [data-submenu-overlap-bottom-row] {
-    .header__underlay-open {
-      background: linear-gradient(
-        var(--color-scheme-top-row) 0 var(--top-row-height),
-        var(--color-submenu) var(--top-row-height) 100%
-      );
-    }
-
-    .header__row--bottom {
-      z-index: var(--layer-lowest);
-    }
-  }
-
-  /* End Underlays ================ */
 
   .header__row {
     /* The account component uses a different color scheme, but we need to override it to inherit the color of the header row */
@@ -738,6 +683,56 @@
   @media screen and (min-width: 750px) {
     #header-component[data-menu-position='split'] .header__column--left:has(.header-menu--split-left) {
       justify-content: flex-start;
+    }
+
+    #header-component[data-menu-position='split'][data-logo-position='center']
+      .header__column--right:has(.header-menu--split-right):has(header-actions) {
+      position: relative;
+      align-items: flex-end;
+      justify-content: end;
+    }
+
+    #header-component[data-menu-position='split'][data-logo-position='center']
+      .header__column--right:has(.header-menu--split-right):has(header-actions)
+      .header-menu--split-right {
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
+
+    #header-component[data-menu-position='split'][data-logo-position='center']
+      .header__column--right:has(.header-menu--split-right):has(header-actions)
+      .header__utilities-group {
+      position: absolute;
+      top: 35%;
+      right: 0;
+      transform: translateY(calc(-100% - var(--gap-2xs)));
+      display: flex;
+      flex-wrap: nowrap;
+      white-space: nowrap;
+      align-items: center;
+      justify-content: flex-end;
+      gap: var(--gap-sm);
+      z-index: 1;
+      pointer-events: auto;
+    }
+
+    #header-component[data-menu-position='split'][data-logo-position='center']
+      .header__column--right:has(.header-menu--split-right):has(header-actions)
+      .header__utilities-group
+      header-actions {
+      display: flex;
+      flex-wrap: nowrap;
+      white-space: nowrap;
+      gap: var(--gap-sm);
+      margin-inline-start: 0;
+    }
+
+    #header-component[data-menu-position='split'][data-logo-position='center']
+      .header__column--right:has(.header-menu--split-right):has(header-actions)
+      .header__utilities-group
+      .search-action {
+      margin: 0;
     }
 
     #header-component[data-menu-position='split'] .header__column--right .header-menu--split-right .overflow-menu::part(list) {

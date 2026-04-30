@@ -22,6 +22,11 @@ class HeaderMenu extends Component {
    */
   #submenuMutationObserver = null;
 
+  /**
+   * @type {number | null}
+   */
+  #deactivateTimeout = null;
+
   connectedCallback() {
     super.connectedCallback();
 
@@ -35,6 +40,7 @@ class HeaderMenu extends Component {
     window.removeEventListener('resize', this.#resizeListener);
     this.overflowMenu?.removeEventListener('pointerleave', this.#overflowSubmenuListener);
     this.#cleanupMutationObserver();
+    this.#clearDeactivateTimeout();
   }
 
   /**
@@ -80,6 +86,7 @@ class HeaderMenu extends Component {
    * @param {PointerEvent | FocusEvent} event
    */
   activate = (event) => {
+    this.#clearDeactivateTimeout();
     this.dispatchEvent(new MegaMenuHoverEvent());
 
     if (!(event.target instanceof Element) || !this.headerComponent) return;
@@ -169,13 +176,26 @@ class HeaderMenu extends Component {
     if (!(event.target instanceof Element)) return;
 
     const menu = findSubmenu(this.#state.activeItem);
-    const isMovingWithinMenu = event.relatedTarget instanceof Node && menu?.contains(document.activeElement);
-    const isMovingToSubmenu =
-      event.relatedTarget instanceof Node && event.type === 'blur' && menu?.contains(event.relatedTarget);
+    const isMovingWithinMenu = event.relatedTarget instanceof Node && menu?.contains(event.relatedTarget);
+    const isMovingToSubmenu = event.relatedTarget instanceof Node && menu?.contains(event.relatedTarget);
     const isMovingToOverflowMenu =
       event.relatedTarget instanceof Node && event.relatedTarget.parentElement?.matches('[slot="overflow"]');
 
     if (isMovingWithinMenu || isMovingToOverflowMenu || isMovingToSubmenu) return;
+
+    if (event.type === 'pointerleave') {
+      this.#clearDeactivateTimeout();
+      this.#deactivateTimeout = window.setTimeout(() => {
+        const activeSubmenu = findSubmenu(this.#state.activeItem);
+        const activeListItem = this.#state.activeItem?.parentElement;
+        const shouldKeepOpen =
+          activeSubmenu?.matches(':hover') || activeListItem?.matches(':hover') || this.overflowMenu?.matches(':hover');
+
+        if (shouldKeepOpen) return;
+        this.#deactivate();
+      }, 90);
+      return;
+    }
 
     this.#deactivate();
   }
@@ -248,7 +268,10 @@ class HeaderMenu extends Component {
         : this.headerComponent.offsetHeight;
 
     const nothingToOpen = submenuHeight === 0;
-    const fullOpenHeaderHeight = nothingToOpen ? 0 : submenuHeight + (headerVisibleHeight ?? 0);
+    const submenuOffset = Number.parseFloat(
+      getComputedStyle(this).getPropertyValue('--submenu-offset').replace('px', '').trim() || '0'
+    );
+    const fullOpenHeaderHeight = nothingToOpen ? 0 : submenuHeight + (headerVisibleHeight ?? 0) + submenuOffset;
 
     this.headerComponent?.style.setProperty('--full-open-header-height', `${fullOpenHeaderHeight}px`);
   }
@@ -264,6 +287,13 @@ class HeaderMenu extends Component {
   #cleanupMutationObserver() {
     this.#submenuMutationObserver?.disconnect();
     this.#submenuMutationObserver = null;
+  }
+
+  #clearDeactivateTimeout() {
+    if (this.#deactivateTimeout) {
+      window.clearTimeout(this.#deactivateTimeout);
+      this.#deactivateTimeout = null;
+    }
   }
 }
 

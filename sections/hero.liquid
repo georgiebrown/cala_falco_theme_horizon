@@ -599,6 +599,13 @@
     border-radius: var(--hero-module-radius);
     pointer-events: none;
     z-index: var(--layer-raised);
+    display: none;
+  }
+
+  @media screen and (min-width: 750px) {
+    .hero--module-frame .hero__container::after {
+      display: block;
+    }
   }
 
   .hero__content-wrapper.page-width {
