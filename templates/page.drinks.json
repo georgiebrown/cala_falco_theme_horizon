@@ -235,6 +235,9 @@
         "horizontal_alignment_flex_direction_column": "flex-start",
         "vertical_alignment_flex_direction_column": "center",
         "gap": 64,
+        "show_intro": false,
+        "intro_heading": "",
+        "intro_description": "",
         "section_width": "page-width",
         "section_height": "",
         "section_height_custom": 50,
@@ -456,6 +459,9 @@
         "horizontal_alignment_flex_direction_column": "flex-start",
         "vertical_alignment_flex_direction_column": "center",
         "gap": 64,
+        "show_intro": false,
+        "intro_heading": "",
+        "intro_description": "",
         "section_width": "page-width",
         "section_height": "",
         "section_height_custom": 50,
@@ -646,6 +652,9 @@
         "horizontal_alignment_flex_direction_column": "flex-start",
         "vertical_alignment_flex_direction_column": "center",
         "gap": 64,
+        "show_intro": false,
+        "intro_heading": "",
+        "intro_description": "",
         "section_width": "page-width",
         "section_height": "",
         "section_height_custom": 50,
@@ -663,6 +672,70 @@
         "gradient_direction": "to top",
         "padding-block-start": 40,
         "padding-block-end": 40
+      }
+    },
+    "content_cards_FExKVR": {
+      "type": "content-cards",
+      "blocks": {
+        "card_QXgTBJ": {
+          "type": "card",
+          "settings": {
+            "show_number": true,
+            "number": "01.",
+            "show_icon": true,
+            "icon": "shopify://shop_images/Vector_28.png",
+            "show_text": true,
+            "text": "<p>Cala Falcó produces limited batches using hand picked wild botanicals  growing during the relevant season. The botanicals go through an  artisanal process unique to Cala Falco. </p>"
+          }
+        },
+        "card_KEfJVJ": {
+          "type": "card",
+          "settings": {
+            "show_number": true,
+            "number": "02.",
+            "show_icon": true,
+            "icon": "shopify://shop_images/Vector_29.png",
+            "show_text": true,
+            "text": "<p>Steam-distilled hydrosols of farm-grown rosemary and mastic—fortified with their own  essential-oil fractions, form the botanical backbone, joined by  cold-pressed organic Mallorcan lemon juice. </p>"
+          }
+        },
+        "card_YcL4KR": {
+          "type": "card",
+          "settings": {
+            "show_number": true,
+            "number": "03.",
+            "show_icon": true,
+            "icon": "shopify://shop_images/Vector_30.png",
+            "show_text": true,
+            "text": "<p>Mineral-rich, deep-sea storm water is filtered and “re-structured,” then blended with Cala Falcó estate honey and a touch of stevia to balance the  invigorating herbal profile. </p>"
+          }
+        },
+        "card_YgDrM3": {
+          "type": "card",
+          "settings": {
+            "show_number": true,
+            "number": "04.",
+            "show_icon": true,
+            "icon": "shopify://shop_images/Vector_31.png",
+            "show_text": true,
+            "text": "<p>A vibrant pink hue from mastic berries crowns the blend, which is gently  pasteurized for stability, capturing the spirit of a springtime walk  along Cala Falcó in every restorative sip. </p>"
+          }
+        }
+      },
+      "block_order": [
+        "card_QXgTBJ",
+        "card_KEfJVJ",
+        "card_YcL4KR",
+        "card_YgDrM3"
+      ],
+      "name": "Content cards",
+      "settings": {
+        "heading": "HARVESTING THE POWER OF NATURE",
+        "description": "<p>All ingredients are 100% natural, organically grown or sourced from the Cala Falcó estate.</p>",
+        "section_width": "page-width",
+        "color_scheme": "",
+        "padding-block-start": 56,
+        "padding-block-end": 56
       }
     },
     "column_callouts_qDgchW": {
@@ -717,6 +790,7 @@
     "section_9jwXwa",
     "ingredients_q6pchk",
     "section_CeJXxN",
+    "content_cards_FExKVR",
     "column_callouts_qDgchW"
   ]
 }
