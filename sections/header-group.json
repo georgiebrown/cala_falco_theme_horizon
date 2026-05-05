@@ -114,7 +114,6 @@
         },
         "header-menu-right": {
           "type": "_header-menu",
-          "disabled": true,
           "static": true,
           "settings": {
             "menu": "main-menu",
