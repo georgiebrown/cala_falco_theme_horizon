@@ -1,0 +1,352 @@
+{% liquid
+  assign section_width_class = 'section--' | append: section.settings.section_width
+%}
+
+<div class="section-background color-{{ section.settings.color_scheme }}"></div>
+
+<section
+  class="qa section spacing-style {{ section_width_class }} color-{{ section.settings.color_scheme }}"
+  style="{% render 'spacing-padding', settings: section.settings %}"
+>
+  <div class="qa__inner">
+    <div class="qa__featured-person">
+      {% if section.settings.person_image != blank %}
+        <div class="qa__featured-media">
+          {{
+            section.settings.person_image
+            | image_url: width: 720
+            | image_tag:
+              class: 'qa__featured-image',
+              widths: '240, 360, 480, 720',
+              sizes: '(min-width: 990px) 220px, 40vw',
+              loading: 'lazy',
+              alt: section.settings.person_name | default: section.settings.heading | default: 'Featured person'
+          }}
+        </div>
+      {% endif %}
+
+      <div class="qa__featured-content">
+        {% if section.settings.heading != blank %}
+          <h2 class="qa__heading">{{ section.settings.heading }}</h2>
+        {% endif %}
+
+        {% if section.settings.subheading != blank %}
+          <p class="qa__subheading">{{ section.settings.subheading }}</p>
+        {% endif %}
+
+        {% if section.settings.description != blank %}
+          <div class="qa__description rte">
+            {{ section.settings.description }}
+          </div>
+        {% endif %}
+
+        {% if section.settings.person_name != blank %}
+          <p class="qa__person-name">{{ section.settings.person_name }}</p>
+        {% endif %}
+
+        {% if section.settings.person_title != blank %}
+          <p class="qa__person-title">{{ section.settings.person_title }}</p>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="qa__accordion">
+      {% for block in section.blocks %}
+        <details
+          class="qa__item"
+          {% if block.settings.open_by_default and forloop.first %}
+            open
+          {% endif %}
+          {{ block.shopify_attributes }}
+        >
+          <summary class="qa__question">
+            <span>{{ block.settings.question | escape }}</span>
+            <span class="qa__icon" aria-hidden="true"></span>
+          </summary>
+          <div class="qa__answer rte">
+            {{ block.settings.answer }}
+          </div>
+        </details>
+      {% endfor %}
+    </div>
+
+    {% if section.settings.button_label != blank and section.settings.button_link != blank %}
+      <div class="qa__cta-wrap">
+        <a href="{{ section.settings.button_link }}" class="button">
+          {{ section.settings.button_label | escape }}
+        </a>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% stylesheet %}
+  .qa__inner {
+    max-width: 72rem;
+    margin-inline: auto;
+  }
+
+  .qa__featured-person {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    margin-block-end: clamp(1.25rem, 3vw, 2rem);
+  }
+
+  .qa__featured-media {
+    max-width: 220px;
+  }
+
+  .qa__featured-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+    object-fit: cover;
+    aspect-ratio: 1 / 1;
+  }
+
+  .qa__heading {
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .qa__subheading {
+    margin: 0.5rem 0 0;
+    font-size: 0.95rem;
+  }
+
+  .qa__description {
+    margin-top: 0.75rem;
+  }
+
+  .qa__description p {
+    margin: 0;
+  }
+
+  .qa__person-name {
+    margin: 1.1rem 0 0;
+    font-size: 1.9rem;
+    line-height: 1.1;
+    font-family: var(--font-subheading--family);
+  }
+
+  .qa__person-title {
+    margin: 0.25rem 0 0;
+    font-size: 0.95rem;
+  }
+
+  .qa__accordion {
+    border-top: 1px solid rgb(var(--color-foreground-rgb) / 15%);
+  }
+
+  .qa__item {
+    border-bottom: 1px solid rgb(var(--color-foreground-rgb) / 15%);
+  }
+
+  .qa__question {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-block: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .qa__question::-webkit-details-marker {
+    display: none;
+  }
+
+  .qa__icon {
+    width: 0.8rem;
+    height: 0.8rem;
+    flex-shrink: 0;
+    border-inline-end: 1.5px solid currentColor;
+    border-bottom: 1.5px solid currentColor;
+    transform: rotate(45deg);
+    transition: transform 180ms ease;
+    margin-inline-end: 0.2rem;
+  }
+
+  details[open] .qa__icon {
+    transform: rotate(225deg);
+  }
+
+  .qa__answer {
+    padding: 0 0 1rem;
+    max-width: 60rem;
+  }
+
+  .qa__answer p {
+    margin: 0;
+  }
+
+  .qa__cta-wrap {
+    margin-top: clamp(1.25rem, 3vw, 2rem);
+  }
+
+  @media screen and (min-width: 750px) {
+    .qa__featured-person {
+      grid-template-columns: minmax(0, 220px) minmax(0, 1fr);
+      align-items: start;
+      gap: clamp(1.25rem, 3vw, 2rem);
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "QA",
+  "tag": "section",
+  "class": "section-qa",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "person_image",
+      "label": "Person image"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Title",
+      "default": "MEET OUR MASTER BREWER"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Intro line",
+      "default": "3 questions with Esteve Gomila."
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Text",
+      "default": "<p>Esteve, our Botanist and Microbiologist has been brewing for XX years and was pivotal in creating our first drink Cala Falcó at Spring and harnessing the power of nature into each and every bottle.</p>"
+    },
+    {
+      "type": "text",
+      "id": "person_name",
+      "label": "Name",
+      "default": "Esteve Gomila"
+    },
+    {
+      "type": "text",
+      "id": "person_title",
+      "label": "Person title",
+      "default": "Cala Falcó Botanist & Microbiologist"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Shop now"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Width",
+      "options": [
+        { "value": "page-width", "label": "Page" },
+        { "value": "full-width", "label": "Full" }
+      ],
+      "default": "page-width"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 56
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 56
+    }
+  ],
+  "blocks": [
+    {
+      "type": "qa_item",
+      "name": "QA item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "What inspired you to create this aperitivo?"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Answer",
+          "default": "<p>We start with native botanicals and shape the profile through careful extraction and balancing to build structure and complexity.</p>"
+        },
+        {
+          "type": "checkbox",
+          "id": "open_by_default",
+          "label": "Open first item by default",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "max_blocks": 12,
+  "presets": [
+    {
+      "name": "QA",
+      "category": "Text",
+      "blocks": [
+        {
+          "type": "qa_item",
+          "settings": {
+            "question": "What inspired you to create this aperitivo?"
+          }
+        },
+        {
+          "type": "qa_item",
+          "settings": {
+            "question": "How do you choose the botanicals that go into a Cala Falcó drink?"
+          }
+        },
+        {
+          "type": "qa_item",
+          "settings": {
+            "question": "What makes crafting a non-alcoholic aperitivo different?",
+            "open_by_default": true
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
