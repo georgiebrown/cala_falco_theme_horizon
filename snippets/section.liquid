@@ -94,4 +94,29 @@
   .custom-section-content {
     z-index: var(--layer-flat);
   }
+
+  .section-wrapper .custom-section-content :is(ul, ol) {
+    list-style: none;
+    padding-inline-start: 0;
+  }
+
+  .section-wrapper .custom-section-content li {
+    position: relative;
+    padding-inline-start: 2.75rem;
+    min-height: 34px;
+    margin: 0.5rem 0;
+  }
+
+  .section-wrapper .custom-section-content li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 34px;
+    height: 34px;
+    transform: translateY(-50%);
+    background-repeat: no-repeat;
+    background-size: 34px 34px;
+    background-image: url("data:image/svg+xml,%3Csvg width='34' height='34' viewBox='0 0 34 34' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='34' height='34' rx='17' fill='%23F9D8AF'/%3E%3Cpath d='M11.5918 16.2274L15.4554 20.091L22.41 13.9092' stroke='%2331331D' stroke-width='0.772727'/%3E%3C/svg%3E");
+  }
 {% endstylesheet %}
