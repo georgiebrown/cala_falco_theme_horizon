@@ -35,7 +35,11 @@
           >
             <div class="testimonials-card">
               <div class="testimonials-card__quote">
-                <div class="testimonials-card__quote-mark" aria-hidden="true">&ldquo;</div>
+                <div class="testimonials-card__quote-mark" aria-hidden="true">
+                  <svg width="50" height="49" viewBox="0 0 50 49" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path opacity="0.2" d="M26.8465 45.75C32.6556 40.9167 36.971 36.0833 39.7925 31.25C42.4481 26.5833 43.527 22.5833 43.029 19.25L42.2822 18H40.7884L40.0415 18.25L36.556 18.5C34.0664 18.5 31.9917 17.5 30.332 15.5C28.5062 13.6667 27.5934 11.5 27.5934 9C27.5934 6.66666 28.6722 4.58334 30.8299 2.75C32.9876 0.916668 35.6432 0 38.7967 0C41.7842 0 44.4398 1.58334 46.7635 4.75C48.9212 7.91667 50 11.5833 50 15.75C50 22.4167 47.7593 28.75 43.278 34.75C40.1245 39.5833 35.3942 44.3333 29.0871 49L26.8465 45.75ZM0 45.75C5.80913 40.9167 10.1245 36.0833 12.9461 31.25C15.6017 26.5833 16.6805 22.5833 16.1826 19.25L15.4357 18H13.9419L12.9461 18.25L9.70954 18.5C7.21992 18.5 5.14523 17.5 3.48547 15.5C1.65974 13.6667 0.746883 11.5 0.746883 9C0.746883 6.66666 1.82573 4.58334 3.9834 2.75C6.14108 0.916668 8.79668 0 11.9502 0C14.9378 0 17.5934 1.58334 19.917 4.75C22.0747 7.91667 23.1535 11.5833 23.1535 15.75C23.1535 27.25 16.1826 38.3333 2.24066 49L0 45.75Z" fill="white"/>
+                  </svg>
+                </div>
 
                 {% if block_settings.quote_short != blank %}
                   <div class="testimonials-card__quote-short rte">
@@ -108,7 +112,9 @@
           data-prev
           aria-label="{{ 'accessibility.slideshow_previous' | t }}"
         >
-          <span class="svg-wrapper icon-arrow flip-x">{{- 'icon-arrow.svg' | inline_asset_content -}}</span>
+          <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M11.3536 4.03556C11.5488 3.8403 11.5488 3.52372 11.3536 3.32845L8.17157 0.146473C7.97631 -0.0487893 7.65973 -0.0487893 7.46447 0.146473C7.2692 0.341735 7.2692 0.658318 7.46447 0.85358L10.2929 3.68201L7.46447 6.51043C7.2692 6.7057 7.2692 7.02228 7.46447 7.21754C7.65973 7.4128 7.97631 7.4128 8.17157 7.21754L11.3536 4.03556ZM0 3.68201V4.18201H11V3.68201V3.18201H0V3.68201Z" fill="#31331D"/>
+          </svg>
         </button>
         <button
           class="testimonials-swiper__nav-button testimonials-swiper__nav-button--next button button-unstyled button-unstyled--transparent"
@@ -116,7 +122,9 @@
           data-next
           aria-label="{{ 'accessibility.slideshow_next' | t }}"
         >
-          <span class="svg-wrapper icon-arrow">{{- 'icon-arrow.svg' | inline_asset_content -}}</span>
+          <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M11.3536 4.03556C11.5488 3.8403 11.5488 3.52372 11.3536 3.32845L8.17157 0.146473C7.97631 -0.0487893 7.65973 -0.0487893 7.46447 0.146473C7.2692 0.341735 7.2692 0.658318 7.46447 0.85358L10.2929 3.68201L7.46447 6.51043C7.2692 6.7057 7.2692 7.02228 7.46447 7.21754C7.65973 7.4128 7.97631 7.4128 8.17157 7.21754L11.3536 4.03556ZM0 3.68201V4.18201H11V3.68201V3.18201H0V3.68201Z" fill="#31331D"/>
+          </svg>
         </button>
       </div>
     {% endif %}
@@ -255,13 +263,11 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    border-right: 1px solid rgb(244 239 223 / 0.22);
   }
 
   .testimonials-card__quote-mark {
-    font-size: clamp(3rem, 6vw, 5rem);
-    opacity: 0.35;
-    line-height: 1;
+    width: 40px;
+    line-height: 0;
     margin-bottom: 1rem;
   }
 
@@ -269,6 +275,7 @@
     text-transform: uppercase;
     letter-spacing: 0.05em;
     line-height: 1.6;
+    font-family: var(--font-heading--family);
   }
 
   .testimonials-card__quote-short p:first-child,
@@ -324,6 +331,8 @@
   .testimonials-card__media {
     position: relative;
     min-height: 100%;
+     padding: clamp(1.5rem, 3.2vw, 3rem);
+     border-radius: 24px;
   }
 
   .testimonials-card__image {
@@ -331,33 +340,41 @@
     height: 100%;
     object-fit: cover;
     display: block;
+    border-radius: 24px;
   }
 
   .testimonials-swiper__navigation {
     position: absolute;
-    inset-inline-end: 1.25rem;
-    inset-block-end: 1.25rem;
-    top: auto;
-    left: auto;
+    inset-inline-end: clamp(1.5rem, 3.2vw, 3rem);
+    inset-block-end: clamp(1.5rem, 3.2vw, 3rem);
+    bottom: 15%;
+    right: 6%;
     display: flex;
-    gap: 0.6rem;
+    gap: clamp(0.75rem, 1vw, 1.25rem);
     z-index: 2;
   }
 
   .testimonials-swiper__nav-button {
-    width: 2.8rem;
-    height: 2.8rem;
-    border-radius: 999px;
+    width: 3rem;
+    aspect-ratio: 1 / 1;
+    height: auto;
+    border-radius: 50%;
     border: 1px solid rgb(244 239 223 / 0.55);
     background: #e9d3a9;
     color: #1b1f14;
-    display: grid;
-    place-items: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
 
-  .testimonials-swiper__nav-button .svg-wrapper {
-    width: 1rem;
-    height: 1rem;
+  .testimonials-swiper__nav-button--prev svg {
+    transform: rotate(180deg);
+  }
+
+  .testimonials-swiper__nav-button svg {
+    width: 12px;
+    height: 8px;
+    display: block;
   }
 
   .testimonials-swiper__nav-button:focus-visible,
@@ -367,6 +384,12 @@
   }
 
   @media screen and (max-width: 989px) {
+      .testimonials-swiper__navigation {
+
+    bottom: 6%;
+    right: 10%;
+
+  }
     .testimonials-card {
       grid-template-columns: 1fr;
       min-height: auto;
