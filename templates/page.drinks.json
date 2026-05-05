@@ -297,7 +297,7 @@
       "settings": {
         "section_width": "full-width",
         "color_scheme": "",
-        "corner_radius": 24,
+        "corner_radius": 0,
         "slide_gap": 0,
         "autoplay": false,
         "autoplay_speed": 4,
