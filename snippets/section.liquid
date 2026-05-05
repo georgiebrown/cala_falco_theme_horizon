@@ -46,6 +46,21 @@
       {% render 'overlay', settings: section.settings, layer: '0' %}
     {% endif %}
 
+    {% if section.settings.show_intro %}
+      {% if section.settings.intro_heading != blank or section.settings.intro_description != blank %}
+        <div class="custom-section__intro spacing-style">
+          {% if section.settings.intro_heading != blank %}
+            <h2 class="custom-section__intro-heading">{{ section.settings.intro_heading }}</h2>
+          {% endif %}
+          {% if section.settings.intro_description != blank %}
+            <div class="custom-section__intro-description rte">
+              {{ section.settings.intro_description }}
+            </div>
+          {% endif %}
+        </div>
+      {% endif %}
+    {% endif %}
+
     <div
       class="
         spacing-style
@@ -93,6 +108,29 @@
 
   .custom-section-content {
     z-index: var(--layer-flat);
+  }
+
+  .custom-section__intro {
+    --padding-block-start: 0;
+    --padding-block-end: var(--padding-lg);
+    --padding-inline-start: 0;
+    --padding-inline-end: 0;
+
+    max-width: 46rem;
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .custom-section__intro-heading {
+    margin: 0;
+  }
+
+  .custom-section__intro-description {
+    margin-block-start: var(--padding-sm);
+  }
+
+  .custom-section__intro-description p {
+    margin: 0;
   }
 
   .section-wrapper .custom-section-content :is(ul, ol) {
