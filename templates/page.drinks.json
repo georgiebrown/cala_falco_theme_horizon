@@ -780,8 +780,8 @@
         "button_link": "shopify://collections/shop-all",
         "section_width": "page-width",
         "color_scheme": "",
-        "padding-block-start": 56,
-        "padding-block-end": 56
+        "padding-block-start": 0,
+        "padding-block-end": 24
       }
     },
     "column_callouts_qDgchW": {
