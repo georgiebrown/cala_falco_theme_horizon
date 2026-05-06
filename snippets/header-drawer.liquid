@@ -771,6 +771,20 @@
     padding: var(--padding-lg);
   }
 
+  @media screen and (min-width: 750px) {
+    .menu-drawer-container .header__icon--summary {
+      display: none;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .menu-drawer-container .header__icon--summary {
+      width: var(--minimum-touch-target);
+      height: var(--minimum-touch-target);
+      padding: 0;
+    }
+  }
+
   .header__icon--summary .header-drawer-icon {
     margin: auto;
     width: var(--icon-size-xs);
