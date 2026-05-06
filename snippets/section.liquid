@@ -39,14 +39,12 @@
   </div>
 
   <div
-    class="border-style custom-section-content{% if section.settings.show_inner_frame %} custom-section-content--inner-frame{% endif %}{% if section.settings.show_image_inner_frame %} custom-section-content--image-inner-frame{% endif %}"
+    class="border-style custom-section-content{% if section.settings.show_inner_frame %} custom-section-content--inner-frame custom-section-content--image-inner-frame{% endif %}"
     style="
       {% render 'border-override', settings: section.settings %}
       {% if section.settings.show_inner_frame %}
         --inner-frame-inset: {{ section.settings.inner_frame_inset }}px;
         --inner-frame-radius: {{ section.settings.inner_frame_radius }}px;
-      {% endif %}
-      {% if section.settings.show_image_inner_frame %}
         --image-inner-frame-color: {{ section.settings.image_inner_frame_color }};
       {% endif %}
     "
@@ -81,6 +79,12 @@
       style="
         {% render 'layout-panel-style', settings: section.settings %}
         {% render 'spacing-style', settings: section.settings %}
+        {% if section.settings.show_inner_frame %}
+          --padding-block-start: var(--inner-frame-inset, 12px);
+          --padding-block-end: var(--inner-frame-inset, 12px);
+          --padding-inline-start: var(--inner-frame-inset, 12px);
+          --padding-inline-end: var(--inner-frame-inset, 12px);
+        {% endif %}
       "
       data-testid="section-content"
     >
@@ -121,15 +125,21 @@
 
   .custom-section-content--inner-frame {
     position: relative;
+    padding: var(--inner-frame-inset, 12px);
   }
 
   .custom-section-content--inner-frame::after {
     content: '';
     position: absolute;
-    inset: var(--inner-frame-inset, 12px);
+    inset: 0;
     border: 1px solid #F4C077;
     border-radius: var(--inner-frame-radius, 12px);
     pointer-events: none;
+    z-index: 0;
+  }
+
+  .custom-section-content--inner-frame > * {
+    position: relative;
     z-index: 1;
   }
 
@@ -137,11 +147,16 @@
     position: relative;
     border-radius: 16px;
     overflow: hidden;
+    box-sizing: border-box;
   }
 
   .custom-section-content--image-inner-frame .image-block__image,
   .custom-section-content--image-inner-frame .placeholder-image {
-    border-radius: 16px;
+    --border-style: none;
+    --border-width: 0px;
+    --border-radius: 16px;
+    border-radius: 16px !important;
+    box-shadow: none;
   }
 
   .custom-section-content--image-inner-frame .image-block::after {
