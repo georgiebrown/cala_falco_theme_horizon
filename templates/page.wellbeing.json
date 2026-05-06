@@ -428,10 +428,9 @@
       "name": "t:names.collections_grid",
       "settings": {
         "collection_list": [
-          "fragrance",
-          "skincare",
           "perfumes",
           "room-fragrance",
+          "skincare",
           "bath-body"
         ],
         "layout_type": "grid",
