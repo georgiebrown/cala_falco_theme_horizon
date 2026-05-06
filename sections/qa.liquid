@@ -94,7 +94,7 @@
   }
 
   .qa__featured-media {
-    max-width: 220px;
+    max-width: 100%;
   }
 
   .qa__featured-image {
@@ -186,6 +186,10 @@
   }
 
   @media screen and (min-width: 750px) {
+
+      .qa__featured-media {
+    max-width: 220px;
+  }
     .qa__featured-person {
       grid-template-columns: minmax(0, 220px) minmax(0, 1fr);
       align-items: start;
