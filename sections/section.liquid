@@ -224,25 +224,10 @@
       "default": false
     },
     {
-      "type": "range",
-      "id": "image_inner_frame_inset",
-      "label": "Image frame inset",
-      "min": 0,
-      "max": 48,
-      "step": 1,
-      "unit": "px",
-      "default": 12,
-      "visible_if": "{{ section.settings.show_image_inner_frame }}"
-    },
-    {
-      "type": "range",
-      "id": "image_inner_frame_radius",
-      "label": "Image frame corner radius",
-      "min": 0,
-      "max": 48,
-      "step": 1,
-      "unit": "px",
-      "default": 20,
+      "type": "color",
+      "id": "image_inner_frame_color",
+      "label": "Image border color",
+      "default": "#FFFFFF",
       "visible_if": "{{ section.settings.show_image_inner_frame }}"
     },
     {

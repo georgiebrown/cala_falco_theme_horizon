@@ -47,8 +47,7 @@
         --inner-frame-radius: {{ section.settings.inner_frame_radius }}px;
       {% endif %}
       {% if section.settings.show_image_inner_frame %}
-        --image-inner-frame-inset: {{ section.settings.image_inner_frame_inset }}px;
-        --image-inner-frame-radius: {{ section.settings.image_inner_frame_radius }}px;
+        --image-inner-frame-color: {{ section.settings.image_inner_frame_color }};
       {% endif %}
     "
   >
@@ -136,16 +135,21 @@
 
   .custom-section-content--image-inner-frame .image-block {
     position: relative;
-    border-radius: var(--image-inner-frame-radius, 20px);
+    border-radius: 16px;
     overflow: hidden;
+  }
+
+  .custom-section-content--image-inner-frame .image-block__image,
+  .custom-section-content--image-inner-frame .placeholder-image {
+    border-radius: 16px;
   }
 
   .custom-section-content--image-inner-frame .image-block::after {
     content: '';
     position: absolute;
-    inset: var(--image-inner-frame-inset, 12px);
-    border: 1px solid #FFFFFF;
-    border-radius: max(0px, calc(var(--image-inner-frame-radius, 20px) - var(--image-inner-frame-inset, 12px)));
+    inset: 12px;
+    border: 1px solid var(--image-inner-frame-color, #FFFFFF);
+    border-radius: 16px;
     pointer-events: none;
     z-index: 2;
   }
