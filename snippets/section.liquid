@@ -39,13 +39,15 @@
   </div>
 
   <div
-    class="border-style custom-section-content{% if section.settings.show_inner_frame %} custom-section-content--inner-frame custom-section-content--image-inner-frame{% endif %}"
+    class="border-style custom-section-content{% if section.settings.show_inner_frame %} custom-section-content--inner-frame{% endif %}{% if section.settings.show_image_border %} custom-section-content--image-inner-frame{% endif %}"
     style="
       {% render 'border-override', settings: section.settings %}
       {% if section.settings.show_inner_frame %}
         --inner-frame-inset: {{ section.settings.inner_frame_inset }}px;
         --inner-frame-radius: {{ section.settings.inner_frame_radius }}px;
-        --image-inner-frame-color: {{ section.settings.image_inner_frame_color }};
+      {% endif %}
+      {% if section.settings.show_image_border %}
+        --image-inner-frame-color: {{ section.settings.image_border_color }};
       {% endif %}
     "
   >
@@ -121,6 +123,10 @@
 
   .custom-section-content {
     z-index: var(--layer-flat);
+  }
+
+  .section.section--page-width .custom-section-content {
+    padding-inline: var(--page-margin);
   }
 
   .custom-section-content--inner-frame {

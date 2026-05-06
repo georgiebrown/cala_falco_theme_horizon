@@ -480,6 +480,7 @@ p:empty {
   grid-column: 2;
 }
 
+
 /* For full-width sections, content spans all columns */
 .section--full-width > * {
   grid-column: 1 / -1;
