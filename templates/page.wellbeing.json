@@ -2145,7 +2145,7 @@
         "image_FbgcdK": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/Group_1597881103_1.png",
+            "image": "shopify://shop_images/Mask_group_21.png",
             "link": "",
             "image_ratio": "adapt",
             "width": "fill",
@@ -2178,9 +2178,9 @@
         "show_intro": false,
         "intro_heading": "",
         "intro_description": "",
-        "show_image_border": false,
-        "image_border_color": "#ffffff",
-        "image_border_position": "inside",
+        "show_image_border": true,
+        "image_border_color": "#6d6d6a",
+        "image_border_position": "outside",
         "section_width": "page-width",
         "section_height": "",
         "section_height_custom": 50,
