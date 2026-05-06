@@ -39,7 +39,7 @@
   </div>
 
   <div
-    class="border-style custom-section-content{% if section.settings.show_inner_frame %} custom-section-content--inner-frame{% endif %}{% if section.settings.show_image_border %} custom-section-content--image-inner-frame{% endif %}"
+    class="border-style custom-section-content{% if section.settings.show_inner_frame %} custom-section-content--inner-frame{% endif %}{% if section.settings.show_image_border %} custom-section-content--image-inner-frame custom-section-content--image-border-{{ section.settings.image_border_position | default: 'inside' }}{% endif %}"
     style="
       {% render 'border-override', settings: section.settings %}
       {% if section.settings.show_inner_frame %}
@@ -173,6 +173,14 @@
     border-radius: 16px;
     pointer-events: none;
     z-index: 2;
+  }
+
+  .custom-section-content--image-border-outside .image-block {
+    padding: 16px;
+  }
+
+  .custom-section-content--image-border-outside .image-block::after {
+    inset: 0;
   }
 
   .custom-section__intro {

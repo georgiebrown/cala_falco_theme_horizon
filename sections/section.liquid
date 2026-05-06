@@ -199,6 +199,17 @@
       "visible_if": "{{ section.settings.show_image_border }}"
     },
     {
+      "type": "select",
+      "id": "image_border_position",
+      "label": "Image border position",
+      "options": [
+        { "value": "inside", "label": "Inside image" },
+        { "value": "outside", "label": "Outside image" }
+      ],
+      "default": "inside",
+      "visible_if": "{{ section.settings.show_image_border }}"
+    },
+    {
       "type": "header",
       "content": "t:content.size"
     },
