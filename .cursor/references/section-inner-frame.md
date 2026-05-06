@@ -7,9 +7,8 @@ Allow any `section.liquid` instance to render an inset border frame inside the s
 - `show_inner_frame` (`checkbox`)
 - `inner_frame_inset` (`range`, px)
 - `inner_frame_radius` (`range`, px)
-- `show_image_inner_frame` (`checkbox`)
-- `image_inner_frame_inset` (`range`, px)
-- `image_inner_frame_radius` (`range`, px)
+- `show_image_border` (`checkbox`)
+- `image_border_color` (`color`)
 
 ## Implementation
 - In `snippets/section.liquid`, apply `custom-section-content--inner-frame` when enabled.
@@ -21,6 +20,8 @@ Allow any `section.liquid` instance to render an inset border frame inside the s
   - inset and radius from variables
   - `pointer-events: none` to avoid interaction issues.
 - For image-specific framing, apply `custom-section-content--image-inner-frame` and target `.image-block`:
-  - clip with rounded corners
-  - render inset `::after` border using `#FFFFFF`
-  - keep border optional per section.
+  - fixed `1px` border
+  - fixed `16px` border radius
+  - fixed `16px` inset to create spacing between image and border
+  - border color from `image_border_color`
+  - optional via `show_image_border`.
