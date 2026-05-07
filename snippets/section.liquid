@@ -139,15 +139,16 @@
   }
 
   .section.section--page-width .custom-section-content {
+    width: min(100%, calc(1460px + (var(--page-margin) * 2)));
+    max-width: calc(100% - (var(--page-margin) * 2));
     padding-inline: var(--page-margin);
-  }
-
-  .section.section--small > * {
-    grid-column: 2;
+    margin-inline: auto;
   }
 
   .section.section--small .custom-section-content {
-    width: min(100%, calc(var(--page-content-width) * 0.8));
+    width: min(100%, calc(1280px + (var(--page-margin) * 2)));
+    max-width: calc(100% - (var(--page-margin) * 2));
+    padding-inline: var(--page-margin);
     margin-inline: auto;
   }
 

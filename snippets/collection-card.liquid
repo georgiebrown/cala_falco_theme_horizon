@@ -71,7 +71,10 @@
       {{ children }}
       {% if section.settings.show_collection_card_cta and onboarding == false %}
         {% liquid
-          assign cta_label = section.settings.collection_card_cta_label_override
+          assign cta_label = collection.metafields.custom.collection_card_cta_label.value
+          if cta_label == blank
+            assign cta_label = collection.metafields.custom.cta_label.value
+          endif
           if cta_label == blank
             assign cta_label = 'Shop ' | append: collection.title
           endif

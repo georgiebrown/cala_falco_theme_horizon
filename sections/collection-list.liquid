@@ -69,6 +69,15 @@
   %}
 </div>
 
+{% stylesheet %}
+  .section-resource-list.section--small {
+    width: min(100%, calc(1280px + (var(--page-margin) * 2)));
+    max-width: 100%;
+    margin-inline: auto;
+    padding-inline: var(--page-margin);
+  }
+{% endstylesheet %}
+
 {% schema %}
 {
   "name": "t:names.collection_list",
@@ -123,13 +132,6 @@
       "id": "show_collection_card_cta",
       "label": "Show collection card button",
       "default": true
-    },
-    {
-      "type": "text",
-      "id": "collection_card_cta_label_override",
-      "label": "Button label override",
-      "info": "Leave blank to use: Shop {collection title}",
-      "visible_if": "{{ section.settings.show_collection_card_cta }}"
     },
     {
       "type": "header",
@@ -317,6 +319,10 @@
       "id": "section_width",
       "label": "t:settings.width",
       "options": [
+        {
+          "value": "small",
+          "label": "Small"
+        },
         {
           "value": "page-width",
           "label": "t:options.page"
