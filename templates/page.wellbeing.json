@@ -547,7 +547,7 @@
             "button_dKF6dB": {
               "type": "button",
               "settings": {
-                "label": "Discover Our Land1",
+                "label": "Discover Our Land",
                 "link": "shopify://collections/all",
                 "open_in_new_tab": false,
                 "style_class": "button",
