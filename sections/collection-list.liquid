@@ -116,6 +116,23 @@
     },
     {
       "type": "header",
+      "content": "Collection card CTA"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_collection_card_cta",
+      "label": "Show collection card button",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "collection_card_cta_label_override",
+      "label": "Button label override",
+      "info": "Leave blank to use: Shop {collection title}",
+      "visible_if": "{{ section.settings.show_collection_card_cta }}"
+    },
+    {
+      "type": "header",
       "content": "t:content.cards_layout"
     },
     {
