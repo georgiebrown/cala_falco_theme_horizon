@@ -754,27 +754,27 @@
           "settings": {
             "quote_short": "<p>Cala Falco is a refined, nuanced non-alcoholic aperitivo, crafted with  passion, exclusivity and remarkable botanical complexity.\"</p>",
             "quote_full": "<p>Cala Falco is a refined, nuanced non-alcoholic aperitivo, crafted with  passion, exclusivity and remarkable botanical complexity.</p>",
-            "image": "shopify://shop_images/Group_20685.png",
+            "image": "shopify://shop_images/CalaFalco_25-119_1_4fd90092-c132-41d1-a0b8-deadd3cca170.jpg",
             "author": "Theo Hitchcock",
             "author_title": "Founder of The Trove"
           }
         },
-        "testimonial_Hd3JD4": {
+        "testimonial_hLybLU": {
           "type": "testimonial",
           "settings": {
             "quote_short": "<p>Cala Falco is a refined, nuanced non-alcoholic aperitivo, crafted with  passion, exclusivity and remarkable botanical complexity.\"</p>",
             "quote_full": "<p>Cala Falco is a refined, nuanced non-alcoholic aperitivo, crafted with  passion, exclusivity and remarkable botanical complexity.</p>",
-            "image": "shopify://shop_images/Group_20685.png",
+            "image": "shopify://shop_images/CalaFalco_25-119_1_4fd90092-c132-41d1-a0b8-deadd3cca170.jpg",
             "author": "Theo Hitchcock",
             "author_title": "Founder of The Trove"
           }
         },
-        "testimonial_34Qi8A": {
+        "testimonial_Q6YPKF": {
           "type": "testimonial",
           "settings": {
             "quote_short": "<p>Cala Falco is a refined, nuanced non-alcoholic aperitivo, crafted with  passion, exclusivity and remarkable botanical complexity.\"</p>",
             "quote_full": "<p>Cala Falco is a refined, nuanced non-alcoholic aperitivo, crafted with  passion, exclusivity and remarkable botanical complexity.</p>",
-            "image": "shopify://shop_images/Group_20685.png",
+            "image": "shopify://shop_images/CalaFalco_25-119_1_4fd90092-c132-41d1-a0b8-deadd3cca170.jpg",
             "author": "Theo Hitchcock",
             "author_title": "Founder of The Trove"
           }
@@ -782,8 +782,8 @@
       },
       "block_order": [
         "testimonial_np63Kb",
-        "testimonial_Hd3JD4",
-        "testimonial_34Qi8A"
+        "testimonial_hLybLU",
+        "testimonial_Q6YPKF"
       ],
       "name": "t:names.testimonials",
       "settings": {
