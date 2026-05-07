@@ -2638,6 +2638,12 @@ product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
 
 .card-gallery {
   position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.product-card .product-card__image {
+  border-radius: 16px;
 }
 
 @container (max-width: 70px) {
