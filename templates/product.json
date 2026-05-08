@@ -295,19 +295,19 @@
                     "text_PViY9J"
                   ]
                 },
-                "accordion_row_JXUd7N": {
+                "accordion_row_qjUkWM": {
                   "type": "_accordion-row",
                   "settings": {
-                    "heading": "Aromatic Palette",
+                    "heading": "Olfactory Pyramid",
                     "open_by_default": false,
                     "icon": "none",
                     "width": 20
                   },
                   "blocks": {
-                    "text_gG3RUL": {
+                    "text_aKFMNe": {
                       "type": "text",
                       "settings": {
-                        "text": "{{ closest.product.metafields.custom.aromatic_palette | metafield_tag }}",
+                        "text": "{{ closest.product.metafields.custom.olfactory_pyramid | metafield_tag }}",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
@@ -331,7 +331,7 @@
                     }
                   },
                   "block_order": [
-                    "text_gG3RUL"
+                    "text_aKFMNe"
                   ]
                 },
                 "accordion_row_dpVC3r": {
@@ -373,19 +373,19 @@
                     "text_BBBpae"
                   ]
                 },
-                "accordion_row_qjUkWM": {
+                "accordion_row_JXUd7N": {
                   "type": "_accordion-row",
                   "settings": {
-                    "heading": "Olfactory Pyramid",
+                    "heading": "Ingredients",
                     "open_by_default": false,
                     "icon": "none",
                     "width": 20
                   },
                   "blocks": {
-                    "text_aKFMNe": {
+                    "text_gG3RUL": {
                       "type": "text",
                       "settings": {
-                        "text": "{{ closest.product.metafields.custom.olfactory_pyramid | metafield_tag }}",
+                        "text": "",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
@@ -409,15 +409,15 @@
                     }
                   },
                   "block_order": [
-                    "text_aKFMNe"
+                    "text_gG3RUL"
                   ]
                 }
               },
               "block_order": [
                 "accordion_row_m9AYzq",
-                "accordion_row_JXUd7N",
+                "accordion_row_qjUkWM",
                 "accordion_row_dpVC3r",
-                "accordion_row_qjUkWM"
+                "accordion_row_JXUd7N"
               ]
             }
           },
