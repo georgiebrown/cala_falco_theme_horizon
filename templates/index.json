@@ -341,7 +341,7 @@
               "name": "t:names.button",
               "settings": {
                 "label": "Shop Drinks",
-                "link": "shopify://collections/all",
+                "link": "shopify://collections/drinks",
                 "open_in_new_tab": false,
                 "style_class": "button",
                 "width": "fit-content",
@@ -475,7 +475,7 @@
               "name": "t:names.button",
               "settings": {
                 "label": "Shop Wellness",
-                "link": "shopify://collections/all",
+                "link": "shopify://collections/the-cala-falco-collection",
                 "open_in_new_tab": false,
                 "style_class": "button",
                 "width": "fit-content",
