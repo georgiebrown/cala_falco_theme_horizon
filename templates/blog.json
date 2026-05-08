@@ -96,6 +96,12 @@
         "gradient_direction": "to top",
         "blurred_reflection": false,
         "reflection_opacity": 75,
+        "enable_module_frame": false,
+        "module_frame_padding": 16,
+        "module_frame_radius": 20,
+        "module_frame_border_width": 1,
+        "show_scroll_prompt": false,
+        "scroll_prompt_text": "Scroll down for more",
         "padding-block-start": 40,
         "padding-block-end": 40
       }
@@ -118,7 +124,7 @@
                 "border": "none",
                 "border_width": 1,
                 "border_opacity": 100,
-                "border_radius": 4
+                "border_radius": 16
               },
               "blocks": {}
             },
