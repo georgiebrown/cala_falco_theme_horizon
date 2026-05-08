@@ -72,7 +72,7 @@
               "type": "text",
               "name": "t:names.heading",
               "settings": {
-                "text": "<h6>Cala Falcó Collection</h6>",
+                "text": "",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
