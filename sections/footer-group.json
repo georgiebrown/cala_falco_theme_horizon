@@ -200,6 +200,17 @@
     "utilities": {
       "type": "footer-utilities",
       "blocks": {
+        "footer_policy_list_ntHQKE": {
+          "type": "footer-policy-list",
+          "name": "t:names.policy_list",
+          "settings": {
+            "link_source": "menu",
+            "custom_menu": "policy-links",
+            "font_size": "0.75rem",
+            "case": "none"
+          },
+          "blocks": {}
+        },
         "copyright": {
           "type": "footer-copyright",
           "settings": {
@@ -211,6 +222,7 @@
         }
       },
       "block_order": [
+        "footer_policy_list_ntHQKE",
         "copyright"
       ],
       "settings": {
