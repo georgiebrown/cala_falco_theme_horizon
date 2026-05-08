@@ -30,3 +30,10 @@ Use this pattern in `blocks/_product-details.liquid` when merchandising requires
 - Breadcrumbs in `<nav aria-label="Breadcrumb">`.
 - Share control should be a real `<button type="button">` with `aria-label`.
 - Keep icon decorative (`aria-hidden="true"`).
+
+## Sticky Details Behavior
+
+- Ensure PDP details column includes `sticky-content--desktop` so product info remains fixed while media scrolls.
+- Recommended class condition in `_product-details`:
+  - `request.page_type == 'product'` (always sticky on PDP)
+  - plus existing block setting check for non-PDP reuse.

@@ -6,7 +6,7 @@
   id="ProductInformation-{{ section.id }}"
   class="
     product-details
-    {% if block_settings.sticky_details_desktop %} sticky-content--desktop{% endif %}
+    {% if request.page_type == 'product' or block_settings.sticky_details_desktop %} sticky-content--desktop{% endif %}
     {% if block_settings.height == 'fill' -%} full-height--desktop{% endif -%}
   "
   style="--details-position: {{ block_settings.details_position }};"
