@@ -901,7 +901,7 @@
         "rows_gap": 8,
         "icons_style": "arrow",
         "icons_shape": "none",
-        "section_width": "page-width",
+        "section_width": "small",
         "gap": 40,
         "color_scheme": "scheme-58aef25d-7d5b-453f-b540-96a1c28ebfc1",
         "padding-block-start": 48,
