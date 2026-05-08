@@ -445,24 +445,6 @@
     "section_3YqBWc": {
       "type": "section",
       "blocks": {
-        "image_hjXWh9": {
-          "type": "image",
-          "settings": {
-            "image": "{{ closest.product.featured_image }}",
-            "link": "",
-            "image_ratio": "square",
-            "width": "fill",
-            "custom_width": 100,
-            "width_mobile": "fill",
-            "custom_width_mobile": 100,
-            "height": "fit",
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
         "group_hVhEXk": {
           "type": "group",
           "settings": {
@@ -510,7 +492,7 @@
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
-                "type_preset": "h3",
+                "type_preset": "h2",
                 "font": "var(--font-body--family)",
                 "font_size": "1rem",
                 "line_height": "normal",
@@ -558,11 +540,29 @@
             "text_FYWKR4",
             "text_gwBTgz"
           ]
+        },
+        "image_hjXWh9": {
+          "type": "image",
+          "settings": {
+            "image": "{{ closest.product.featured_image }}",
+            "link": "",
+            "image_ratio": "square",
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
         }
       },
       "block_order": [
-        "image_hjXWh9",
-        "group_hVhEXk"
+        "group_hVhEXk",
+        "image_hjXWh9"
       ],
       "name": "t:names.image_with_text",
       "settings": {
@@ -596,7 +596,7 @@
         "overlay_style": "solid",
         "gradient_direction": "to top",
         "padding-block-start": 100,
-        "padding-block-end": 100
+        "padding-block-end": 0
       }
     },
     "product_recommendations_qggXJq": {
