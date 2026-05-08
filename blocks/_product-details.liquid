@@ -27,7 +27,7 @@
       </nav>
       <div class="product-details__collection-row">
         {% if featured_collection %}
-          <p class="product-details__collection-title">
+          <p class="product-details__collection-title h6">
             {{ featured_collection.title }}
           </p>
         {% endif %}
@@ -107,8 +107,13 @@
     display: none;
   }
 
+  .product-details {
+    align-self: start;
+    justify-content: center;
+  }
+
   .product-details__meta {
-padding-top: 24px;
+    padding-top: 24px;
   }
 
   .product-details__breadcrumbs {
@@ -131,12 +136,7 @@ padding-top: 24px;
     gap: var(--gap-md);
   }
 
-  .product-details__collection-title {
-    margin: 0;
-    text-transform: uppercase;
-    letter-spacing: 0.22em;
-    font-size: clamp(0.95rem, 1.2vw, 1.15rem);
-  }
+
 
   .product-details__share {
     display: inline-flex;
@@ -159,6 +159,10 @@ padding-top: 24px;
 
 
   @media screen and (min-width: 750px) {
+    .product-details {
+      align-self: start;
+    }
+
     .product-details > .group-block {
       height: min-content;
     }

@@ -1571,7 +1571,7 @@ summary {
   align-items: center;
   cursor: pointer;
   list-style: none;
-  padding-block: var(--padding-sm);
+  padding-block: var(--padding-md);
 }
 
 summary:hover {
@@ -4778,6 +4778,10 @@ text-component {
   background-color: var(--color-foreground);
   opacity: var(--skeleton-opacity);
   border-radius: 4px;
+}
+
+product-recommendations .text-block{
+  margin: 0 auto;
 }
 
 @media screen and (max-width: 749px) {

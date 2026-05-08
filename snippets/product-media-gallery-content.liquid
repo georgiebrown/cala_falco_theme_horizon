@@ -198,7 +198,7 @@
 
       .product-media-container.constrain-height:has(.product-media-constraint-wrapper) {
         display: flex;
-        justify-content: center;
+        justify-content: start;
         align-items: center;
       }
 
@@ -353,7 +353,7 @@
         media-gallery--extend
       {% endif %}
     "
-    style="{% render 'spacing-style', settings: block_settings %} --thumbnail-width: {{ block_settings.thumbnail_width }}px; --media-radius: {{ block_settings.media_radius }}px;{% if block_settings.icons_style contains 'large' %} --slideshow-icon-padding: 0px;{% endif %}--image-gap: {{ block_settings.image_gap }}px;{% unless block_settings.aspect_ratio == 'adapt' %} --gallery-aspect-ratio: {{ block_settings.aspect_ratio }};{% endunless %}"
+    style="{% render 'spacing-style', settings: block_settings %} --thumbnail-width: {{ block_settings.thumbnail_width }}px; --media-radius: {{ block_settings.media_radius }}px;{% if block_settings.icons_style contains 'large' %} --slideshow-icon-padding: 0px;{% endif %}--image-gap: 0px;{% unless block_settings.aspect_ratio == 'adapt' %} --gallery-aspect-ratio: {{ block_settings.aspect_ratio }};{% endunless %}"
     data-presentation="{{ media_presentation }}"
     {{ block_shopify_attributes }}
   >
@@ -503,7 +503,7 @@
             {% endif %}
           </li>
           {% if product_media_headline != blank and forloop.index == headline_insert_index %}
-            <li class="media-gallery__headline h5">
+            <li class="media-gallery__headline h3">
               {{ product_media_headline }}
             </li>
           {% endif %}
