@@ -1,4 +1,15 @@
-{% if shop.policies.size > 0 %}
+{% liquid
+  assign link_source = block.settings.link_source | default: 'policies'
+  assign has_links = false
+
+  if link_source == 'menu' and block.settings.custom_menu != blank
+    assign has_links = true
+  elsif link_source == 'policies' and shop.policies.size > 0
+    assign has_links = true
+  endif
+%}
+
+{% if has_links %}
   <anchored-popover-component
     data-hover-triggered="true"
   >
@@ -25,18 +36,33 @@
           {% if block.settings.font_size != "" %}custom-font-size{% endif %}
         "
       >
-        {%- for policy in shop.policies -%}
-          {%- if policy != blank -%}
-            <li>
-              <a
-                href="{{ policy.url }}"
-                class="footer-utilities__text"
-              >
-                {{- policy.title | escape -}}
-              </a>
-            </li>
-          {%- endif -%}
-        {%- endfor -%}
+        {% if link_source == 'menu' and block.settings.custom_menu != blank %}
+          {%- for link in block.settings.custom_menu.links -%}
+            {%- if link != blank -%}
+              <li>
+                <a
+                  href="{{ link.url }}"
+                  class="footer-utilities__text"
+                >
+                  {{- link.title | escape -}}
+                </a>
+              </li>
+            {%- endif -%}
+          {%- endfor -%}
+        {% else %}
+          {%- for policy in shop.policies -%}
+            {%- if policy != blank -%}
+              <li>
+                <a
+                  href="{{ policy.url }}"
+                  class="footer-utilities__text"
+                >
+                  {{- policy.title | escape -}}
+                </a>
+              </li>
+            {%- endif -%}
+          {%- endfor -%}
+        {% endif %}
       </ul>
     </div>
   </anchored-popover-component>
@@ -148,6 +174,28 @@
     {
       "type": "paragraph",
       "content": "t:content.manage_policies"
+    },
+    {
+      "type": "select",
+      "id": "link_source",
+      "label": "Link source",
+      "options": [
+        {
+          "value": "policies",
+          "label": "Policies"
+        },
+        {
+          "value": "menu",
+          "label": "Menu"
+        }
+      ],
+      "default": "policies"
+    },
+    {
+      "type": "link_list",
+      "id": "custom_menu",
+      "label": "Menu",
+      "visible_if": "{{ block.settings.link_source == 'menu' }}"
     },
     {
       "type": "select",

@@ -80,6 +80,13 @@
 </div>
 
 {% stylesheet %}
+  .featured-blog-posts-section.section--small {
+    width: min(100%, calc(1280px + (var(--page-margin) * 2)));
+    max-width: 100%;
+    margin-inline: auto;
+    padding-inline: var(--page-margin);
+  }
+
   .featured-blog-posts-section--carousel {
     --peek-next-slide-size: 0px;
     --column-count: 1;
@@ -420,6 +427,10 @@
         {
           "value": "page-width",
           "label": "t:options.page"
+        },
+        {
+          "value": "small",
+          "label": "t:options.small"
         },
         {
           "value": "full-width",
