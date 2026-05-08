@@ -1,0 +1,33 @@
+# Blog Tag Filters Pattern
+
+Use this pattern in `sections/main-blog.liquid` to render tag-based filters above the blog posts grid.
+
+## Markup
+
+- Add a `<nav>` above `.blog-posts-container` with `aria-label="Filter blog posts by tag"`.
+- Render an `All` link to `{{ blog.url }}`.
+- Render each tag from `blog.all_tags` as links to `{{ blog.url }}/tagged/{{ tag | handle }}`.
+- Add active state classes:
+  - `All` is active when `current_tags == blank`
+  - A tag is active when `current_tags contains tag`
+
+## Styling
+
+- Use a horizontal row with a subtle bottom border.
+- Use uppercase, tightly spaced labels to match editorial navigation.
+- Add an underline indicator (`::after`) for hover and active states.
+- Keep mobile spacing/font-size slightly reduced for wrap behavior.
+
+## Blog Card Layout Sequence
+
+For editorial blog pages in `sections/main-blog.liquid`, use a deterministic card sequence:
+
+- **Post 1:** full-width hero (`col-span: 6`) with text overlay anchored bottom-left on top of the image.
+- **Posts 2-3:** standard two-column grid cards (`col-span: 3` each).
+- **Posts 4+:** one row each (`col-span: 6`) using a compact list row:
+  - image first
+  - title in middle column
+  - excerpt in right column
+
+Implementation note:
+- Add a card variant class by index (`blog-post-item--hero`, `--grid`, `--list`) and style each variant in section-level CSS.

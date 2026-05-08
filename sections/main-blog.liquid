@@ -19,68 +19,42 @@
   >
     {% content_for 'blocks' %}
 
+    {% if blog.all_tags.size > 0 %}
+      <nav class="blog-posts__filters" aria-label="Filter blog posts by tag">
+        <a
+          href="{{ blog.url }}"
+          class="blog-posts__filter-link{% if current_tags == blank %} is-active{% endif %}"
+        >
+          All
+        </a>
+        {% for tag in blog.all_tags %}
+          <a
+            href="{{ blog.url }}/tagged/{{ tag | handle }}"
+            class="blog-posts__filter-link{% if current_tags contains tag %} is-active{% endif %}"
+          >
+            {{ tag }}
+          </a>
+        {% endfor %}
+      </nav>
+    {% endif %}
+
     <div
       ref="grid"
       class="blog-posts-container"
     >
-      {% liquid
-        assign items_on_page = blog.articles.size
-      %}
       {% for article in blog.articles %}
         {% liquid
-          # Defaults for compact layout
-          assign col_span = 2
-          assign scale = 0.6
-          assign is_horizontal = false
+          assign col_span = 6
+          assign scale = 1
+          assign card_variant = 'list'
 
-          case items_on_page
-            when 1
-              # Single post: full width hero
-              assign col_span = 6
-              assign scale = 1
-              assign is_horizontal = true
-            when 2
-              # Two posts: both standard side by side
-              assign col_span = 3
-              assign scale = 0.8
-            when 3
-              # Three posts: hero + 2 standard
-              if forloop.index == 1
-                assign col_span = 6
-                assign scale = 1
-                assign is_horizontal = true
-              else
-                assign col_span = 3
-                assign scale = 0.8
-              endif
-            when 4
-              # Four posts: all standard in 2x2 grid
-              assign col_span = 3
-              assign scale = 0.8
-            when 5
-              # Five posts: hero + 4 standard
-              if forloop.index == 1
-                assign col_span = 6
-                assign scale = 1
-                assign is_horizontal = true
-              else
-                assign col_span = 3
-                assign scale = 0.8
-              endif
-            else
-              # 6+ posts: hero, 2 standard, rest compact
-              if forloop.index == 1
-                assign col_span = 6
-                assign scale = 1
-                assign is_horizontal = true
-              elsif forloop.index <= 3
-                assign col_span = 3
-                assign scale = 0.8
-              else
-                assign col_span = 2
-                assign scale = 0.6
-              endif
-          endcase
+          if forloop.index == 1
+            assign card_variant = 'hero'
+          elsif forloop.index <= 3
+            assign col_span = 3
+            assign scale = 0.8
+            assign card_variant = 'grid'
+          endif
         %}
         {% style %}
           [data-blog-index="{{ section.id }}-{{ forloop.index }}"] {
@@ -96,7 +70,7 @@
           }
         {% endstyle %}
         <div
-          class="blog-post-item{% if is_horizontal %} blog-post-item--horizontal{% endif %}"
+          class="blog-post-item blog-post-item--{{ card_variant }}"
           data-testid="blog-post-item"
           data-blog-index="{{ section.id }}-{{ forloop.index }}"
         >
@@ -116,6 +90,54 @@
     --page-width: calc(var(--page-content-width) + (var(--page-margin) * 2));
     --columns-gap: 36px;
     --rows-gap: 36px;
+  }
+
+  .blog-posts__filters {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    border-bottom: 1px solid rgb(var(--color-foreground-rgb) / 10%);
+    margin-bottom: clamp(1.25rem, 3vw, 2.25rem);
+    padding-bottom: 0.35rem;
+  }
+
+  .blog-posts__filter-link {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    padding: 0.35rem 0.1rem 0.7rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 20px;
+    transition: color 180ms ease;
+    font-family: var(--font-h4--family);
+  }
+
+  .blog-posts__filter-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -0.35rem;
+    height: 7px;
+    background: #d3a188;
+    opacity: 0;
+    transform: scaleX(0.6);
+    transform-origin: center;
+    transition: opacity 180ms ease, transform 180ms ease;
+  }
+
+  .blog-posts__filter-link:hover,
+  .blog-posts__filter-link.is-active {
+    color: rgb(var(--color-foreground-rgb) / 100%);
+  }
+
+  .blog-posts__filter-link:hover::after,
+  .blog-posts__filter-link.is-active::after {
+    opacity: 1;
+    transform: scaleX(1);
   }
 
   .blog-posts-container {
@@ -147,6 +169,128 @@
   .blog-post-item:has(.blog-post-card__image-container) {
     border: none;
     padding: 0;
+  }
+
+  .blog-post-item--hero .blog-post-card {
+    position: relative;
+  }
+
+  .blog-post-item--hero .blog-post-card__image-container::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    background: linear-gradient(90deg, rgb(0 0 0 / 62%) 0%, rgb(0 0 0 / 18%) 40%, rgb(0 0 0 / 8%) 100%);
+  }
+
+  .blog-post-item--hero .blog-post-card__content {
+    position: absolute;
+    left: clamp(1rem, 4vw, 2.5rem);
+    bottom: clamp(1rem, 4vw, 2.25rem);
+    z-index: 1;
+    max-width: min(35rem, 65%);
+    color: #fff;
+    padding: 0;
+  }
+
+  .blog-post-item--hero .blog-post-card__content a,
+  .blog-post-item--hero .blog-post-card__content .blog-post-card__content-text,
+  .blog-post-item--hero .blog-post-card__content .blog-post-card__content-text a {
+    color: inherit;
+  }
+
+  .blog-post-item--hero .blog-post-details {
+    display: none;
+  }
+
+  .blog-post-item--hero .blog-post-card__content-text {
+    margin-top: 0.3rem;
+  }
+
+  .blog-post-item--list {
+    border: 0;
+    border-top: 1px solid rgb(var(--color-foreground-rgb) / 15%);
+    padding: 0;
+  }
+
+  .blog-post-item--list:last-child {
+    border-bottom: 1px solid rgb(var(--color-foreground-rgb) / 15%);
+  }
+
+  .blog-post-item--list .blog-post-card {
+    display: grid;
+    grid-template-columns: minmax(8.5rem, 130px) minmax(0, 0.95fr) minmax(0, 1.15fr);
+    align-items: center;
+    column-gap: clamp(0.9rem, 2.2vw, 1.8rem);
+    padding: clamp(0.8rem, 2vw, 1.2rem) 0;
+  }
+
+  .blog-post-item--list .blog-post-card__image {
+    height: clamp(5rem, 7vw, 6.2rem);
+  }
+
+  .blog-post-item--list .blog-post-card__content {
+    display: contents;
+    padding: 0;
+  }
+
+  .blog-post-item--list .blog-post-card__content > a {
+    grid-column: 2;
+    padding: 0;
+  }
+
+  .blog-post-item--list .blog-post-details {
+    display: none;
+  }
+
+  .blog-post-item--list .blog-post-card__content-text {
+    grid-column: 3;
+    margin: 0;
+    padding: 0;
+  }
+
+  .blog-post-item--list .blog-post-card__content-text a {
+    display: none;
+  }
+
+  @media screen and (max-width: 749px) {
+    .blog-posts__filters {
+      gap: 0.8rem 1rem;
+    }
+
+    .blog-posts__filter-link {
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+    }
+
+    .blog-post-item--hero .blog-post-card__content {
+      max-width: calc(100% - 2rem);
+    }
+
+    .blog-post-item--list {
+      border-top: 0;
+      border-bottom: 0;
+    }
+
+    .blog-post-item--list .blog-post-card {
+      display: flex;
+      padding: 0;
+    }
+
+    .blog-post-item--list .blog-post-card__content {
+      display: flex;
+      padding-top: 0.4rem;
+    }
+
+    .blog-post-item--list .blog-post-card__content > a,
+    .blog-post-item--list .blog-post-card__content-text {
+      grid-column: auto;
+    }
+
+    .blog-post-item--list .blog-post-card__content-text a {
+      display: inline;
+    }
   }
 {% endstylesheet %}
 
