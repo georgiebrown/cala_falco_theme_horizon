@@ -138,7 +138,7 @@
           "primary_button_background": "#f9d8af",
           "primary_button_text": "#31331d",
           "primary_button_border": "rgba(0,0,0,0)",
-          "primary_button_hover_background": "#333333",
+          "primary_button_hover_background": "#f4c077",
           "primary_button_hover_text": "#ffffff",
           "primary_button_hover_border": "#000000",
           "secondary_button_background": "rgba(0,0,0,0)",
