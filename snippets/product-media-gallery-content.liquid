@@ -117,6 +117,11 @@
     assign sorted_media = selected_product.media
   endif
   assign has_image_drop = sorted_media | has: 'media_type', 'image'
+  assign product_media_headline = selected_product.metafields.custom.product_media_headline.value
+  assign headline_insert_index = 3
+  if sorted_media.size < 3
+    assign headline_insert_index = sorted_media.size
+  endif
 
   # Determine if we're in single column mode (carousel or grid with one column)
   assign is_single_column = false
@@ -207,7 +212,7 @@
       /* Desktop constraint wrapper sizing */
       @media screen and (min-width: 750px) {
         .product-media-constraint-wrapper {
-          width: min(100%, calc(var(--constrained-height) * {{ block_settings.aspect_ratio }}));
+          width: 100%;
         }
       }
     {% endif %}
@@ -444,13 +449,23 @@
 
     {% if media_presentation == 'grid' %}
       <ul
-        class="media-gallery__grid list-unstyled"
+        class="media-gallery__grid list-unstyled{% if product_media_headline != blank %} media-gallery__grid--has-headline{% endif %}"
         data-testid="media-gallery-grid"
       >
         {% for media in sorted_media %}
+          {% liquid
+            assign media_grid_class = ''
+            if forloop.index == 1
+              assign media_grid_class = ' product-media-container--hero'
+            elsif forloop.index == 2 or forloop.index == 3
+              assign media_grid_class = ' product-media-container--half'
+            else
+              assign media_grid_class = ' product-media-container--full-width'
+            endif
+          %}
           <li
             ref="media[]"
-            class="{{ product_media_container_class }} product-media-container--{{ media.media_type }}"
+            class="{{ product_media_container_class }} product-media-container--{{ media.media_type }}{{ media_grid_class }}"
             style="{% if block_settings.aspect_ratio == 'adapt' %} --media-preview-ratio: {{ media.preview_image.aspect_ratio | default: 1.0 }};{% endif %}"
             {% if settings.transition_to_main_product and forloop.first %}
               data-view-transition-type="product-image-transition"
@@ -487,6 +502,11 @@
               {%- render 'product-media', media: media, sizes: media_sizes, is_main_product_media: forloop.first -%}
             {% endif %}
           </li>
+          {% if product_media_headline != blank and forloop.index == headline_insert_index %}
+            <li class="media-gallery__headline h5">
+              {{ product_media_headline }}
+            </li>
+          {% endif %}
         {% endfor %}
       </ul>
     {% endif %}
@@ -807,6 +827,29 @@
     :root:active-view-transition .product-media__image {
       background-color: transparent;
     }
+
+    media-gallery.media-gallery--grid .media-gallery__grid--has-headline {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    media-gallery.media-gallery--grid .media-gallery__grid--has-headline .product-media-container--hero,
+    media-gallery.media-gallery--grid .media-gallery__grid--has-headline .product-media-container--full-width,
+    media-gallery.media-gallery--grid .media-gallery__grid--has-headline .media-gallery__headline {
+      grid-column: 1 / -1;
+    }
+
+    media-gallery.media-gallery--grid .media-gallery__grid--has-headline .media-gallery__headline {
+      margin: 0;
+    }
+  }
+
+  .media-gallery__headline{
+    background-color: #DBD9D3;
+    padding: 6rem;
+  }
+  .media-gallery__headline.h5{
+    line-height: 150%;
+    letter-spacing: 5%;
   }
 
   ::view-transition-group(gallery-item-open),

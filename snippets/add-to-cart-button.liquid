@@ -42,14 +42,6 @@
     <span
       class="add-to-cart-text"
     >
-      {% if can_add_to_cart %}
-        <span
-          aria-hidden="true"
-          class="svg-wrapper add-to-cart-icon"
-        >
-          {{- 'icon-add-to-cart.svg' | inline_asset_content -}}
-        </span>
-      {% endif %}
       <span class="add-to-cart-text__content{% if icon_only_on_mobile %} is-visually-hidden-mobile{% endif %}">
         <span>
           <span>
@@ -57,6 +49,17 @@
           </span>
         </span>
       </span>
+            {% if can_add_to_cart %}
+        <span
+          aria-hidden="true"
+          class="svg-wrapper add-to-cart-icon"
+        >
+         <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M11.3536 4.03553C11.5488 3.84027 11.5488 3.52369 11.3536 3.32842L8.17157 0.146442C7.97631 -0.0488198 7.65973 -0.0488198 7.46447 0.146442C7.2692 0.341705 7.2692 0.658287 7.46447 0.853549L10.2929 3.68198L7.46447 6.5104C7.2692 6.70567 7.2692 7.02225 7.46447 7.21751C7.65973 7.41277 7.97631 7.41277 8.17157 7.21751L11.3536 4.03553ZM0 3.68198V4.18198H11V3.68198V3.18198H0V3.68198Z" fill="#31331D"/>
+</svg>
+
+        </span>
+      {% endif %}
     </span>
     {% comment %} checkmark burst markup {% endcomment %}
     <span class="add-to-cart__added">

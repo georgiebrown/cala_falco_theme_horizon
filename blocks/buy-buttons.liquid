@@ -206,7 +206,7 @@
           {%- endif -%}
           {%- unless block_settings.gift_card_form and product.gift_card? -%}
             <span
-              class="product-form-text__error hidden"
+              class="hidden product-form-text__error"
               ref="addToCartTextError"
             >
               <span class="svg-wrapper">
@@ -390,7 +390,6 @@
   }
 
   .product-form-buttons button {
-    width: 100%;
     padding-block: var(--padding-lg);
   }
 
