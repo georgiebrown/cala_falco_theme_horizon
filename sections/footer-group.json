@@ -197,7 +197,7 @@
         "footer_links_menu": "policy-links",
         "footer_links_font_size": "0.75rem",
         "footer_links_case": "none",
-        "footer_show_powered_by": true,
+        "footer_show_powered_by": false,
         "footer_copyright_font_size": "0.75rem",
         "footer_copyright_case": "none",
         "padding-block-start": 36,
