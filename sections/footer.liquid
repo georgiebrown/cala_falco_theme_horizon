@@ -4,6 +4,14 @@
 >
   {% liquid
     assign total_blocks = section.blocks.size
+    assign footer_link_source = section.settings.footer_link_source | default: 'policies'
+    assign has_footer_links = false
+
+    if footer_link_source == 'menu' and section.settings.footer_links_menu != blank
+      assign has_footer_links = true
+    elsif footer_link_source == 'policies' and shop.policies.size > 0
+      assign has_footer_links = true
+    endif
 
     # Grid layout calculations
     assign grid_columns = total_blocks | at_most: 4
@@ -57,6 +65,50 @@
       >
         {% content_for 'blocks' %}
       </div>
+      {% if has_footer_links %}
+        <div class="footer-shell__policy-links-wrap">
+          <ul
+            class="footer-shell__policy-links list-unstyled"
+            style="
+              --font-size: {{ section.settings.footer_links_font_size }};
+              --text-transform: {{ section.settings.footer_links_case }};
+            "
+          >
+            {% if footer_link_source == 'menu' and section.settings.footer_links_menu != blank %}
+              {% for link in section.settings.footer_links_menu.links %}
+                {% if link != blank %}
+                  <li>
+                    <a href="{{ link.url }}">{{ link.title | escape }}</a>
+                  </li>
+                {% endif %}
+              {% endfor %}
+            {% else %}
+              {% for policy in shop.policies %}
+                {% if policy != blank %}
+                  <li>
+                    <a href="{{ policy.url }}">{{ policy.title | escape }}</a>
+                  </li>
+                {% endif %}
+              {% endfor %}
+            {% endif %}
+          </ul>
+          <div
+            class="footer-shell__copyright"
+            style="
+              --font-size: {{ section.settings.footer_copyright_font_size }};
+              --text-transform: {{ section.settings.footer_copyright_case }};
+            "
+          >
+            <span class="footer-utilities__text">
+              &copy; {{ 'now' | date: '%Y' }}
+              {{ shop.name | link_to: routes.root_url -}}. All rights reserved.
+              {%- if section.settings.footer_show_powered_by -%}
+                , {{ powered_by_link }}
+              {%- endif -%}
+            </span>
+          </div>
+        </div>
+      {% endif %}
     </div>
   </div>
 </div>
@@ -79,6 +131,49 @@
     border: 1px solid #F4C077;
     border-radius: 1.2rem;
     padding: clamp(1.5rem, 3vw, 2.5rem);
+  }
+
+  .footer-shell__policy-links-wrap {
+    margin-top: clamp(1.2rem, 2.2vw, 2rem);
+    width: 100%;
+    border-top: 1px solid rgb(var(--color-foreground-rgb) / 15%);
+    padding-top: clamp(0.85rem, 1.8vw, 1.25rem);
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+
+  .footer-shell__policy-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  .footer-shell__policy-links li {
+    margin: 0;
+    padding: 0;
+  }
+
+  .footer-shell__policy-links a {
+    color: inherit;
+    text-decoration: none;
+    font-size: var(--font-size, 0.75rem);
+    text-transform: var(--text-transform, none);
+  }
+
+  .footer-shell__policy-links a:hover {
+    text-decoration: underline;
+  }
+
+  .footer-shell__copyright {
+    font-size: var(--font-size, 0.75rem);
+    text-transform: var(--text-transform, none);
+  }
+
+  .footer-shell__copyright a {
+    color: inherit;
   }
 
   .footer-shell__floating-logo {
@@ -359,6 +454,130 @@
       "type": "image_picker",
       "id": "footer_logo",
       "label": "Footer border logo"
+    },
+    {
+      "type": "header",
+      "content": "Footer links"
+    },
+    {
+      "type": "select",
+      "id": "footer_link_source",
+      "label": "Link source",
+      "options": [
+        {
+          "value": "policies",
+          "label": "Policies"
+        },
+        {
+          "value": "menu",
+          "label": "Menu"
+        }
+      ],
+      "default": "policies"
+    },
+    {
+      "type": "link_list",
+      "id": "footer_links_menu",
+      "label": "Menu",
+      "visible_if": "{{ section.settings.footer_link_source == 'menu' }}"
+    },
+    {
+      "type": "select",
+      "id": "footer_links_font_size",
+      "label": "Link size",
+      "options": [
+        {
+          "value": "0.625rem",
+          "label": "10px"
+        },
+        {
+          "value": "0.75rem",
+          "label": "12px"
+        },
+        {
+          "value": "0.875rem",
+          "label": "14px"
+        },
+        {
+          "value": "1rem",
+          "label": "16px"
+        },
+        {
+          "value": "1.125rem",
+          "label": "18px"
+        }
+      ],
+      "default": "0.75rem"
+    },
+    {
+      "type": "select",
+      "id": "footer_links_case",
+      "label": "Link case",
+      "options": [
+        {
+          "value": "none",
+          "label": "Default"
+        },
+        {
+          "value": "uppercase",
+          "label": "Uppercase"
+        }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "header",
+      "content": "Footer copyright"
+    },
+    {
+      "type": "checkbox",
+      "id": "footer_show_powered_by",
+      "label": "Show powered by Shopify",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "footer_copyright_font_size",
+      "label": "Copyright size",
+      "options": [
+        {
+          "value": "0.625rem",
+          "label": "10px"
+        },
+        {
+          "value": "0.75rem",
+          "label": "12px"
+        },
+        {
+          "value": "0.875rem",
+          "label": "14px"
+        },
+        {
+          "value": "1rem",
+          "label": "16px"
+        },
+        {
+          "value": "1.125rem",
+          "label": "18px"
+        }
+      ],
+      "default": "0.75rem"
+    },
+    {
+      "type": "select",
+      "id": "footer_copyright_case",
+      "label": "Copyright case",
+      "options": [
+        {
+          "value": "none",
+          "label": "Default"
+        },
+        {
+          "value": "uppercase",
+          "label": "Uppercase"
+        }
+      ],
+      "default": "none"
     },
     {
       "type": "header",
