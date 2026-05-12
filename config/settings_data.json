@@ -94,7 +94,7 @@
           "foreground": "#31331d",
           "primary": "#000000cf",
           "primary_hover": "#31331d",
-          "border": "#0000000f",
+          "border": "#31331d3d",
           "shadow": "#000000",
           "primary_button_background": "#f9d8af",
           "primary_button_text": "#31331d",
