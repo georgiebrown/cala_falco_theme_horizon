@@ -695,7 +695,8 @@
     min-width: 0;
   }
 
-  /* Mega menu resource cards: flow layout (no absolute overlay link), 16px image radius, titles wrap */
+  /* Mega menu resource cards: grid link (no absolute stretch), 16px image radius.
+     Collection cards: title + subtext sit on bottom of image (same grid cell as media). */
   .mega-menu .resource-card {
     --resource-card-corner-radius: 16px;
 
@@ -705,6 +706,10 @@
     grid-template-rows: auto auto;
     min-width: 0;
     height: auto;
+  }
+
+  .mega-menu .resource-card[data-resource-type='collection'] {
+    grid-template-rows: auto;
   }
 
   .mega-menu .resource-card__link {
@@ -737,6 +742,16 @@
     padding-block-start: var(--padding-xs);
   }
 
+  .mega-menu .resource-card[data-resource-type='collection'] .resource-card__content {
+    grid-row: 1;
+    align-self: end;
+    justify-self: stretch;
+    padding: var(--padding-md) var(--padding-sm) var(--padding-sm);
+    padding-block-start: 2.5rem;
+    background: var(--gradient-image-overlay);
+    border-radius: 0 0 16px 16px;
+  }
+
   .mega-menu .resource-card__title {
     display: block;
     line-clamp: unset;
@@ -746,6 +761,16 @@
     overflow-wrap: anywhere;
     word-break: break-word;
     hyphens: auto;
+  }
+
+  .mega-menu .resource-card[data-resource-type='collection'] .resource-card__title {
+    color: var(--color-white);
+    text-shadow: 0 1px 2px rgb(0 0 0 / 40%);
+  }
+
+  .mega-menu .resource-card[data-resource-type='collection'] .resource-card__subtext,
+  .mega-menu .resource-card[data-resource-type='collection'] .resource-card__subtext.paragraph {
+    color: rgb(var(--color-white-rgb) / 88%);
   }
 
   .mega-menu .resource-card__image,

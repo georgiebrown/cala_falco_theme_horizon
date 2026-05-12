@@ -21,9 +21,7 @@
   "
   {{ block.shopify_attributes }}
 >
-  {%- capture image_border_style -%}
-    {% render 'border-override', settings: block_settings %}
-  {%- endcapture -%}
+
 
   {{
     image
@@ -69,6 +67,15 @@
     height: 100%;
     object-fit: cover;
     object-position: center center;
+    border-radius: 16px;
+    border: 1px solid  rgb(var(--color-foreground-rgb) / var(--opacity-10-25));;
+    padding: 0.5rem;
+  }
+
+  .blog-post-content img{
+    border-radius: 16px;
+    border: 1px solid  rgb(var(--color-foreground-rgb) / var(--opacity-10-25));;
+    padding: 0.5rem;
   }
 
   @media screen and (max-width: 749px) {

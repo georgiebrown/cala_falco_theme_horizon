@@ -9,5 +9,6 @@
 
 ## Resource cards in the mega menu
 
-- Collection cards use **default** `resource-card` layout (not `overlay`) so titles and images sit in normal flow and are not clipped by submenu `overflow`.
-- `blocks/_header-menu.liquid` scopes layout: CSS grid on `.mega-menu .resource-card`, `position: static` on `.resource-card__link` spanning rows for a full-card hit target, **16px** radius on images, flexible `minmax(0, 1fr)` columns for featured collection grids.
+- Collection cards use **default** `resource-card` markup (not `overlay`) so layout stays in the submenu flow and avoids clipping.
+- `blocks/_header-menu.liquid` uses **CSS grid**: full-card hit target without an absolutely positioned link; **16px** image radius; collection grids use `minmax(0, 1fr)`.
+- **Collection titles** sit **on the image** again: `__media` and `__content` share the same grid cell (`[data-resource-type='collection']`), with `__content` `align-self: end`, `var(--gradient-image-overlay)`, and white title/subtext—no `position: absolute` on the card shell.
