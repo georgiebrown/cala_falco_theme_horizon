@@ -188,7 +188,8 @@
     "product_hotspots": "ฮอตสปอตสินค้า",
     "hotspot_product": "ฮอตสปอต",
     "product_sku": "SKU",
-    "layered_slideshow": "สไลด์โชว์แบบซ้อน"
+    "layered_slideshow": "สไลด์โชว์แบบซ้อน",
+    "product_sustainability_icons": "Icons"
   },
   "settings": {
     "alignment": "การจัดตำแหน่ง",
@@ -970,7 +971,8 @@
     "resource_reference_product_sku": "แสดง SKU จากสินค้าหลัก",
     "content_layout": "เลย์เอาต์เนื้อหา",
     "mobile_media_1": "สื่อสำหรับมือถือ 1",
-    "utilities": "ยูทิลิตี"
+    "utilities": "ยูทิลิตี",
+    "resource_reference_product_sustainability_icons": "Shows icons from the product metafield sustainability_icons (list of metaobjects with title and icon). Nothing is shown if the metafield is empty."
   },
   "html_defaults": {
     "share_information_about_your": "<p>แชร์ข้อมูลเกี่ยวกับแบรนด์ของคุณกับลูกค้า อธิบายสินค้า ประกาศข่าวสาร หรือต้อนรับลูกค้าสู่ร้านค้าของคุณ</p>",

@@ -1,0 +1,179 @@
+{%- liquid
+  assign block_settings = block.settings
+  assign items = closest.product.metafields.custom.sustainability_icons.value
+  assign has_renderable = false
+
+  if items != blank
+    for item in items
+      assign item_title = item.title.value | default: item.title | strip
+      assign icon_asset = item.icon.value | default: item.icon
+      if item_title != blank and icon_asset != blank
+        assign has_renderable = true
+        break
+      endif
+    endfor
+  endif
+-%}
+
+{% if has_renderable %}
+  <div
+    class="product-sustainability-icons spacing-style"
+    style="{% render 'spacing-style', settings: block_settings %}"
+    {{ block.shopify_attributes }}
+  >
+    <ul
+      class="product-sustainability-icons__list"
+      role="list"
+      aria-label="{{ 'accessibility.sustainability_icons' | t }}"
+    >
+      {%- for item in items -%}
+        {%- liquid
+          assign item_title = item.title.value | default: item.title | strip
+          assign icon_asset = item.icon.value | default: item.icon
+          assign item_title_escaped = item_title | escape
+        -%}
+        {%- if item_title != blank and icon_asset != blank -%}
+          <li class="product-sustainability-icons__item">
+            <div class="product-sustainability-icons__circle">
+              {{
+                icon_asset
+                | image_url: width: 160
+                | image_tag:
+                  alt: item_title_escaped,
+                  class: 'product-sustainability-icons__image',
+                  loading: 'lazy',
+                  widths: '80, 120, 160',
+                  sizes: '(min-width: 750px) 5rem, 4rem'
+              }}
+            </div>
+            <p class="product-sustainability-icons__label">{{ item_title | escape }}</p>
+          </li>
+        {%- endif -%}
+      {%- endfor -%}
+    </ul>
+  </div>
+{% endif %}
+
+{% stylesheet %}
+  .product-sustainability-icons__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem 1.25rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  @media screen and (min-width: 750px) {
+    .product-sustainability-icons__list {
+      flex-wrap: nowrap;
+      gap: 1.5rem;
+    }
+  }
+
+  .product-sustainability-icons__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1 1 40%;
+    min-width: 0;
+    text-align: center;
+  }
+
+  @media screen and (min-width: 750px) {
+    .product-sustainability-icons__item {
+      flex: 1 1 0;
+    }
+  }
+
+  .product-sustainability-icons__circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    background-color: rgb(var(--color-foreground-rgb) / 0.08);
+    margin-block-end: 0.5rem;
+  }
+
+  @media screen and (min-width: 750px) {
+    .product-sustainability-icons__circle {
+      width: 5rem;
+      height: 5rem;
+    }
+  }
+
+  .product-sustainability-icons__image {
+    width: 55%;
+    height: 55%;
+    object-fit: contain;
+  }
+
+  .product-sustainability-icons__label {
+    margin: 0;
+    max-width: 11rem;
+    font-size: min(0.875rem, var(--font-paragraph--size));
+    line-height: var(--font-paragraph--line-height);
+    color: rgb(var(--color-foreground-rgb) / 0.85);
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:names.product_sustainability_icons",
+  "tag": null,
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:content.resource_reference_product_sustainability_icons"
+    },
+    {
+      "type": "header",
+      "content": "t:content.padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "t:settings.top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "t:settings.bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-start",
+      "label": "t:settings.left",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-end",
+      "label": "t:settings.right",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    }
+  ]
+}
+{% endschema %}

@@ -188,7 +188,8 @@
     "product_hotspots": "제품 핫스팟",
     "hotspot_product": "핫스팟",
     "product_sku": "SKU(재고 관리 코드)",
-    "layered_slideshow": "레이어드 슬라이드 쇼"
+    "layered_slideshow": "레이어드 슬라이드 쇼",
+    "product_sustainability_icons": "Icons"
   },
   "settings": {
     "autoplay": "자동 재생",
@@ -970,7 +971,8 @@
     "resource_reference_product_sku": "상위 제품의 SKU(재고 관리 코드)를 표시합니다",
     "content_layout": "콘텐츠 레이아웃",
     "mobile_media_1": "모바일 미디어 1",
-    "utilities": "유틸리티"
+    "utilities": "유틸리티",
+    "resource_reference_product_sustainability_icons": "Shows icons from the product metafield sustainability_icons (list of metaobjects with title and icon). Nothing is shown if the metafield is empty."
   },
   "html_defaults": {
     "share_information_about_your": "<p>고객과 브랜드에 대한 정보를 공유하세요. 제품을 설명하거나, 공지 사항을 알리거나, 스토어를 방문하는 고객을 환영할 수 있습니다.</p>",

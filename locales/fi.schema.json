@@ -188,7 +188,8 @@
     "product_hotspots": "Tuotteen hotspotit",
     "hotspot_product": "Hotspot",
     "product_sku": "SKU-koodi",
-    "layered_slideshow": "Kerroksittainen diaesitys"
+    "layered_slideshow": "Kerroksittainen diaesitys",
+    "product_sustainability_icons": "Icons"
   },
   "settings": {
     "alignment": "Tasaus",
@@ -970,7 +971,8 @@
     "resource_reference_product_sku": "Näyttää SKU-koodin päätuotteesta",
     "content_layout": "Sisällön asettelu",
     "mobile_media_1": "Mobiilimedia 1",
-    "utilities": "Aputoiminnot"
+    "utilities": "Aputoiminnot",
+    "resource_reference_product_sustainability_icons": "Shows icons from the product metafield sustainability_icons (list of metaobjects with title and icon). Nothing is shown if the metafield is empty."
   },
   "html_defaults": {
     "share_information_about_your": "<p>Jaa tietoja brändistäsi asiakkaillesi. Kuvaile tuotetta, tee ilmoituksia tai toivota asiakkaat tervetulleiksi kauppaasi.</p>",

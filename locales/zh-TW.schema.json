@@ -188,7 +188,8 @@
     "product_hotspots": "商品熱點",
     "hotspot_product": "熱點",
     "product_sku": "存貨單位 (SKU)",
-    "layered_slideshow": "分層輪播"
+    "layered_slideshow": "分層輪播",
+    "product_sustainability_icons": "Icons"
   },
   "settings": {
     "alignment": "對齊",
@@ -970,7 +971,8 @@
     "resource_reference_product_sku": "顯示父商品的存貨單位 (SKU)",
     "content_layout": "內容版面配置",
     "mobile_media_1": "行動裝置用多媒體檔案 1",
-    "utilities": "公用程式"
+    "utilities": "公用程式",
+    "resource_reference_product_sustainability_icons": "Shows icons from the product metafield sustainability_icons (list of metaobjects with title and icon). Nothing is shown if the metafield is empty."
   },
   "html_defaults": {
     "share_information_about_your": "<p>向顧客分享您的品牌故事。可用來敘述產品、發布公告，或歡迎顧客造訪您的商店。</p>",

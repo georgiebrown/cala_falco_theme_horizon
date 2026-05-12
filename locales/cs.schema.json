@@ -188,7 +188,8 @@
     "product_hotspots": "Hotspoty produktu",
     "hotspot_product": "Hotspot",
     "product_sku": "SKU",
-    "layered_slideshow": "Vrstvená prezentace"
+    "layered_slideshow": "Vrstvená prezentace",
+    "product_sustainability_icons": "Icons"
   },
   "settings": {
     "alignment": "Zarovnání",
@@ -970,7 +971,8 @@
     "resource_reference_product_sku": "Zobrazuje SKU nadřazeného produktu",
     "content_layout": "Rozvržení obsahu",
     "mobile_media_1": "Mobilní média 1",
-    "utilities": "Nástroje"
+    "utilities": "Nástroje",
+    "resource_reference_product_sustainability_icons": "Shows icons from the product metafield sustainability_icons (list of metaobjects with title and icon). Nothing is shown if the metafield is empty."
   },
   "html_defaults": {
     "share_information_about_your": "<p>Sdílejte informace o značce se zákazníky. Popište produkt, oznamte novinky nebo přivítejte zákazníky v obchodě.</p>",

@@ -188,7 +188,8 @@
     "product_hotspots": "产品热点",
     "hotspot_product": "热点",
     "product_sku": "SKU",
-    "layered_slideshow": "分层幻灯片"
+    "layered_slideshow": "分层幻灯片",
+    "product_sustainability_icons": "Icons"
   },
   "settings": {
     "alignment": "对齐方式",
@@ -970,7 +971,8 @@
     "resource_reference_product_sku": "显示主产品的 SKU",
     "content_layout": "内容布局",
     "mobile_media_1": "移动版媒体文件 1",
-    "utilities": "实用工具"
+    "utilities": "实用工具",
+    "resource_reference_product_sustainability_icons": "Shows icons from the product metafield sustainability_icons (list of metaobjects with title and icon). Nothing is shown if the metafield is empty."
   },
   "html_defaults": {
     "share_information_about_your": "<p>与您的客户分享有关您品牌的信息。描述产品、发布公告或欢迎客户光临您的商店。</p>",

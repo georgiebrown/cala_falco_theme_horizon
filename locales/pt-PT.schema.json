@@ -188,7 +188,8 @@
     "product_hotspots": "Pontos de interesse do produto",
     "hotspot_product": "Ponto de interesse",
     "product_sku": "SKU",
-    "layered_slideshow": "Apresentação em camadas"
+    "layered_slideshow": "Apresentação em camadas",
+    "product_sustainability_icons": "Icons"
   },
   "settings": {
     "alignment": "Alinhamento",
@@ -970,7 +971,8 @@
     "resource_reference_product_sku": "Apresenta o SKU do produto principal",
     "content_layout": "Esquema do conteúdo",
     "mobile_media_1": "Conteúdo multimédia para telemóvel 1",
-    "utilities": "Utilitários"
+    "utilities": "Utilitários",
+    "resource_reference_product_sustainability_icons": "Shows icons from the product metafield sustainability_icons (list of metaobjects with title and icon). Nothing is shown if the metafield is empty."
   },
   "html_defaults": {
     "share_information_about_your": "<p>Partilhe informações sobre a sua marca com os seus clientes. Descreva um produto, faça anúncios ou dê as boas-vindas aos clientes na sua loja.</p>",

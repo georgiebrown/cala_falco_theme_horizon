@@ -188,7 +188,8 @@
     "product_hotspots": "Hotspoty produktowe",
     "hotspot_product": "Hotspot",
     "product_sku": "SKU",
-    "layered_slideshow": "Warstwowy pokaz slajdów"
+    "layered_slideshow": "Warstwowy pokaz slajdów",
+    "product_sustainability_icons": "Icons"
   },
   "settings": {
     "autoplay": "Autoodtwarzanie",
@@ -970,7 +971,8 @@
     "resource_reference_product_sku": "Wyświetla SKU produktu nadrzędnego.",
     "content_layout": "Układ treści",
     "mobile_media_1": "Mobilne multimedia 1",
-    "utilities": "Narzędzia"
+    "utilities": "Narzędzia",
+    "resource_reference_product_sustainability_icons": "Shows icons from the product metafield sustainability_icons (list of metaobjects with title and icon). Nothing is shown if the metafield is empty."
   },
   "html_defaults": {
     "share_information_about_your": "<p>Podziel się informacjami o swojej marce z klientami. Opisz produkt, ogłaszaj nowości lub witaj klientów w swoim sklepie.</p>",
