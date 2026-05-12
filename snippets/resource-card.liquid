@@ -139,7 +139,7 @@
   </div>
 
   <div class="resource-card__content">
-    <p class="resource-card__title{% if style == 'overlay' %} h5{%else %} paragraph{% endif %}">
+    <p class="resource-card__title h5">
       {{- resource.title -}}
     </p>
 
@@ -253,6 +253,10 @@
 
   .resource-card__title.paragraph {
     line-height: 1.3;
+  }
+
+  .resource-card__title.h5{
+    font-size: 1vw;
   }
 
   .resource-card--overlay {
