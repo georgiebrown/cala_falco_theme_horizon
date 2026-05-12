@@ -152,6 +152,18 @@
     margin-inline: auto;
   }
 
+    @media screen and (max-width: 749px) {
+    .section.section--page-width .custom-section-content {
+    max-width: calc(100% - (var(--page-margin)));
+
+  }
+
+    .section.section--small .custom-section-content {
+    max-width: calc(100% - (var(--page-margin) ));
+
+  }
+  }
+
   .custom-section-content--inner-frame {
     position: relative;
     padding: var(--inner-frame-inset, 12px);
