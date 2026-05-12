@@ -419,6 +419,31 @@
                 "accordion_row_dpVC3r",
                 "accordion_row_JXUd7N"
               ]
+            },
+            "product_sustainability_icons_68t4qA": {
+              "type": "product-sustainability-icons",
+              "name": "t:names.product_sustainability_icons",
+              "settings": {
+                "padding-block-start": 8,
+                "padding-block-end": 8,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "cala_falco_way_cyRbmT": {
+              "type": "cala-falco-way",
+              "name": "t:names.cala_falco_way",
+              "settings": {
+                "image": "shopify://shop_images/312312_1.png",
+                "title": "THE CALA FALCÓ WAY",
+                "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>",
+                "padding-block-start": 16,
+                "padding-block-end": 16,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
             }
           },
           "block_order": [
@@ -426,7 +451,9 @@
             "group_icgrde",
             "variant_picker_R3rGDr",
             "buy_buttons_eYQEYi",
-            "accordion_NMd7pE"
+            "accordion_NMd7pE",
+            "product_sustainability_icons_68t4qA",
+            "cala_falco_way_cyRbmT"
           ]
         }
       },
