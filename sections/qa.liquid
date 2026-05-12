@@ -50,23 +50,56 @@
       </div>
     </div>
 
-    <div class="qa__accordion">
+    <div
+      class="qa__accordion accordion accordion--{{ section.id }} accordion--{{ section.settings.accordion_icon | default: 'caret' }} border-style accordion--dividers"
+      style="
+        --summary-font-family: var(--font-h6--family);
+        --summary-font-style: var(--font-h6--style);
+        --summary-font-weight: var(--font-h6--weight);
+        --summary-font-size: var(--font-h6--size);
+        --summary-font-line-height: var(--font-h6--line-height);
+        --summary-font-case: var(--font-h6--case);
+        --border-width: 1px;
+        --border-style: none;
+        --border-color: rgb(var(--color-border-rgb) / 1);
+        --border-radius: 0px;
+      "
+    >
       {% for block in section.blocks %}
-        <details
-          class="qa__item"
-          {% if block.settings.open_by_default and forloop.first %}
-            open
+        <accordion-custom
+          {% if block.settings.open_by_default %}
+            open-by-default-on-desktop
+            open-by-default-on-mobile
           {% endif %}
-          {{ block.shopify_attributes }}
         >
-          <summary class="qa__question">
-            <span>{{ block.settings.question | escape }}</span>
-            <span class="qa__icon" aria-hidden="true"></span>
-          </summary>
-          <div class="qa__answer rte">
-            {{ block.settings.answer }}
-          </div>
-        </details>
+          <details
+            class="details"
+            data-testid="accordion-details"
+            {% if block.settings.open_by_default %}
+              open
+            {% endif %}
+            {{ block.shopify_attributes }}
+          >
+            <summary class="details__header">
+              {% render 'icon-or-image',
+                icon: 'none',
+                image_upload: block.settings.image_upload,
+                width: 20,
+                class_name: 'details__icon'
+              %}
+              {{ block.settings.question | escape }}
+              <span class="svg-wrapper icon-caret icon-animated">
+                {{- 'icon-caret.svg' | inline_asset_content -}}
+              </span>
+              <span class="svg-wrapper icon-plus">
+                {{- 'icon-plus.svg' | inline_asset_content -}}
+              </span>
+            </summary>
+            <div class="details-content">
+              <div class="rte">{{ block.settings.answer }}</div>
+            </div>
+          </details>
+        </accordion-custom>
       {% endfor %}
     </div>
 
@@ -121,7 +154,7 @@
 
   .qa__person-name {
     margin: 1.1rem 0 0;
-    font-size: 1.9rem;
+    font-size: 28px;
     line-height: 1.1;
     font-weight: 400;
     
@@ -132,53 +165,16 @@
     font-size: 0.95rem;
   }
 
-  .qa__accordion {
-    border-top: 1px solid rgb(var(--color-foreground-rgb) / 15%);
-  }
-
-  .qa__item {
-    border-bottom: 1px solid rgb(var(--color-foreground-rgb) / 15%);
-  }
-
-  .qa__question {
-    list-style: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    padding-block: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    font-family: var(--font-h2--family);
-  }
-
-  .qa__question::-webkit-details-marker {
-    display: none;
-  }
-
-  .qa__icon {
-    width: 0.8rem;
-    height: 0.8rem;
-    flex-shrink: 0;
-    border-inline-end: 1.5px solid currentColor;
-    border-bottom: 1.5px solid currentColor;
-    transform: rotate(45deg);
-    transition: transform 180ms ease;
-    margin-inline-end: 0.2rem;
-  }
-
-  details[open] .qa__icon {
-    transform: rotate(225deg);
-  }
-
-  .qa__answer {
-    padding: 0 0 1rem;
+  .qa__accordion .details-content .rte {
     max-width: 60rem;
   }
 
-  .qa__answer p {
-    margin: 0;
+  .qa__accordion .details-content .rte p:first-child {
+    margin-block-start: 0;
+  }
+
+  .qa__accordion .details-content .rte p:last-child {
+    margin-block-end: 0;
   }
 
   .qa__cta-wrap {
@@ -270,6 +266,22 @@
       "default": "scheme-1"
     },
     {
+      "type": "select",
+      "id": "accordion_icon",
+      "label": "t:settings.icon",
+      "options": [
+        {
+          "value": "caret",
+          "label": "t:options.caret"
+        },
+        {
+          "value": "plus",
+          "label": "t:options.plus"
+        }
+      ],
+      "default": "caret"
+    },
+    {
       "type": "header",
       "content": "Spacing"
     },
@@ -312,9 +324,14 @@
           "default": "<p>We start with native botanicals and shape the profile through careful extraction and balancing to build structure and complexity.</p>"
         },
         {
+          "type": "image_picker",
+          "id": "image_upload",
+          "label": "t:settings.image_icon"
+        },
+        {
           "type": "checkbox",
           "id": "open_by_default",
-          "label": "Open first item by default",
+          "label": "t:settings.open_row_by_default",
           "default": false
         }
       ]
