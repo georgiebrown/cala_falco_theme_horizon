@@ -50,7 +50,7 @@
 
       <div class="cala-falco-way__copy">
         {% if has_title %}
-          <h3 class="cala-falco-way__title" id="cala-falco-way-title-{{ block.id }}">
+          <h3 class=" h6" id="cala-falco-way-title-{{ block.id }}">
             {{ title_stripped | escape }}
           </h3>
         {% endif %}
@@ -80,20 +80,11 @@
 
   .cala-falco-way__media {
     flex-shrink: 0;
-    width: 7rem;
-    aspect-ratio: 3 / 4;
-    border-radius: 50%;
+    width: 6rem;
     overflow: hidden;
-    background-color: rgb(var(--color-foreground-rgb) / 0.08);
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-
-  @media screen and (min-width: 750px) {
-    .cala-falco-way__media {
-      width: 8.75rem;
-    }
   }
 
   .cala-falco-way__image {
@@ -109,6 +100,11 @@
     text-align: center;
   }
 
+  .cala-falco-way__copy .h6{
+    font-size: 26px;
+    font-weight: 400;;
+  }
+
   @media screen and (min-width: 750px) {
     .cala-falco-way__copy {
       text-align: start;
@@ -116,23 +112,11 @@
     }
   }
 
-  .cala-falco-way__title {
-    margin: 0 0 0.5rem;
-    font-family: var(--font-heading--family);
-    font-style: var(--font-heading--style);
-    font-weight: var(--font-heading--weight);
-    font-size: clamp(0.8125rem, 0.75rem + 0.35vw, 0.9375rem);
-    line-height: 1.35;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: #3d4a38;
-  }
+
 
   .cala-falco-way__body {
-    margin: 0;
-    font-size: var(--font-paragraph--size);
-    line-height: var(--font-paragraph--line-height);
-    color: rgb(var(--color-foreground-rgb) / 0.88);
+    margin-top: 1rem;
+
   }
 
   .cala-falco-way__body :first-child {
