@@ -252,8 +252,8 @@
         "overlay_color": "#00000026",
         "overlay_style": "solid",
         "gradient_direction": "to top",
-        "padding-block-start": 40,
-        "padding-block-end": 40
+        "padding-block-start": 60,
+        "padding-block-end": 60
       }
     },
     "testimonials_6rfhgc": {
@@ -303,8 +303,8 @@
         "slide_gap": 0,
         "autoplay": false,
         "autoplay_speed": 4,
-        "padding-block-start": 40,
-        "padding-block-end": 40
+        "padding-block-start": 0,
+        "padding-block-end": 0
       }
     },
     "section_9jwXwa": {
@@ -475,8 +475,8 @@
         "overlay_color": "#00000026",
         "overlay_style": "solid",
         "gradient_direction": "to top",
-        "padding-block-start": 40,
-        "padding-block-end": 40
+        "padding-block-start": 60,
+        "padding-block-end": 60
       }
     },
     "ingredients_q6pchk": {
@@ -731,8 +731,8 @@
         "description": "<p>All ingredients are 100% natural, organically grown or sourced from the Cala Falcó estate.</p>",
         "section_width": "page-width",
         "color_scheme": "",
-        "padding-block-start": 56,
-        "padding-block-end": 56
+        "padding-block-start": 60,
+        "padding-block-end": 60
       }
     },
     "qa_6BbQ94": {
@@ -780,8 +780,8 @@
         "button_link": "shopify://collections/shop-all",
         "section_width": "page-width",
         "color_scheme": "",
-        "padding-block-start": 0,
-        "padding-block-end": 56
+        "padding-block-start": 60,
+        "padding-block-end": 60
       }
     },
     "column_callouts_qDgchW": {
