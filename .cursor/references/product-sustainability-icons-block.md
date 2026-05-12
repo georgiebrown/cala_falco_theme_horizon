@@ -13,6 +13,7 @@ PDP block type: `product-sustainability-icons` (`blocks/product-sustainability-i
 
 - On the storefront, an empty metafield yields no output (by design).
 - When `request.design_mode` or `request.visual_preview_mode` is true and there is nothing to render, the block still outputs a **placeholder row** (sample labels + dashed circles) and **`content.sustainability_icons_editor_hint`** so the layout is visible and the block stays easy to select in the product details column.
+- **Editor picker:** the block must define at least one **`presets`** entry in its schema (see Shopify theme block presets); otherwise it does not appear under Add block.
 
 ## Merch
 

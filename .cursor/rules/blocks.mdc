@@ -118,6 +118,10 @@ Static blocks are theme blocks that are rendered directly in Liquid templates by
 
 See [schemas.mdc](mdc:.cursor/rules/schemas.mdc) for rules on schemas
 
+### Presets and the Add block picker
+
+Per [Shopify block schema: presets](https://shopify.dev/docs/storefronts/themes/architecture/blocks/theme-blocks/schema#presets), **presets are what appear in the theme editor Add block list** for theme blocks. If a block has no `presets` array (or it is empty), merchants typically **cannot select it** when adding blocks—even when the parent schema lists the block `type` explicitly (for example on `blocks/_product-details.liquid`) or when the parent only exposes `{"type": "@theme"}` (for example inside `blocks/group.liquid`). Always ship at least one preset with a `name` (use `t:names...` for translation) and optionally `category` (for example `t:categories.product`).
+
 ### Advanced Schema Features
 
 #### Exclude wrapper
