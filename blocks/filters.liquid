@@ -78,9 +78,6 @@
       class="facets facets--horizontal facets-controls-wrapper spacing-style"
       style="{% render 'spacing-style', settings: block_settings %}{% if block_settings.text_label_case == 'uppercase' %} --facet-label-transform: uppercase;{% endif %}"
     >
-      {% if block_settings.enable_filtering %}
-        <h4 class="facets--filters-title">{{ 'content.filters' | t }}</h4>
-      {% endif %}
 
       <div
         class="products-count-wrapper"
@@ -813,7 +810,7 @@
       --variant-picker-swatch-height: 26px;
     }
 
-    font-size: var(--font-h5--size);
+    font-size: 18px;
     display: flex;
     justify-content: space-between;
 

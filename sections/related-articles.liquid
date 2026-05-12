@@ -45,7 +45,7 @@
   >
     <div class="related-articles__inner">
       {% if section.settings.heading != blank %}
-        <h2 class="related-articles__heading">{{ section.settings.heading }}</h2>
+        <h2 class="related-articles__heading h5">{{ section.settings.heading }}</h2>
       {% endif %}
 
       <a class="related-articles__card" href="{{ related_article.url }}">
@@ -67,7 +67,7 @@
           <p class="related-articles__title">{{ related_article.title }}</p>
           <span class=" button">
             {{- section.settings.button_label -}}
-            <span aria-hidden="true"> &rarr;</span>
+           
           </span>
         </div>
       </a>
@@ -104,9 +104,7 @@
   }
 
   .related-articles__media {
-    border-radius: var(--style-border-radius-inputs);
     overflow: hidden;
-    border: var(--style-border-width) solid rgb(var(--color-foreground-rgb) / var(--opacity-10-25));
   }
 
   .related-articles__image {
@@ -115,6 +113,9 @@
     object-fit: cover;
     aspect-ratio: 16 / 9;
     display: block;
+    border-radius: 16px;
+    border: 1px solid  rgb(var(--color-foreground-rgb) / var(--opacity-10-25));;
+    padding: 0.5rem;
   }
 
   .related-articles__content {
@@ -125,10 +126,10 @@
 
   .related-articles__title {
     margin: 0;
-    text-decoration: underline;
     text-underline-offset: 0.2em;
     text-transform: uppercase;
     letter-spacing: 0.04em;
+        font-family: var(--font-h2--family);
   }
 
   .related-articles__button {

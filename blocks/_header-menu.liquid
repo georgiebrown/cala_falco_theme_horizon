@@ -695,23 +695,73 @@
     min-width: 0;
   }
 
-  .mega-menu-featured-collections .resource-card {
-    --resource-card-corner-radius: var(--menu-image-border-radius);
+  /* Mega menu resource cards: flow layout (no absolute overlay link), 16px image radius, titles wrap */
+  .mega-menu .resource-card {
+    --resource-card-corner-radius: 16px;
+
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    min-width: 0;
+    height: auto;
   }
 
-  .mega-menu-featured-collections .resource-card__media {
-    border-radius: max(var(--menu-image-border-radius), 12px);
+  .mega-menu .resource-card__link {
+    position: static;
+    grid-column: 1;
+    grid-row: 1 / -1;
+    z-index: 2;
+    align-self: stretch;
+    justify-self: stretch;
+    display: block;
+    min-height: 100%;
+  }
+
+  .mega-menu .resource-card__media {
+    position: relative;
+    grid-column: 1;
+    grid-row: 1;
+    z-index: 0;
+    min-width: 0;
+    border-radius: 16px;
     overflow: hidden;
+  }
+
+  .mega-menu .resource-card__content {
+    grid-column: 1;
+    grid-row: 2;
+    position: relative;
+    z-index: 1;
+    min-width: 0;
+    padding-block-start: var(--padding-xs);
+  }
+
+  .mega-menu .resource-card__title {
+    display: block;
+    line-clamp: unset;
+    -webkit-line-clamp: unset;
+    -webkit-box-orient: unset;
+    overflow: visible;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    hyphens: auto;
+  }
+
+  .mega-menu .resource-card__image,
+  .mega-menu .resource-card__image-placeholder,
+  .mega-menu .resource-card__collection-image {
+    border-radius: 16px;
+  }
+
+  .mega-menu .resource-card__image--secondary {
+    position: absolute;
+    inset: 0;
   }
 
   .mega-menu-featured-collections .resource-card__image {
     aspect-ratio: 4 / 5;
     object-fit: cover;
-    border-radius: max(var(--menu-image-border-radius), 12px);
-  }
-
-  .mega-menu-featured-collections .resource-card--overlay::before {
-    border-radius: max(var(--menu-image-border-radius), 12px);
   }
 
   .mega-menu__content-list {
@@ -729,10 +779,10 @@
   }
 
   .mega-menu__content-list--collections {
-    grid-template-columns: repeat(var(--menu-content-columns-tablet), minmax(0, 300px));
+    grid-template-columns: repeat(var(--menu-content-columns-tablet), minmax(0, 1fr));
 
     @media screen and (min-width: 990px) {
-      grid-template-columns: repeat(var(--menu-content-columns-desktop), minmax(0, 300px));
+      grid-template-columns: repeat(var(--menu-content-columns-desktop), minmax(0, 1fr));
     }
   }
 
