@@ -82,8 +82,8 @@
     "variant_swatch_height": 34,
     "variant_swatch_radius": 32,
     "variant_button_border_width": 1,
-    "variant_button_radius": 14,
-    "variant_button_width": "equal-width-buttons",
+    "variant_button_radius": 100,
+    "variant_button_width": "default-width-buttons",
     "button_font_weight_secondary": "default",
     "content_for_index": [],
     "color_schemes": {
@@ -112,18 +112,18 @@
           "input_text_color": "#333333",
           "input_border_color": "#dfdfdf",
           "input_hover_background": "#00000003",
-          "variant_background_color": "#ffffff",
-          "variant_text_color": "#000000",
-          "variant_border_color": "#00000021",
-          "variant_hover_background_color": "#f5f5f5",
-          "variant_hover_text_color": "#000000",
-          "variant_hover_border_color": "#e6e6e6",
-          "selected_variant_background_color": "#000000",
-          "selected_variant_text_color": "#ffffff",
-          "selected_variant_border_color": "#000000",
-          "selected_variant_hover_background_color": "#1a1a1a",
+          "variant_background_color": "#fbfbf8",
+          "variant_text_color": "#c4c4c4",
+          "variant_border_color": "#c4c4c4",
+          "variant_hover_background_color": "#fbfbf8",
+          "variant_hover_text_color": "#31331d",
+          "variant_hover_border_color": "#31331d",
+          "selected_variant_background_color": "#fbfbf8",
+          "selected_variant_text_color": "#31331d",
+          "selected_variant_border_color": "#31331d",
+          "selected_variant_hover_background_color": "#31331d",
           "selected_variant_hover_text_color": "#ffffff",
-          "selected_variant_hover_border_color": "#1a1a1a"
+          "selected_variant_hover_border_color": "#31331d"
         }
       },
       "scheme-cfa9c273-456f-45a2-b18d-d73976dc71f5": {
@@ -362,7 +362,7 @@
       },
       "scheme-650d1f36-fda5-4a69-a362-ec939947acc1": {
         "settings": {
-          "background": "#d3a18858",
+          "background": "#d3a18859",
           "foreground_heading": "#31331d",
           "foreground": "#31331d",
           "primary": "#000000cf",
