@@ -760,7 +760,7 @@ p:empty {
 }
 
 .icon-default {
-  fill: currentColor;
+  fill: #31331D;
 }
 
 [data-placeholder='true'] * {
