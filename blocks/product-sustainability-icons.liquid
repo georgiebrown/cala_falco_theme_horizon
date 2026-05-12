@@ -13,6 +13,13 @@
       endif
     endfor
   endif
+
+  assign show_editor_placeholder = false
+  if request.design_mode or request.visual_preview_mode
+    unless has_renderable
+      assign show_editor_placeholder = true
+    endunless
+  endif
 -%}
 
 {% if has_renderable %}
@@ -50,6 +57,66 @@
           </li>
         {%- endif -%}
       {%- endfor -%}
+    </ul>
+  </div>
+{% elsif show_editor_placeholder %}
+  <div
+    class="product-sustainability-icons product-sustainability-icons--editor-placeholder spacing-style"
+    style="{% render 'spacing-style', settings: block_settings %}"
+    role="region"
+    aria-labelledby="SustainabilityIconsEditorHint-{{ block.id }}"
+    {{ block.shopify_attributes }}
+  >
+    <p
+      class="product-sustainability-icons__editor-hint"
+      id="SustainabilityIconsEditorHint-{{ block.id }}"
+    >
+      {{ 'content.sustainability_icons_editor_hint' | t }}
+    </p>
+    <ul
+      class="product-sustainability-icons__list"
+      aria-hidden="true"
+    >
+      <li class="product-sustainability-icons__item">
+        <div class="product-sustainability-icons__circle product-sustainability-icons__circle--placeholder">
+          <span class="svg-wrapper product-sustainability-icons__placeholder-icon" aria-hidden="true">
+            {{- 'icon-info.svg' | inline_asset_content -}}
+          </span>
+        </div>
+        <p class="product-sustainability-icons__label product-sustainability-icons__label--muted">
+          {{ 'content.sustainability_icons_preview_1' | t }}
+        </p>
+      </li>
+      <li class="product-sustainability-icons__item">
+        <div class="product-sustainability-icons__circle product-sustainability-icons__circle--placeholder">
+          <span class="svg-wrapper product-sustainability-icons__placeholder-icon" aria-hidden="true">
+            {{- 'icon-info.svg' | inline_asset_content -}}
+          </span>
+        </div>
+        <p class="product-sustainability-icons__label product-sustainability-icons__label--muted">
+          {{ 'content.sustainability_icons_preview_2' | t }}
+        </p>
+      </li>
+      <li class="product-sustainability-icons__item">
+        <div class="product-sustainability-icons__circle product-sustainability-icons__circle--placeholder">
+          <span class="svg-wrapper product-sustainability-icons__placeholder-icon" aria-hidden="true">
+            {{- 'icon-info.svg' | inline_asset_content -}}
+          </span>
+        </div>
+        <p class="product-sustainability-icons__label product-sustainability-icons__label--muted">
+          {{ 'content.sustainability_icons_preview_3' | t }}
+        </p>
+      </li>
+      <li class="product-sustainability-icons__item">
+        <div class="product-sustainability-icons__circle product-sustainability-icons__circle--placeholder">
+          <span class="svg-wrapper product-sustainability-icons__placeholder-icon" aria-hidden="true">
+            {{- 'icon-info.svg' | inline_asset_content -}}
+          </span>
+        </div>
+        <p class="product-sustainability-icons__label product-sustainability-icons__label--muted">
+          {{ 'content.sustainability_icons_preview_4' | t }}
+        </p>
+      </li>
     </ul>
   </div>
 {% endif %}
@@ -118,6 +185,39 @@
     font-size: min(0.875rem, var(--font-paragraph--size));
     line-height: var(--font-paragraph--line-height);
     color: rgb(var(--color-foreground-rgb) / 0.85);
+  }
+
+  .product-sustainability-icons__editor-hint {
+    margin: 0 0 0.75rem;
+    font-size: min(0.8125rem, var(--font-paragraph--size));
+    line-height: var(--font-paragraph--line-height);
+    color: rgb(var(--color-foreground-rgb) / 0.65);
+    text-align: center;
+  }
+
+  .product-sustainability-icons--editor-placeholder .product-sustainability-icons__list {
+    opacity: 0.72;
+  }
+
+  .product-sustainability-icons__circle--placeholder {
+    border: 1px dashed rgb(var(--color-foreground-rgb) / 0.22);
+    background-color: rgb(var(--color-foreground-rgb) / 0.04);
+  }
+
+  .product-sustainability-icons__placeholder-icon {
+    display: flex;
+    width: 40%;
+    height: 40%;
+    color: rgb(var(--color-foreground-rgb) / 0.35);
+  }
+
+  .product-sustainability-icons__placeholder-icon svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .product-sustainability-icons__label--muted {
+    color: rgb(var(--color-foreground-rgb) / 0.55);
   }
 {% endstylesheet %}
 

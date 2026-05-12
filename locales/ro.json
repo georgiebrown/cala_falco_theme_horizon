@@ -68,7 +68,8 @@
     "open_hotspot": "Pornește hotspot",
     "slideshow": "Prezentare de diapozitive",
     "header_navigation_label": "principală",
-    "sustainability_icons": "Sustainability highlights"
+    "sustainability_icons": "Sustainability highlights",
+    "cala_falco_way": "The Cala Falco Way"
   },
   "actions": {
     "add_to_cart": "Adaugă în coș",
@@ -269,7 +270,12 @@
       "other": "{{ count }} articole au fost adăugate în coș",
       "few": "{{ count }} articole au fost adăugate în coș"
     },
-    "item_count_cutoff": "Peste {{ count }} articole"
+    "item_count_cutoff": "Peste {{ count }} articole",
+    "sustainability_icons_editor_hint": "Icons load from the product metafield sustainability_icons (list of metaobjects). This preview appears in the theme editor until that metafield has entries with a title and icon on this product.",
+    "sustainability_icons_preview_1": "Eco friendly",
+    "sustainability_icons_preview_2": "Recyclable",
+    "sustainability_icons_preview_3": "Charity",
+    "sustainability_icons_preview_4": "Local"
   },
   "gift_cards": {
     "issued": {

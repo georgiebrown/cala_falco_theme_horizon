@@ -67,7 +67,8 @@
     "open_hotspot": "ホットスポットを開く",
     "slideshow": "スライドショー",
     "header_navigation_label": "プライマリー",
-    "sustainability_icons": "Sustainability highlights"
+    "sustainability_icons": "Sustainability highlights",
+    "cala_falco_way": "The Cala Falco Way"
   },
   "actions": {
     "add_to_cart": "カートに追加",
@@ -263,7 +264,12 @@
     "items_added_to_cart": {
       "one": "1個のアイテムがカートに追加されました",
       "other": "{{ count }}個のアイテムがカートに追加されました"
-    }
+    },
+    "sustainability_icons_editor_hint": "Icons load from the product metafield sustainability_icons (list of metaobjects). This preview appears in the theme editor until that metafield has entries with a title and icon on this product.",
+    "sustainability_icons_preview_1": "Eco friendly",
+    "sustainability_icons_preview_2": "Recyclable",
+    "sustainability_icons_preview_3": "Charity",
+    "sustainability_icons_preview_4": "Local"
   },
   "gift_cards": {
     "issued": {

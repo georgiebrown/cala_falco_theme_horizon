@@ -1,0 +1,214 @@
+{%- liquid
+  assign s = block.settings
+  assign title_stripped = s.title | strip
+  assign body_stripped = s.text | strip_html | strip
+  assign has_image = false
+  assign has_title = false
+  assign has_body = false
+  if s.image
+    assign has_image = true
+  endif
+  if title_stripped != blank
+    assign has_title = true
+  endif
+  if body_stripped != blank
+    assign has_body = true
+  endif
+  assign has_content = false
+  if has_image or has_title or has_body
+    assign has_content = true
+  endif
+-%}
+
+{% if has_content %}
+  <div
+    class="cala-falco-way spacing-style"
+    style="{% render 'spacing-style', settings: s %}"
+    role="region"
+    {% if has_title %}
+      aria-labelledby="cala-falco-way-title-{{ block.id }}"
+    {% else %}
+      aria-label="{{ 'accessibility.cala_falco_way' | t }}"
+    {% endif %}
+    {{ block.shopify_attributes }}
+  >
+    <div class="cala-falco-way__row">
+      {% if has_image %}
+        <div class="cala-falco-way__media">
+          {{
+            s.image
+            | image_url: width: 480
+            | image_tag:
+              widths: '120, 180, 240, 360, 480',
+              sizes: '(min-width: 750px) 140px, 112px',
+              class: 'cala-falco-way__image',
+              loading: 'lazy',
+              alt: s.image.alt | default: title_stripped | default: shop.name | escape
+          }}
+        </div>
+      {% endif %}
+
+      <div class="cala-falco-way__copy">
+        {% if has_title %}
+          <h3 class="cala-falco-way__title" id="cala-falco-way-title-{{ block.id }}">
+            {{ title_stripped | escape }}
+          </h3>
+        {% endif %}
+        {% if has_body %}
+          <div class="cala-falco-way__body rte">{{ s.text }}</div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+{% endif %}
+
+{% stylesheet %}
+  .cala-falco-way__row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+  }
+
+  @media screen and (min-width: 750px) {
+    .cala-falco-way__row {
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 1.75rem;
+    }
+  }
+
+  .cala-falco-way__media {
+    flex-shrink: 0;
+    width: 7rem;
+    aspect-ratio: 3 / 4;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: rgb(var(--color-foreground-rgb) / 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @media screen and (min-width: 750px) {
+    .cala-falco-way__media {
+      width: 8.75rem;
+    }
+  }
+
+  .cala-falco-way__image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+  }
+
+  .cala-falco-way__copy {
+    flex: 1;
+    min-width: 0;
+    text-align: center;
+  }
+
+  @media screen and (min-width: 750px) {
+    .cala-falco-way__copy {
+      text-align: start;
+      padding-block-start: 0.25rem;
+    }
+  }
+
+  .cala-falco-way__title {
+    margin: 0 0 0.5rem;
+    font-family: var(--font-heading--family);
+    font-style: var(--font-heading--style);
+    font-weight: var(--font-heading--weight);
+    font-size: clamp(0.8125rem, 0.75rem + 0.35vw, 0.9375rem);
+    line-height: 1.35;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #3d4a38;
+  }
+
+  .cala-falco-way__body {
+    margin: 0;
+    font-size: var(--font-paragraph--size);
+    line-height: var(--font-paragraph--line-height);
+    color: rgb(var(--color-foreground-rgb) / 0.88);
+  }
+
+  .cala-falco-way__body :first-child {
+    margin-top: 0;
+  }
+
+  .cala-falco-way__body :last-child {
+    margin-bottom: 0;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:names.cala_falco_way",
+  "tag": null,
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:settings.image"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "t:settings.heading",
+      "default": "THE CALA FALCÓ WAY"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "t:settings.text"
+    },
+    {
+      "type": "header",
+      "content": "t:content.padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "t:settings.top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "t:settings.bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-start",
+      "label": "t:settings.left",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-end",
+      "label": "t:settings.right",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    }
+  ]
+}
+{% endschema %}
