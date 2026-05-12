@@ -174,7 +174,7 @@
               "settings": {
                 "text": "<p>Crafted from Organic Botanicals of a Mallorcan Spring Harvest. We invite you to reconnect with nature and awaken your senses.</p>",
                 "width": "fit-content",
-                "max_width": "narrow",
+                "max_width": "none",
                 "alignment": "left",
                 "type_preset": "rte",
                 "font": "var(--font-body--family)",
@@ -398,7 +398,7 @@
               "settings": {
                 "text": "<p>We recommend serving it in a number of ways depending on the moment:<br/><br/></p><ul><li>As a botanical wine in a Josephine wine glass.</li><li>Sipping as an aperitivo from a martini glass.</li><li>Carbonating it for spritz in a tall glass.</li><li>Just make sure it’s chilled and don’t dilute. Please.</li></ul>",
                 "width": "fit-content",
-                "max_width": "narrow",
+                "max_width": "none",
                 "alignment": "left",
                 "type_preset": "rte",
                 "font": "var(--font-body--family)",
@@ -587,7 +587,7 @@
               "settings": {
                 "text": "<p>A revitalising  and aromatic beverage with citrus and herbal nuances, complemented by  mineral-rich marine notes. The sweetness of honey balances the subtle  brininess, while rosemary adds a crisp, woody finish.</p>",
                 "width": "fit-content",
-                "max_width": "narrow",
+                "max_width": "none",
                 "alignment": "left",
                 "type_preset": "rte",
                 "font": "var(--font-body--family)",
