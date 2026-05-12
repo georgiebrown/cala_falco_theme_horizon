@@ -424,7 +424,7 @@
               "type": "product-sustainability-icons",
               "name": "t:names.product_sustainability_icons",
               "settings": {
-                "padding-block-start": 8,
+                "padding-block-start": 24,
                 "padding-block-end": 8,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
