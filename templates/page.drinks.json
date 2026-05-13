@@ -490,6 +490,14 @@
             "image": "shopify://shop_images/6886308d49247233db8c1cb0_HONEY_ILLUSTRATION-p-500_1.png"
           }
         },
+        "ingredient_Jd3mmW": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Mediterranean Sea Water",
+            "description": "<p>Renowned for its ability to restore the body's homeostasis, addressing imbalances that contribute to various pathologies.</p>",
+            "image": "shopify://shop_images/68c9b40545040b9db7dee7f2_SEA_POLAROID3.png"
+          }
+        },
         "ingredient_9FDRzw": {
           "type": "ingredient",
           "settings": {
@@ -501,6 +509,7 @@
       },
       "block_order": [
         "ingredient_mAx4gW",
+        "ingredient_Jd3mmW",
         "ingredient_9FDRzw"
       ],
       "name": "Ingredients",
