@@ -542,7 +542,7 @@
               "settings": {
                 "text": "{{ closest.product.metafields.custom.directions | metafield_tag }}",
                 "width": "fit-content",
-                "max_width": "narrow",
+                "max_width": "none",
                 "alignment": "left",
                 "type_preset": "rte",
                 "font": "var(--font-body--family)",
