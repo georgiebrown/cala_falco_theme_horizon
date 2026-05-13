@@ -3,7 +3,7 @@
   assign use_inverse_logo = false
 
   if section.settings.enable_transparent_header_home and section.settings.home_color_scheme == 'inverse'
-    if template.name == 'index' or template.name == 'blog' or template.name == 'article'
+    if template.name == 'index' or template.name == 'blog'
       assign use_inverse_logo = true
     endif
   endif
