@@ -190,7 +190,7 @@
       "name": "t:names.footer",
       "settings": {
         "section_width": "page-width",
-        "gap": 100,
+        "gap": 60,
         "color_scheme": "scheme-cfa9c273-456f-45a2-b18d-d73976dc71f5",
         "footer_logo": "shopify://shop_images/Frame_1.jpg",
         "footer_link_source": "menu",
