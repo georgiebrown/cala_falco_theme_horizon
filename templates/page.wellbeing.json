@@ -1691,15 +1691,15 @@
                 "heading": "What types of ingredients are used in the Cala Falcó Collection?",
                 "open_by_default": true,
                 "icon": "none",
-                "width": 20
+                "width": 200
               },
               "blocks": {
                 "text_eCzNhx": {
                   "type": "text",
                   "settings": {
-                    "text": "",
+                    "text": "<p>The Cala Falcó Collection is crafted using premium natural ingredients, such as essential oils, botanical extracts, and Mediterranean herbs. You’ll find ingredients like lavender, rosemary, almond oil, and citrus fruits, all selected for their mood-enhancing and skin-nourishing properties​.</p>",
                     "width": "100%",
-                    "max_width": "normal",
+                    "max_width": "none",
                     "alignment": "left",
                     "type_preset": "rte",
                     "font": "var(--font-body--family)",
@@ -1736,9 +1736,9 @@
                 "text_cLHenE": {
                   "type": "text",
                   "settings": {
-                    "text": "",
+                    "text": "<p>Our collections are designed to influence emotions and mental states through aromachology. By using ingredients known for their calming, energizing, or balancing effects, such as lavender, bergamot, and mint, our perfumes, diffusers, and candles help you create an atmosphere that suits your mood.​</p>",
                     "width": "100%",
-                    "max_width": "normal",
+                    "max_width": "none",
                     "alignment": "left",
                     "type_preset": "rte",
                     "font": "var(--font-body--family)",
@@ -1779,7 +1779,7 @@
                   "settings": {
                     "text": "<p>We focus on sustainable sourcing for our natural ingredients, ensuring that our products are both luxurious and environmentally conscious. Our eco-friendly packaging and commitment to biodegradable surfactants reflect our dedication to minimising environmental impact​.</p>",
                     "width": "100%",
-                    "max_width": "normal",
+                    "max_width": "none",
                     "alignment": "left",
                     "type_preset": "rte",
                     "font": "var(--font-body--family)",
@@ -1818,9 +1818,9 @@
                   "type": "text",
                   "name": "t:names.text",
                   "settings": {
-                    "text": "",
+                    "text": "<p>Yes, each product is meticulously handcrafted in small batches. This artisanal approach ensures that every fragrance, cosmetic, and diffuser is made with care and precision, resulting in a unique, high-quality experience​.</p>",
                     "width": "100%",
-                    "max_width": "normal",
+                    "max_width": "none",
                     "alignment": "left",
                     "type_preset": "rte",
                     "font": "var(--font-body--family)",
@@ -1859,9 +1859,9 @@
                   "type": "text",
                   "name": "t:names.text",
                   "settings": {
-                    "text": "",
+                    "text": "<p>Whether you're looking for a calming, invigorating, or balancing effect, our collections are designed with mood programming in mind. Explore our descriptions to find the right combination of scents and ingredients to match your desired experience​.</p>",
                     "width": "100%",
-                    "max_width": "normal",
+                    "max_width": "none",
                     "alignment": "left",
                     "type_preset": "rte",
                     "font": "var(--font-body--family)",
@@ -1900,9 +1900,9 @@
                   "type": "text",
                   "name": "t:names.text",
                   "settings": {
-                    "text": "",
+                    "text": "<p>We recommend storing your Cala Falcó Collection products in a cool, dry place away from direct sunlight to preserve the potency of the natural ingredients and extend their shelf life​.</p>",
                     "width": "100%",
-                    "max_width": "normal",
+                    "max_width": "none",
                     "alignment": "left",
                     "type_preset": "rte",
                     "font": "var(--font-body--family)",
@@ -1941,9 +1941,9 @@
                   "type": "text",
                   "name": "t:names.text",
                   "settings": {
-                    "text": "",
+                    "text": "<p>Absolutely! Our Cala Falcó Collection is designed to complement each other. You can layer perfumes, or use diffusers and candles together to create a personalised aromatic experience that enhances your mood and ambiance​.</p>",
                     "width": "100%",
-                    "max_width": "normal",
+                    "max_width": "none",
                     "alignment": "left",
                     "type_preset": "rte",
                     "font": "var(--font-body--family)",
