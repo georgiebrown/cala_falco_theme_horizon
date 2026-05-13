@@ -498,19 +498,37 @@
             "image": "shopify://shop_images/68c9b40545040b9db7dee7f2_SEA_POLAROID3.png"
           }
         },
+        "ingredient_KAEphE": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Mastic Pistacia Lentiscus",
+            "description": "<p>A bioactive resin with antibacterial, antiseptic, and wound-healing  capabilities, it further supports emotional well-being through its  aromachological benefits, acting as a natural stimulant with uplifting  and mood-enhancing effects that promote vitality.</p>",
+            "image": "shopify://shop_images/68861fa4192044cdab14729f_MASTIC_ILLUSTRATION.png"
+          }
+        },
         "ingredient_9FDRzw": {
           "type": "ingredient",
           "settings": {
-            "title": "Lemon",
-            "description": "",
+            "title": "Citrus Lemon",
+            "description": "<p>A natural source of diuretic, purifying, antioxidant, and bacteriostatic properties. </p>",
             "image": "shopify://shop_images/68861fa4ad2c5c0d13872c0c_LEMON_ILLUSTRATION-p-500_1.png"
+          }
+        },
+        "ingredient_cgYxRR": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Rosemary Salvia rosmarinus",
+            "description": "<p>Known as the “Mediterranean Ginseng,” this adaptogenic plant offers potent  anti-aging effects, enhancing joint, muscle, and skin health. Improves  memory and focus. Respiratory benefits, particularly in addressing  congestion and liver care.</p>",
+            "image": "shopify://shop_images/68861fa431a371dd91d95772_ROSEMARY_ILLUSTRATION.png"
           }
         }
       },
       "block_order": [
         "ingredient_mAx4gW",
         "ingredient_Jd3mmW",
-        "ingredient_9FDRzw"
+        "ingredient_KAEphE",
+        "ingredient_9FDRzw",
+        "ingredient_cgYxRR"
       ],
       "name": "Ingredients",
       "settings": {
