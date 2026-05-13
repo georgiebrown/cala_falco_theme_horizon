@@ -742,15 +742,15 @@
           "type": "qa_item",
           "settings": {
             "question": "What inspired you to create this aperitivo?",
-            "answer": "<p>We start with native botanicals and shape the profile through careful extraction and balancing to build structure and complexity.</p>",
-            "open_by_default": false
+            "answer": "<p>The idea came from wanting a drink that carries the same sense of ritual and complexity as a classic Aperitivo, but without alcohol. Botanicals have been used for centuries to bring flavour, aroma and balance to drinks, so I started experimenting with plants that naturally offer bitterness, brightness and depth. The goal was to create something exciting and layered with complexity, a drink that feels just as intentional and celebratory as any traditional aperitif.</p>",
+            "open_by_default": true
           }
         },
         "qa_item_CQ6nEX": {
           "type": "qa_item",
           "settings": {
             "question": "How do you choose the botanicals that go into a Cala Falcó drink?",
-            "answer": "<p>We start with native botanicals and shape the profile through careful extraction and balancing to build structure and complexity.</p>",
+            "answer": "<p>Each botanical is chosen for both its flavour and its natural character. Some bring gentle bitterness, others subtle sweetness or a citrus lift, herbal warmth or floral softness. I spend a lot of time tasting individual extracts and infusions before combining them in small batches. It’s a bit like composing a piece of music every ingredient needs to play its role while leaving space for the others. The result is a balanced profile where nothing dominates but everything contributes.</p>",
             "open_by_default": false
           }
         },
@@ -759,7 +759,7 @@
           "settings": {
             "question": "What makes crafting a non-alcoholic aperitivo different?",
             "answer": "<p>Alcohol naturally carries flavour and gives structure, so without it you have to build that depth in other ways. That means working carefully with extraction methods, infusion times and the balance of botanicals to create texture, length and complexity. It’s a slower, more deliberate process, but it’s also incredibly rewarding. When the balance is right, you get a drink that feels vibrant, layered and alive with the character of the plants themselves.</p>",
-            "open_by_default": true
+            "open_by_default": false
           }
         }
       },
@@ -780,6 +780,7 @@
         "button_link": "shopify://collections/shop-all",
         "section_width": "page-width",
         "color_scheme": "",
+        "accordion_icon": "caret",
         "padding-block-start": 60,
         "padding-block-end": 60
       }
