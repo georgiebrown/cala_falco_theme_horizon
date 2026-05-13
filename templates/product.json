@@ -773,55 +773,55 @@
         "padding-block-end": 48
       }
     },
-    "testimonials_nh6zHB": {
+    "testimonials_bb7RDm": {
       "type": "testimonials",
       "blocks": {
-        "testimonial_np63Kb": {
+        "testimonial_Rp8a6a": {
           "type": "testimonial",
           "settings": {
-            "quote_short": "<p>Cala Falco is a refined, nuanced non-alcoholic aperitivo, crafted with  passion, exclusivity and remarkable botanical complexity.\"</p>",
-            "quote_full": "<p>Cala Falco is a refined, nuanced non-alcoholic aperitivo, crafted with  passion, exclusivity and remarkable botanical complexity.</p>",
-            "image": "shopify://shop_images/CalaFalco_25-119_1_4fd90092-c132-41d1-a0b8-deadd3cca170.jpg",
+            "quote_short": "<p>Cala Falcó is a refined, nuanced non-alcoholic aperitivo, crafted with  passion, exclusivity and remarkable botanical complexity.</p>",
+            "quote_full": "",
+            "image": "shopify://shop_images/CalaFalco_25-119_1.jpg",
             "author": "Theo Hitchcock",
-            "author_title": "Founder of The Trove"
+            "author_title": "Founder of The Travelcohol-Free Club"
           }
         },
-        "testimonial_hLybLU": {
+        "testimonial_PprHVA": {
           "type": "testimonial",
           "settings": {
-            "quote_short": "<p>Cala Falco is a refined, nuanced non-alcoholic aperitivo, crafted with  passion, exclusivity and remarkable botanical complexity.\"</p>",
-            "quote_full": "<p>Cala Falco is a refined, nuanced non-alcoholic aperitivo, crafted with  passion, exclusivity and remarkable botanical complexity.</p>",
-            "image": "shopify://shop_images/CalaFalco_25-119_1_4fd90092-c132-41d1-a0b8-deadd3cca170.jpg",
-            "author": "Theo Hitchcock",
-            "author_title": "Founder of The Trove"
+            "quote_short": "<p>Beautifully complex and vibrant, Cala Falcó delivers elegant botanical depth as a sophisticated non-alcoholic aperitivo.</p>",
+            "quote_full": "",
+            "image": "shopify://shop_images/693fea74543b5fdcedb311ba_IMG_9683.jpg",
+            "author": "Claire Warner",
+            "author_title": "Global Non-Alcoholic Drinks Industry Thought Leader"
           }
         },
-        "testimonial_Q6YPKF": {
+        "testimonial_jq9aET": {
           "type": "testimonial",
           "settings": {
-            "quote_short": "<p>Cala Falco is a refined, nuanced non-alcoholic aperitivo, crafted with  passion, exclusivity and remarkable botanical complexity.\"</p>",
-            "quote_full": "<p>Cala Falco is a refined, nuanced non-alcoholic aperitivo, crafted with  passion, exclusivity and remarkable botanical complexity.</p>",
-            "image": "shopify://shop_images/CalaFalco_25-119_1_4fd90092-c132-41d1-a0b8-deadd3cca170.jpg",
-            "author": "Theo Hitchcock",
-            "author_title": "Founder of The Trove"
+            "quote_short": "<p>Cala Falcó is light, crisp and wonderfully thirst-quenching, with beautiful notes of rosemary and a subtle sea-water minerality that captures the essence of the Mediterranean. The perfect alcohol free drink.</p>",
+            "quote_full": "",
+            "image": "shopify://shop_images/693c2ff85d73eb5105da6d85_IMG_9567.jpg",
+            "author": "Emily Horner",
+            "author_title": "Non-Alcoholic Drinks Influencer"
           }
         }
       },
       "block_order": [
-        "testimonial_np63Kb",
-        "testimonial_hLybLU",
-        "testimonial_Q6YPKF"
+        "testimonial_Rp8a6a",
+        "testimonial_PprHVA",
+        "testimonial_jq9aET"
       ],
       "name": "t:names.testimonials",
       "settings": {
         "section_width": "full-width",
-        "color_scheme": "",
-        "corner_radius": 24,
+        "color_scheme": "scheme-1",
+        "corner_radius": 0,
         "slide_gap": 0,
         "autoplay": false,
         "autoplay_speed": 4,
-        "padding-block-start": 40,
-        "padding-block-end": 40
+        "padding-block-start": 0,
+        "padding-block-end": 0
       }
     },
     "section_mFnCfm": {
@@ -1282,7 +1282,7 @@
     "main",
     "section_3YqBWc",
     "product_recommendations_qggXJq",
-    "testimonials_nh6zHB",
+    "testimonials_bb7RDm",
     "section_mFnCfm",
     "column_callouts_3fLHkH"
   ]
