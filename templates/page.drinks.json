@@ -272,21 +272,21 @@
         "testimonial_RxABEK": {
           "type": "testimonial",
           "settings": {
-            "quote_short": "<p>Cala Falco is a refined, nuanced non-alcoholic aperitivo, crafted with  passion, exclusivity and remarkable botanical complexity.\"</p>",
-            "quote_full": "<p>Cala Falco is a refined, nuanced non-alcoholic aperitivo, crafted with  passion, exclusivity and remarkable botanical complexity.</p>",
+            "quote_short": "<p>Beautifully complex and vibrant, Cala Falcó delivers elegant botanical depth as a sophisticated non-alcoholic aperitivo.</p>",
+            "quote_full": "",
             "image": "shopify://shop_images/CalaFalco_25-119_1_4fd90092-c132-41d1-a0b8-deadd3cca170.jpg",
-            "author": "Theo Hitchcock",
-            "author_title": "Founder of The Trove"
+            "author": "Claire Warner",
+            "author_title": "Global Non-Alcoholic Drinks Industry Thought Leader"
           }
         },
         "testimonial_xG3TVA": {
           "type": "testimonial",
           "settings": {
-            "quote_short": "<p>Cala Falco is a refined, nuanced non-alcoholic aperitivo, crafted with  passion, exclusivity and remarkable botanical complexity.\"</p>",
-            "quote_full": "<p>Cala Falco is a refined, nuanced non-alcoholic aperitivo, crafted with  passion, exclusivity and remarkable botanical complexity.</p>",
+            "quote_short": "<p>Cala Falcó is light, crisp and wonderfully thirst-quenching, with beautiful notes of rosemary and a subtle sea-water minerality that captures the essence of the Mediterranean. The perfect alcohol free drink.</p>",
+            "quote_full": "",
             "image": "shopify://shop_images/CalaFalco_25-119_1_4fd90092-c132-41d1-a0b8-deadd3cca170.jpg",
-            "author": "Theo Hitchcock",
-            "author_title": "Founder of The Trove"
+            "author": "Emily Horner",
+            "author_title": "Non-Alcoholic Drinks Influencer"
           }
         }
       },
