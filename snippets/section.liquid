@@ -39,7 +39,7 @@
   </div>
 
   <div
-    class="border-style custom-section-content{% if section.settings.show_inner_frame %} custom-section-content--inner-frame{% endif %}{% if section.settings.show_image_border %} custom-section-content--image-inner-frame custom-section-content--image-border-{{ section.settings.image_border_position | default: 'inside' }}{% endif %}"
+    class="border-style {% if section.settings.border_radius > 16 %} inner-padding {% endif %} custom-section-content{% if section.settings.show_inner_frame %} custom-section-content--inner-frame{% endif %}{% if section.settings.show_image_border %} custom-section-content--image-inner-frame custom-section-content--image-border-{{ section.settings.image_border_position | default: 'inside' }}{% endif %}"
     style="
       {% render 'border-override', settings: section.settings %}
       {% if section.settings.show_inner_frame %}
