@@ -435,7 +435,7 @@
         ],
         "show_collection_card_cta": true,
         "layout_type": "grid",
-        "carousel_on_mobile": false,
+        "carousel_on_mobile": true,
         "columns": 4,
         "mobile_columns": "2",
         "mobile_card_size": "60cqw",
@@ -1310,7 +1310,7 @@
         "overlay_style": "solid",
         "gradient_direction": "to top",
         "padding-block-start": 48,
-        "padding-block-end": 100
+        "padding-block-end": 0
       }
     },
     "product_list_Ddz9mc": {
@@ -1494,7 +1494,7 @@
         "horizontal_alignment": "flex-start",
         "gap": 28,
         "color_scheme": "scheme-1",
-        "padding-block-start": 48,
+        "padding-block-start": 100,
         "padding-block-end": 48
       }
     },
