@@ -4326,6 +4326,7 @@ slideshow-arrows .slideshow-control.slideshow-control--style-none {
   animation: arrowsSlideIn var(--animation-speed) var(--animation-easing) forwards;
 }
 
+
 @keyframes arrowsSlideIn {
   from {
     transform: translate(var(--padding-sm), 0);

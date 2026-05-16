@@ -9,4 +9,4 @@
   - render `next_block.settings.image` in a third visual column with low opacity.
 - Keep the preview image `aria-hidden="true"` so assistive tech does not announce duplicate media.
 - For theme editor behavior, listen to `shopify:block:select` and jump to the selected slide index.
-- **Ingredients section (`sections/ingredients.liquid`)**: Put the viewport first in the DOM, then prev/next arrows, and use CSS grid so the swiper is row 1 and arrows row 2 (matches focus order). Slide content order: main image → title/copy → next preview column (desktop); mobile hides preview and stacks image above text.
+- **Ingredients section (`sections/ingredients.liquid`)**: DOM order is viewport, then prev, then next (focus-friendly). **Desktop (750px+):** grid `auto 1fr auto` places arrows left and right of the viewport. **Mobile (≤749px):** same DOM, grid overrides put the viewport full width on row 1 and both arrows on row 2 below. **Slide:** DOM is text → main image → next preview (`aria-hidden`). Desktop `.ingredients__content` is three columns (text | image | preview). **≤989px:** one column; `grid-row` places image above text; preview hidden.

@@ -48,6 +48,15 @@
             {{ block.shopify_attributes }}
           >
             <div class="ingredients__content">
+              <div class="ingredients__text">
+                {% if block.settings.title != blank %}
+                  <h3 class="ingredients__title">{{ block.settings.title }}</h3>
+                {% endif %}
+                {% if block.settings.description != blank %}
+                  <div class="ingredients__copy rte">{{ block.settings.description }}</div>
+                {% endif %}
+              </div>
+
               <div class="ingredients__image-wrap">
                 {% if block.settings.image != blank %}
                   {{
@@ -56,19 +65,10 @@
                     | image_tag:
                       class: 'ingredients__image',
                       widths: '360, 560, 760, 960, 1200',
-                      sizes: '(min-width: 990px) 38vw, 88vw',
+                      sizes: '(min-width: 990px) 30vw, 88vw',
                       loading: 'lazy',
                       alt: current_image_alt
                   }}
-                {% endif %}
-              </div>
-
-              <div class="ingredients__text">
-                {% if block.settings.title != blank %}
-                  <h3 class="ingredients__title">{{ block.settings.title }}</h3>
-                {% endif %}
-                {% if block.settings.description != blank %}
-                  <div class="ingredients__copy rte">{{ block.settings.description }}</div>
                 {% endif %}
               </div>
 
@@ -243,31 +243,30 @@
     margin-inline: auto;
     max-width: var(--ingredients-content-max-width);
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto;
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: auto;
     align-items: center;
-    column-gap: clamp(1.5rem, 6vw, 3rem);
-    row-gap: clamp(1rem, 3vw, 1.75rem);
+    gap: clamp(1.5rem, 3vw, 2.75rem);
   }
 
   .ingredients__viewport {
     overflow: hidden;
     min-width: 0;
-    grid-column: 1 / -1;
+    grid-column: 2;
     grid-row: 1;
     width: 100%;
   }
 
   .ingredients__arrow--prev {
     grid-column: 1;
-    grid-row: 2;
-    justify-self: end;
+    grid-row: 1;
+    justify-self: center;
   }
 
   .ingredients__arrow--next {
-    grid-column: 2;
-    grid-row: 2;
-    justify-self: start;
+    grid-column: 3;
+    grid-row: 1;
+    justify-self: center;
   }
 
   .ingredients__track {
@@ -286,27 +285,27 @@
 
   .ingredients__content {
     display: grid;
-    grid-template-columns: minmax(260px, 1.25fr) minmax(200px, 0.75fr);
-    grid-template-rows: auto auto;
+    grid-template-columns: minmax(220px, 1fr) minmax(260px, 1.2fr) minmax(180px, 0.75fr);
+    grid-template-rows: auto;
     gap: clamp(1rem, 2.5vw, 2rem);
-    align-items: start;
+    align-items: center;
     text-align: start;
-  }
-
-  .ingredients__image-wrap {
-    grid-column: 1;
-    grid-row: 1;
   }
 
   .ingredients__text {
     grid-column: 1;
-    grid-row: 2;
-    max-width: 28rem;
+    grid-row: 1;
+    max-width: 22rem;
+  }
+
+  .ingredients__image-wrap {
+    grid-column: 2;
+    grid-row: 1;
   }
 
   .ingredients__next-image-wrap {
-    grid-column: 2;
-    grid-row: 1 / span 2;
+    grid-column: 3;
+    grid-row: 1;
     align-self: center;
   }
 
@@ -374,6 +373,32 @@
     width: 12px;
     height: 8px;
     display: block;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ingredients__swiper {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
+      column-gap: clamp(1.5rem, 6vw, 3rem);
+      row-gap: clamp(1rem, 3vw, 1.75rem);
+    }
+
+    .ingredients__viewport {
+      grid-column: 1 / -1;
+      grid-row: 1;
+    }
+
+    .ingredients__arrow--prev {
+      grid-column: 1;
+      grid-row: 2;
+      justify-self: end;
+    }
+
+    .ingredients__arrow--next {
+      grid-column: 2;
+      grid-row: 2;
+      justify-self: start;
+    }
   }
 
   @media screen and (max-width: 989px) {
