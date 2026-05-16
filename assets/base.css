@@ -4326,7 +4326,6 @@ slideshow-arrows .slideshow-control.slideshow-control--style-none {
   animation: arrowsSlideIn var(--animation-speed) var(--animation-easing) forwards;
 }
 
-
 @keyframes arrowsSlideIn {
   from {
     transform: translate(var(--padding-sm), 0);
@@ -4486,6 +4485,11 @@ slideshow-arrows .slideshow-control.slideshow-control--style-none {
   .slideshow-control--next {
     margin-inline-start: auto;
   }
+}
+
+.resource-list__carousel slideshow-arrows{
+  left:2% !important;
+  right: 2% !important;
 }
 
 @container resource-list-carousel (max-width: 749px) {
@@ -5024,13 +5028,29 @@ product-recommendations:has([data-has-recommendations='false']) {
 
 .inner-padding{
   overflow: hidden; 
-  padding: 32px 64px !important; 
+  padding: 8px !important; 
   margin: 64px auto !important;
+  border-radius: 0 !important;
 }
+
+.inner-padding .section-content-wrapper{
+  border: 1px solid #F4C077;
+  border-radius:16px;
+ padding: 32px 64px !important; 
+
+}
+
 @media screen and (max-width: 749px) {
   .inner-padding{
       margin: 32px auto !important;
     padding: 0 32px !important; 
 
   }
+
+  .inner-padding .section-content-wrapper{
+  border: none;
+  border-radius:16px;
+ padding: 32px 0 !important; 
+
+}
 }
