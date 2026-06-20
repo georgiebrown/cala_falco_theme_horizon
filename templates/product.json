@@ -584,7 +584,7 @@
               "type": "text",
               "name": "t:names.heading",
               "settings": {
-                "text": "<h1>How to enjoy</h1>",
+                "text": "<h1>How to use</h1>",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
@@ -640,7 +640,7 @@
         "image_hjXWh9": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/6072f477-6c0a-44cb-bf8a-1d0549b6e714.png",
+            "image": "{{ closest.product.metafields.custom.how_to_use_image.value }}",
             "video": "{{ closest.product.metafields.custom.how_to_use_image.value }}",
             "link": "",
             "border": "none",
