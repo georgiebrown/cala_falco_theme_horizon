@@ -400,6 +400,29 @@
     "section_BeT9RV": {
       "type": "section",
       "blocks": {
+        "image_6QQwMz": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/VitiVinci_Team_AleFlo-37_copy.jpg",
+            "link": "",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 16,
+            "image_border_padding": 8,
+            "image_ratio": "square",
+            "width": "custom",
+            "custom_width": 100,
+            "width_mobile": "custom",
+            "custom_width_mobile": 100,
+            "height": "fill",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
         "group_FJTpEV": {
           "type": "group",
           "settings": {
@@ -537,34 +560,11 @@
             "text_7jYpDe",
             "button_6kKc8b"
           ]
-        },
-        "image_6QQwMz": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/VitiVinci_Team_AleFlo-39.jpg",
-            "link": "",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 16,
-            "image_border_padding": 8,
-            "image_ratio": "square",
-            "width": "custom",
-            "custom_width": 100,
-            "width_mobile": "custom",
-            "custom_width_mobile": 100,
-            "height": "fill",
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
         }
       },
       "block_order": [
-        "group_FJTpEV",
-        "image_6QQwMz"
+        "image_6QQwMz",
+        "group_FJTpEV"
       ],
       "name": "t:names.image_with_text",
       "settings": {
