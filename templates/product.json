@@ -640,7 +640,7 @@
         "image_hjXWh9": {
           "type": "image",
           "settings": {
-            "image": "{{ closest.product.metafields.custom.how_to_use_image.value }}",
+            "image": "shopify://shop_images/35167a25-692c-4b73-8385-9dcc6be57c52.png",
             "video": "{{ closest.product.metafields.custom.how_to_use_image.value }}",
             "link": "",
             "border": "none",
