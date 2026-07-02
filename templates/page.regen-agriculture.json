@@ -186,7 +186,7 @@
         "image_rT7iqq": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/DSCF2728-49.jpg",
+            "image": "shopify://shop_images/Sheep_on_the_Cala_Falc_estate.jpg",
             "link": "",
             "border": "solid",
             "border_width": 1,
@@ -283,7 +283,7 @@
         "image_XCefcy": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/5c5c50a2-bdea-4d6d-b312-057719343b18.png",
+            "image": "shopify://shop_images/Cala_Falc_team_working_to_pick_botanicals_from_the_Cala_Falc_farm.png",
             "link": "",
             "border": "none",
             "border_width": 1,
@@ -944,7 +944,7 @@
               "type": "image",
               "name": "t:names.image",
               "settings": {
-                "image": "shopify://shop_images/DSCF2858-77.jpg",
+                "image": "shopify://shop_images/Earthy_soil_at_the_Cala_Falc_estate.jpg",
                 "link": "",
                 "border": "none",
                 "border_width": 1,
@@ -969,7 +969,6 @@
               "name": "t:names.image",
               "disabled": true,
               "settings": {
-                "image": "shopify://shop_images/CalaFalco_25-113.jpg",
                 "link": "",
                 "border": "none",
                 "border_width": 1,
@@ -2191,7 +2190,6 @@
       "name": "t:names.hero",
       "settings": {
         "media_type_1": "image",
-        "image_1": "shopify://shop_images/CalaFalco_25-141.jpg",
         "media_type_2": "image",
         "stack_media_on_mobile": false,
         "custom_mobile_media": false,
@@ -3017,7 +3015,6 @@
               "type": "image",
               "name": "t:names.image",
               "settings": {
-                "image": "shopify://shop_images/0f26d568-6d1f-496a-9a5a-040bf4301ded.png",
                 "image_on_hover": "shopify://shop_images/collestion_2.png",
                 "link": "",
                 "border": "none",
@@ -3157,7 +3154,6 @@
               "type": "image",
               "name": "t:names.image",
               "settings": {
-                "image": "shopify://shop_images/260626_VV_PRODUCT_PHOTOGRAPHY2340_FINAL_Retouched_v1_110626_4x3_d96aa2e3-d152-4ac7-b1ce-d89844694daa.jpg",
                 "image_on_hover": "shopify://shop_images/CalaFalco_Box_Front.jpg",
                 "link": "",
                 "border": "none",
