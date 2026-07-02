@@ -86,7 +86,6 @@
       "disabled": true,
       "name": "QA",
       "settings": {
-        "person_image": "shopify://shop_images/montserratvalle.jpg",
         "heading": "A note from our founder",
         "subheading": "",
         "description": "<p>“Our way is not a path. It’s a return. A quiet calling back to something pure, something sacred. A way of seeing, of listening, of moving through the world with reverence. Cala Falcó is a philosophy, infused into the place we’ve built and the soulful products we steward. A devotion to the beauty that unfolds when we surrender to nature’s rhythm. We invite you to join The Cala Falcó Way. A return. A ritual. A way forward.”</p>",
@@ -231,7 +230,7 @@
         "image_xFy8gd": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/CalaFalco_25-159_copy.jpg",
+            "image": "shopify://shop_images/Cala_Falc_Team.jpg",
             "link": "",
             "border": "none",
             "border_width": 1,
@@ -2466,7 +2465,7 @@
               "type": "image",
               "name": "t:names.image",
               "settings": {
-                "image": "shopify://shop_images/DSCF2858-77.jpg",
+                "image": "shopify://shop_images/Earthy_soil_at_the_Cala_Falc_estate.jpg",
                 "link": "",
                 "border": "none",
                 "border_width": 1,
@@ -2589,7 +2588,7 @@
               "type": "image",
               "name": "t:names.image",
               "settings": {
-                "image": "shopify://shop_images/Group_427321495.png",
+                "image": "shopify://shop_images/Victor_Alarc_n.png",
                 "link": "",
                 "border": "none",
                 "border_width": 1,
@@ -2892,7 +2891,7 @@
               "type": "image",
               "name": "t:names.image",
               "settings": {
-                "image": "shopify://shop_images/DSCF2822.jpg",
+                "image": "shopify://shop_images/Flower_in_Cala_Falc_estate.jpg",
                 "link": "",
                 "border": "none",
                 "border_width": 1,
@@ -3015,7 +3014,7 @@
               "type": "image",
               "name": "t:names.image",
               "settings": {
-                "image": "shopify://shop_images/DSCF2748.jpg",
+                "image": "shopify://shop_images/Flowers_in_the_Cala_Falc_estate.jpg",
                 "link": "",
                 "border": "none",
                 "border_width": 1,
