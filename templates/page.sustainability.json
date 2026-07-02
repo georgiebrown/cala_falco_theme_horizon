@@ -63,7 +63,7 @@
         "image_WEcmY3": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/DSCF2537-7.jpg",
+            "image": "shopify://shop_images/Cala_Falc_team_holding_a_small_flower.jpg",
             "link": "",
             "border": "none",
             "border_width": 1,
@@ -460,7 +460,7 @@
               "type": "image",
               "name": "t:names.image",
               "settings": {
-                "image": "shopify://shop_images/IMG_4674.jpg",
+                "image": "shopify://shop_images/Cala_Falc_arch.jpg",
                 "link": "",
                 "border": "none",
                 "border_width": 1,
@@ -484,7 +484,7 @@
               "type": "image",
               "name": "t:names.image",
               "settings": {
-                "image": "shopify://shop_images/DSCF2532-5.jpg",
+                "image": "shopify://shop_images/Cala_Falc_team_member_walking_through_the_farm.jpg",
                 "link": "",
                 "border": "none",
                 "border_width": 1,
@@ -2423,7 +2423,6 @@
               "type": "image",
               "name": "t:names.image",
               "settings": {
-                "image": "shopify://shop_images/0f26d568-6d1f-496a-9a5a-040bf4301ded.png",
                 "image_on_hover": "shopify://shop_images/collestion_2.png",
                 "link": "",
                 "border": "none",
@@ -2563,7 +2562,6 @@
               "type": "image",
               "name": "t:names.image",
               "settings": {
-                "image": "shopify://shop_images/260626_VV_PRODUCT_PHOTOGRAPHY2340_FINAL_Retouched_v1_110626_4x3_d96aa2e3-d152-4ac7-b1ce-d89844694daa.jpg",
                 "image_on_hover": "shopify://shop_images/CalaFalco_Box_Front.jpg",
                 "link": "",
                 "border": "none",
@@ -2736,7 +2734,6 @@
             "image_fYYWPm": {
               "type": "image",
               "settings": {
-                "image": "shopify://shop_images/Cala_Formentor_2.png",
                 "link": "",
                 "border": "none",
                 "border_width": 1,
