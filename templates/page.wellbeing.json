@@ -680,7 +680,7 @@
               "type": "image",
               "name": "t:names.image",
               "settings": {
-                "image": "shopify://shop_images/DSCF2596-28.jpg",
+                "image": "shopify://shop_images/Close_up_of_Botanicals_on_the_Cala_Falc_estate.jpg",
                 "link": "",
                 "border": "none",
                 "border_width": 1,
@@ -705,7 +705,6 @@
               "name": "t:names.image",
               "disabled": true,
               "settings": {
-                "image": "shopify://shop_images/DSCF2748.jpg",
                 "link": "",
                 "border": "none",
                 "border_width": 1,
@@ -900,7 +899,7 @@
               "type": "image",
               "name": "t:names.image",
               "settings": {
-                "image": "shopify://shop_images/19a11e73-7a90-48c9-b77a-439c4061d66c.png",
+                "image": "shopify://shop_images/Nose_Illustration.png",
                 "link": "",
                 "border": "none",
                 "border_width": 1,
@@ -924,7 +923,7 @@
               "type": "image",
               "name": "t:names.image",
               "settings": {
-                "image": "shopify://shop_images/8c9111a5-cc67-47ac-9f91-81f02817f7e5.png",
+                "image": "shopify://shop_images/Brain_Illustration.png",
                 "link": "",
                 "border": "none",
                 "border_width": 1,
@@ -948,7 +947,7 @@
               "type": "image",
               "name": "t:names.image",
               "settings": {
-                "image": "shopify://shop_images/698cafae-d99d-434f-a6aa-da9d9db83423.png",
+                "image": "shopify://shop_images/Flower_Illustration.png",
                 "link": "",
                 "border": "none",
                 "border_width": 1,
@@ -1808,7 +1807,6 @@
               "type": "image",
               "name": "t:names.image",
               "settings": {
-                "image": "shopify://shop_images/Group_427321495.png",
                 "link": "",
                 "border": "none",
                 "border_width": 1,
@@ -2054,7 +2052,6 @@
               "type": "image",
               "name": "t:names.image",
               "settings": {
-                "image": "shopify://shop_images/Group_427321495.png",
                 "link": "",
                 "border": "none",
                 "border_width": 1,
@@ -2455,7 +2452,6 @@
               "type": "image",
               "name": "t:names.image",
               "settings": {
-                "image": "shopify://shop_images/Group_427321495.png",
                 "link": "",
                 "border": "solid",
                 "border_width": 1,
