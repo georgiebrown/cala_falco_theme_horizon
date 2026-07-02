@@ -1979,6 +1979,7 @@
               "type": "image",
               "name": "t:names.image",
               "settings": {
+                "image": "shopify://shop_images/So_Fong_Cala_Falc_Collection_Perfume.png",
                 "image_on_hover": "shopify://shop_images/collestion_2.png",
                 "link": "",
                 "border": "none",
@@ -2118,6 +2119,7 @@
               "type": "image",
               "name": "t:names.image",
               "settings": {
+                "image": "shopify://shop_images/The_Collector_by_Viti_Vinci.jpg",
                 "image_on_hover": "shopify://shop_images/CalaFalco_Box_Front.jpg",
                 "link": "",
                 "border": "none",
