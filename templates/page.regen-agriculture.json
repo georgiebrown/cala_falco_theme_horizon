@@ -1337,7 +1337,7 @@
       "name": "t:names.hero",
       "settings": {
         "media_type_1": "image",
-        "image_1": "shopify://shop_images/Cala_Falc_team_member_trimming_bushes.jpg",
+        "image_1": "shopify://shop_images/CalaFalco_25-48.jpg",
         "media_type_2": "image",
         "stack_media_on_mobile": false,
         "custom_mobile_media": false,
@@ -2190,6 +2190,7 @@
       "name": "t:names.hero",
       "settings": {
         "media_type_1": "image",
+        "image_1": "shopify://shop_images/Green_leaves_growing_from_trees_on_the_Cala_Falc_estate.jpg",
         "media_type_2": "image",
         "stack_media_on_mobile": false,
         "custom_mobile_media": false,
@@ -3015,6 +3016,7 @@
               "type": "image",
               "name": "t:names.image",
               "settings": {
+                "image": "shopify://shop_images/So_Fong_Cala_Falc_Collection_Perfume.png",
                 "image_on_hover": "shopify://shop_images/collestion_2.png",
                 "link": "",
                 "border": "none",
@@ -3154,6 +3156,7 @@
               "type": "image",
               "name": "t:names.image",
               "settings": {
+                "image": "shopify://shop_images/The_Collector_by_Viti_Vinci.jpg",
                 "image_on_hover": "shopify://shop_images/CalaFalco_Box_Front.jpg",
                 "link": "",
                 "border": "none",
