@@ -86,7 +86,6 @@
       "disabled": true,
       "name": "QA",
       "settings": {
-        "person_image": "shopify://shop_images/montserratvalle.jpg",
         "heading": "A note from our founder",
         "subheading": "",
         "description": "<p>“Our way is not a path. It’s a return. A quiet calling back to something pure, something sacred. A way of seeing, of listening, of moving through the world with reverence. Cala Falcó is a philosophy, infused into the place we’ve built and the soulful products we steward. A devotion to the beauty that unfolds when we surrender to nature’s rhythm. We invite you to join The Cala Falcó Way. A return. A ritual. A way forward.”</p>",
@@ -1117,7 +1116,7 @@
         "image_cc3dnz": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/CalaFalco_25-159_copy.jpg",
+            "image": "shopify://shop_images/Cala_Falc_Team.jpg",
             "link": "",
             "border": "none",
             "border_width": 1,
@@ -5591,7 +5590,7 @@
               "type": "image",
               "name": "t:names.image",
               "settings": {
-                "image": "shopify://shop_images/0f26d568-6d1f-496a-9a5a-040bf4301ded.png",
+                "image": "shopify://shop_images/So_Fong_Cala_Falc_Collection_Perfume.png",
                 "image_on_hover": "shopify://shop_images/collestion_2.png",
                 "link": "",
                 "border": "none",
@@ -5731,7 +5730,7 @@
               "type": "image",
               "name": "t:names.image",
               "settings": {
-                "image": "shopify://shop_images/260626_VV_PRODUCT_PHOTOGRAPHY2340_FINAL_Retouched_v1_110626_4x3_d96aa2e3-d152-4ac7-b1ce-d89844694daa.jpg",
+                "image": "shopify://shop_images/The_Collector_by_Viti_Vinci.jpg",
                 "image_on_hover": "shopify://shop_images/CalaFalco_Box_Front.jpg",
                 "link": "",
                 "border": "none",
