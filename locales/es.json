@@ -24,7 +24,9 @@
       "phone": "Teléfono",
       "comment": "Comentario",
       "post_success": "Gracias por contactarnos. Te responderemos lo antes posible.",
-      "error_heading": "Realiza los ajustes siguientes:"
+      "error_heading": "Realiza los ajustes siguientes:",
+      "reason_for_enquiry": "Motivo de la consulta",
+      "reason_for_enquiry_placeholder": "Motivo de la consulta"
     },
     "slider_label": "Carrusel"
   },
@@ -339,7 +341,14 @@
         "one": "{{ count }} comentario",
         "other": "{{ count }} comentarios",
         "many": "{{ count }} comentarios"
-      }
+      },
+      "share": "Compartir este artículo",
+      "share_on_facebook": "Compartir en Facebook",
+      "share_on_linkedin": "Compartir en LinkedIn",
+      "share_on_x": "Compartir en X",
+      "share_on_tiktok": "Copiar enlace para compartir en TikTok",
+      "share_by_email": "Compartir por correo electrónico",
+      "link_copied": "Enlace copiado"
     },
     "comment_form": {
       "email": "Correo electrónico",
