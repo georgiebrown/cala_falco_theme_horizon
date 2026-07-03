@@ -65,7 +65,6 @@
           "name": "t:names.video",
           "settings": {
             "source": "uploaded",
-            "video": "shopify://files/videos/Recording 2026-04-01 231825.mp4",
             "video_url": "",
             "video_autoplay": true,
             "video_loop": true,
@@ -332,7 +331,7 @@
         "image_WD9GQ9": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/IMG_0103.jpg",
+            "image": "shopify://shop_images/Cala_Falc_at_Spring_bottle_with_botanicals.jpg",
             "link": "",
             "border": "none",
             "border_width": 1,
@@ -547,7 +546,7 @@
             "cta_label": "Read full testimonial",
             "cta_link": "",
             "open_in_new_tab": true,
-            "image": "shopify://shop_images/IMG_4425.jpg",
+            "image": "shopify://shop_images/Cala_Falc_at_Spring_bottle.jpg",
             "author": "Theo Hitchcock",
             "author_title": "Founder of The Travelcohol-Free Club"
           }
@@ -559,7 +558,7 @@
             "cta_label": "Read full testimonial",
             "cta_link": "",
             "open_in_new_tab": true,
-            "image": "shopify://shop_images/CalaFalco_25-113.jpg",
+            "image": "shopify://shop_images/Cala_Falc_at_Spring_non-alcoholic_aperitivo_drink.jpg",
             "author": "Claire Warner",
             "author_title": "Global Non-Alcoholic Drinks Industry Thought Leader"
           }
@@ -571,7 +570,7 @@
             "cta_label": "Read full testimonial",
             "cta_link": "",
             "open_in_new_tab": true,
-            "image": "shopify://shop_images/31aa7097-131c-4714-9dbe-274db0762e22-1.png",
+            "image": "shopify://shop_images/Cala_Falc_at_Spring_bottle_surrounded_by_rosemary.png",
             "author": "Emily Horner",
             "author_title": "Non-Alcoholic Drinks Influencer"
           }
@@ -1433,7 +1432,6 @@
       ],
       "name": "Column callouts",
       "settings": {
-        "background_image": "shopify://shop_images/Frame_53.jpg",
         "heading": "",
         "content_width": 980,
         "section_height": "740px",
