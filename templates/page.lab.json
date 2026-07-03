@@ -475,7 +475,7 @@
         "image_yLPmdd": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/Taller_Residencia_45_copy.jpg",
+            "image": "shopify://shop_images/Up-close_shot_of_the_Cala_Falc_Collection_atelier.jpg",
             "link": "",
             "border": "none",
             "border_width": 1,
@@ -1654,7 +1654,7 @@
       "name": "t:names.hero",
       "settings": {
         "media_type_1": "image",
-        "image_1": "shopify://shop_images/IMG_4661.jpg",
+        "image_1": "shopify://shop_images/Cala_Falc_at_Spring_b_w_event.jpg",
         "media_type_2": "image",
         "stack_media_on_mobile": false,
         "custom_mobile_media": false,
