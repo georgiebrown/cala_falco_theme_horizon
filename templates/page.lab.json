@@ -63,7 +63,7 @@
         "image_wrznXE": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/Copia_de_Copia_de_IMG_4127.jpg",
+            "image": "shopify://shop_images/Cala_Falc_Collection_Atelier_desk.jpg",
             "link": "",
             "border": "none",
             "border_width": 1,
@@ -1497,7 +1497,6 @@
             "show_number": true,
             "number": "The Organ",
             "show_icon": true,
-            "icon": "shopify://shop_images/IMG_4505.jpg",
             "show_text": true,
             "text": "<p>The organ is where creation begins. It is the workspace of our perfumer, where all the essential oils, absolutes, and natural extracts are carefully arranged. Here, compositions are tested, refined, and brought to life through balance and intuition.</p>"
           }
@@ -1508,7 +1507,6 @@
             "show_number": true,
             "number": "Extraction",
             "show_icon": true,
-            "icon": "shopify://shop_images/IMG_4508.jpg",
             "show_text": true,
             "text": "<p>Our plants are placed into an alembic for steam distillation. Water is boiled at the base, creating steam that rises through the plant material, capturing its aromatic compounds. As the steam cools it separates into the essential oil and the hydrolat.</p>"
           }
@@ -1519,7 +1517,6 @@
             "show_number": true,
             "number": "Purification",
             "show_icon": true,
-            "icon": "shopify://shop_images/IMG_4506.jpg",
             "show_text": true,
             "text": "<p>Once extracted, the essence is refined to isolate its most precise and expressive components, ensuring clarity, balance, and quality in every note. Pure, refined oils provide consistent therapeutic benefits and authentic aromatic profiles.</p>"
           }
@@ -1550,7 +1547,6 @@
             "show_number": true,
             "number": "Blending",
             "show_icon": true,
-            "icon": "shopify://shop_images/IMG_4510.jpg",
             "show_text": true,
             "text": "<p>Our perfumer composes each fragrance following the olfactory pyramid. Carefully balancing top, heart, and base notes to create depth, evolution and harmony on the skin. Together these notes tell a unique sensory story.</p>"
           }
@@ -1561,7 +1557,6 @@
             "show_number": true,
             "number": "Bottling",
             "show_icon": true,
-            "icon": "shopify://shop_images/IMG_4507.jpg",
             "show_text": true,
             "text": "<p>Once the perfumer has created the final essence, it is taken to our laboratory where our chemists develop the full formulation. After the necessary resting time, the fragrance is bottled and labelled, ready for enjoyment.</p>"
           }
@@ -1706,7 +1701,6 @@
         "callout_jJhXiN": {
           "type": "callout",
           "settings": {
-            "background_image": "shopify://shop_images/Frame_52.jpg",
             "icon": "<svg width=\"16\" height=\"16\" viewbox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M16 0.748212L15.5778 0L7.67967 2.51671C7.64449 2.4487 7.6269 2.38068 7.59172 2.32966C6.8705 0.901256 4.97073 0.0340096 2.85986 1.02029C0.748992 2.02357 -0.517529 4.38725 0.203684 5.79865C0.924897 7.22705 3.63384 7.72019 5.74471 6.71691C7.55654 5.86667 8.15461 4.28522 7.82039 2.94183L14.2409 1.22435C12.8337 2.72077 11.6024 4.37024 10.6349 6.15575C10.6173 6.15575 10.5821 6.13874 10.5645 6.13874C8.85824 5.66261 6.65942 6.73391 5.83266 9.53971C4.98832 12.3455 5.9382 15.4574 7.64449 15.9335C9.35077 16.4097 11.8662 14.267 12.693 11.4613C13.4142 9.04657 12.5698 7.19304 11.233 6.42782C12.4819 4.31923 14.153 2.39768 16 0.748212Z\" fill=\"currentColor\"></path>\n</svg>",
             "title": "Natural",
             "text": "<p>We are committed to sourcing the most exceptional natural ingredients, to craft sustainable botanical products that elevate mood and wellbeing.</p>"
@@ -1738,7 +1732,6 @@
       ],
       "name": "Column callouts",
       "settings": {
-        "background_image": "shopify://shop_images/Frame_53.jpg",
         "heading": "",
         "content_width": 980,
         "section_height": "620px",
