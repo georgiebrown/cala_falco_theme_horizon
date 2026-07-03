@@ -202,7 +202,7 @@
         "image_PNhTaz": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/Copia_de_Copia_de_645A3109.jpg",
+            "image": "shopify://shop_images/Bespoke_scents_creation.jpg",
             "link": "",
             "border": "solid",
             "border_width": 1,
@@ -497,7 +497,7 @@
       ],
       "name": "QA",
       "settings": {
-        "person_image": "shopify://shop_images/Group_427321495_3.png",
+        "person_image": "shopify://shop_images/Cala_Falc_Collection_products.png",
         "heading": "why you need an olfactory identity",
         "subheading": "",
         "description": "",
@@ -1640,7 +1640,7 @@
               "type": "image",
               "name": "t:names.image",
               "settings": {
-                "image": "shopify://shop_images/DJI_0036.jpg",
+                "image": "shopify://shop_images/So_Fong_boat.jpg",
                 "link": "",
                 "border": "none",
                 "border_width": 1,
@@ -1664,7 +1664,7 @@
               "type": "image",
               "name": "t:names.image",
               "settings": {
-                "image": "shopify://shop_images/MAP.png",
+                "image": "shopify://shop_images/So_Fong_botanicals_map.png",
                 "link": "",
                 "border": "none",
                 "border_width": 1,
@@ -2338,7 +2338,6 @@
       "name": "t:names.hero",
       "settings": {
         "media_type_1": "image",
-        "image_1": "shopify://shop_images/IMG_4661.jpg",
         "media_type_2": "image",
         "stack_media_on_mobile": false,
         "custom_mobile_media": false,
