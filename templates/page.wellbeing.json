@@ -2452,6 +2452,7 @@
               "type": "image",
               "name": "t:names.image",
               "settings": {
+                "image": "shopify://shop_images/Victor_Alarc_n.png",
                 "link": "",
                 "border": "solid",
                 "border_width": 1,
@@ -2655,7 +2656,7 @@
               "type": "image",
               "name": "t:names.image",
               "settings": {
-                "image": "shopify://shop_images/Group_427321495_1.png",
+                "image": "shopify://shop_images/Tatsiana_Salamanca.png",
                 "link": "",
                 "border": "solid",
                 "border_width": 1,
@@ -3464,7 +3465,7 @@
       ],
       "name": "Column callouts",
       "settings": {
-        "background_image": "shopify://shop_images/Frame_53.jpg",
+        "background_image": "shopify://shop_images/Beekeper_walking_through_fields_of_Cala_Falco_estate.jpg",
         "heading": "",
         "content_width": 980,
         "section_height": "740px",
