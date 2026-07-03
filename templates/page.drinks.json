@@ -818,7 +818,7 @@
           "settings": {
             "title": "Rosemary Salvia rosmarinus",
             "description": "<p>Known as the “Mediterranean Ginseng,” this adaptogenic plant offers potent  anti-aging effects, enhancing joint, muscle, and skin health. Improves  memory and focus. Respiratory benefits, particularly in addressing  congestion and liver care.</p>",
-            "image": "shopify://shop_images/68861fa431a371dd91d95772_ROSEMARY_ILLUSTRATION.png"
+            "image": "shopify://shop_images/Rosemary_Salvia_rosmarinus_illustration.png"
           }
         }
       },
@@ -985,7 +985,7 @@
               "type": "image",
               "name": "t:names.image",
               "settings": {
-                "image": "shopify://shop_images/Frame_52.jpg",
+                "image": "shopify://shop_images/Bees_in_frame_held_by_beekeeper_on_Cala_Falc_farm.jpg",
                 "link": "",
                 "border": "none",
                 "border_width": 1,
@@ -1009,7 +1009,7 @@
               "type": "image",
               "name": "t:names.image",
               "settings": {
-                "image": "shopify://shop_images/693c12bc46c694e483a7889f_CalaFalco_25-118.jpg",
+                "image": "shopify://shop_images/Esteve_handling_lavender_plant_on_Cala_Falc_estate.jpg",
                 "link": "",
                 "border": "none",
                 "border_width": 1,
@@ -1033,7 +1033,7 @@
               "type": "image",
               "name": "t:names.image",
               "settings": {
-                "image": "shopify://shop_images/CalaFalco_25-120.jpg",
+                "image": "shopify://shop_images/Cala_Falc_estate_botanicals_being_distilled.jpg",
                 "link": "",
                 "border": "none",
                 "border_width": 1,
