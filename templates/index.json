@@ -1499,7 +1499,6 @@
         "callout_3mhmKN": {
           "type": "callout",
           "settings": {
-            "background_image": "shopify://shop_images/Frame_52.jpg",
             "icon": "<svg width=\"16\" height=\"16\" viewbox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M16 0.748212L15.5778 0L7.67967 2.51671C7.64449 2.4487 7.6269 2.38068 7.59172 2.32966C6.8705 0.901256 4.97073 0.0340096 2.85986 1.02029C0.748992 2.02357 -0.517529 4.38725 0.203684 5.79865C0.924897 7.22705 3.63384 7.72019 5.74471 6.71691C7.55654 5.86667 8.15461 4.28522 7.82039 2.94183L14.2409 1.22435C12.8337 2.72077 11.6024 4.37024 10.6349 6.15575C10.6173 6.15575 10.5821 6.13874 10.5645 6.13874C8.85824 5.66261 6.65942 6.73391 5.83266 9.53971C4.98832 12.3455 5.9382 15.4574 7.64449 15.9335C9.35077 16.4097 11.8662 14.267 12.693 11.4613C13.4142 9.04657 12.5698 7.19304 11.233 6.42782C12.4819 4.31923 14.153 2.39768 16 0.748212Z\" fill=\"currentColor\"></path>\n</svg>",
             "title": "Natural",
             "text": "<p>We are committed to sourcing the most exceptional natural  ingredients, to craft sustainable botanical products that elevate mood and wellbeing.</p>"
@@ -1531,6 +1530,7 @@
       ],
       "name": "Column callouts",
       "settings": {
+        "background_image": "shopify://shop_images/Beekeper_walking_through_fields_of_Cala_Falco_estate.jpg",
         "heading": "",
         "content_width": 980,
         "section_height": "740px",
