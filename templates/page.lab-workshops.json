@@ -160,7 +160,7 @@
         "image_jcUhkb": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/IMG_4672.jpg",
+            "image": "shopify://shop_images/Sensory_workshop_Cala_Falc_at_Spring_image.jpg",
             "link": "",
             "border": "solid",
             "border_width": 1,
@@ -310,7 +310,7 @@
       ],
       "name": "QA",
       "settings": {
-        "person_image": "shopify://shop_images/IMG_4258.jpg",
+        "person_image": "shopify://shop_images/Cala_Falc_at_Spring_botanicals_experimentation.jpg",
         "heading": "our workshops",
         "subheading": "",
         "description": "",
