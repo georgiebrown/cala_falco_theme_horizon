@@ -1732,6 +1732,7 @@
       ],
       "name": "Column callouts",
       "settings": {
+        "background_image": "shopify://shop_images/Beekeper_walking_through_fields_of_Cala_Falco_estate.jpg",
         "heading": "",
         "content_width": 980,
         "section_height": "620px",
