@@ -212,7 +212,7 @@
         "image_K8cCJA": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/IMG_4362.jpg",
+            "image": "shopify://shop_images/Viti_Vinci_Scents_Artists.jpg",
             "link": "",
             "border": "none",
             "border_width": 1,
@@ -524,7 +524,7 @@
       "name": "t:names.hero",
       "settings": {
         "media_type_1": "image",
-        "image_1": "shopify://shop_images/260626_VV_PRODUCT_PHOTOGRAPHY2530.jpg",
+        "image_1": "shopify://shop_images/Viti_Vinci_Collectible_Olfactory_Artworks.jpg",
         "media_type_2": "image",
         "stack_media_on_mobile": false,
         "custom_mobile_media": false,
@@ -748,7 +748,7 @@
               "type": "image",
               "name": "t:names.image",
               "settings": {
-                "image": "shopify://shop_images/24_260416_VITI_VINCI_BRAND_PHOTOGRAPHY1193_FINAL.jpg",
+                "image": "shopify://shop_images/Viti_Vinci_Petal_brand_photography.jpg",
                 "link": "",
                 "border": "none",
                 "border_width": 1,
@@ -772,7 +772,7 @@
               "type": "image",
               "name": "t:names.image",
               "settings": {
-                "image": "shopify://shop_images/IMG_4542.jpg",
+                "image": "shopify://shop_images/Viti_Vinci_brand_photography_incense_burning.jpg",
                 "link": "",
                 "border": "none",
                 "border_width": 1,
@@ -796,7 +796,7 @@
               "type": "image",
               "name": "t:names.image",
               "settings": {
-                "image": "shopify://shop_images/IMG_4664.jpg",
+                "image": "shopify://shop_images/Viti_Vinci_Key_Minor_instillation_at_La_Biennale_Venezia.jpg",
                 "link": "",
                 "border": "none",
                 "border_width": 1,
