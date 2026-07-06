@@ -551,18 +551,6 @@
             "author_title": "Founder of The Travelcohol-Free Club"
           }
         },
-        "testimonial_RxABEK": {
-          "type": "testimonial",
-          "settings": {
-            "quote_short": "<p>Beautifully complex and vibrant, Cala Falcó at spring delivers elegant botanical depth as a sophisticated non-alcoholic aperitivo.</p>",
-            "cta_label": "Read full testimonial",
-            "cta_link": "",
-            "open_in_new_tab": true,
-            "image": "shopify://shop_images/Cala_Falc_at_Spring_non-alcoholic_aperitivo_drink.jpg",
-            "author": "Claire Warner",
-            "author_title": "Global Non-Alcoholic Drinks Industry Thought Leader"
-          }
-        },
         "testimonial_xG3TVA": {
           "type": "testimonial",
           "settings": {
@@ -575,6 +563,18 @@
             "author_title": "Non-Alcoholic Drinks Influencer"
           }
         },
+        "testimonial_RxABEK": {
+          "type": "testimonial",
+          "settings": {
+            "quote_short": "<p>Beautifully complex and vibrant, Cala Falcó at spring delivers elegant botanical depth as a sophisticated non-alcoholic aperitivo.</p>",
+            "cta_label": "Read full testimonial",
+            "cta_link": "",
+            "open_in_new_tab": true,
+            "image": "shopify://shop_images/Cala_Falc_at_Spring_non-alcoholic_aperitivo_drink.jpg",
+            "author": "Claire Warner",
+            "author_title": "Global Non-Alcoholic Drinks Industry Thought Leader"
+          }
+        },
         "testimonial_Cnhen3": {
           "type": "testimonial",
           "settings": {
@@ -582,7 +582,7 @@
             "cta_label": "",
             "cta_link": "",
             "open_in_new_tab": true,
-            "image": "shopify://shop_images/Lemon_botanicalsbackground_atspring_50ed0cdf-3d88-402c-822d-c2b4b07db001.jpg",
+            "image": "shopify://shop_images/Cala_Falc_at_Spring_bottle.png",
             "author": "Dr. Josh Allison",
             "author_title": "Explorer, Adventurer and Doctor"
           }
@@ -590,8 +590,8 @@
       },
       "block_order": [
         "testimonial_JmgVwT",
-        "testimonial_RxABEK",
         "testimonial_xG3TVA",
+        "testimonial_RxABEK",
         "testimonial_Cnhen3"
       ],
       "name": "t:names.testimonials",
