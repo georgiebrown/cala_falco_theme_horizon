@@ -350,7 +350,7 @@
           "settings": {
             "title": "",
             "description": "",
-            "image": "shopify://shop_images/IMG_4562.jpg"
+            "image": "shopify://shop_images/Cala_Falc_at_Spring_b_w_event.jpg"
           }
         },
         "ingredient_DXxCFf": {
@@ -358,7 +358,7 @@
           "settings": {
             "title": "",
             "description": "",
-            "image": "shopify://shop_images/IMG_4563.jpg"
+            "image": "shopify://shop_images/Victor_Alar_n_organising_bottles_at_Cala_Falc_at_Spring_HIDE_Event.jpg"
           }
         },
         "ingredient_ix6jpJ": {
@@ -366,7 +366,7 @@
           "settings": {
             "title": "",
             "description": "",
-            "image": "shopify://shop_images/IMG_4570_2.jpg"
+            "image": "shopify://shop_images/Dining_area_at_Cala_Falc_at_Spring_HIDE_Event_dinner.jpg"
           }
         },
         "ingredient_RgtWMb": {
@@ -374,7 +374,7 @@
           "settings": {
             "title": "",
             "description": "",
-            "image": "shopify://shop_images/IMG_4659.jpg"
+            "image": "shopify://shop_images/Influencers_at_Cala_Falc_at_Spring_HIDE_Event.jpg"
           }
         },
         "ingredient_Yz7bjh": {
@@ -382,7 +382,7 @@
           "settings": {
             "title": "",
             "description": "",
-            "image": "shopify://shop_images/IMG_4569.jpg"
+            "image": "shopify://shop_images/Cala_Falc_at_Spring_Sensory_workshop.jpg"
           }
         },
         "ingredient_cXNwXJ": {
@@ -390,15 +390,7 @@
           "settings": {
             "title": "",
             "description": "",
-            "image": "shopify://shop_images/IMG_4660.jpg"
-          }
-        },
-        "ingredient_JpXpTk": {
-          "type": "ingredient",
-          "settings": {
-            "title": "",
-            "description": "",
-            "image": "shopify://shop_images/IMG_4565.jpg"
+            "image": "shopify://shop_images/Distilled_botanicals_at_Cala_Falc_at_Spring_HIDE_Event.jpg"
           }
         },
         "ingredient_riVPdb": {
@@ -407,6 +399,14 @@
             "title": "",
             "description": "",
             "image": "shopify://shop_images/IMG_4662.jpg"
+          }
+        },
+        "ingredient_JpXpTk": {
+          "type": "ingredient",
+          "settings": {
+            "title": "",
+            "description": "",
+            "image": "shopify://shop_images/Cala_Falc_at_Spring_botanicals_experimentation.jpg"
           }
         },
         "ingredient_gDER8a": {
@@ -427,8 +427,8 @@
         "ingredient_RgtWMb",
         "ingredient_Yz7bjh",
         "ingredient_cXNwXJ",
-        "ingredient_JpXpTk",
         "ingredient_riVPdb",
+        "ingredient_JpXpTk",
         "ingredient_gDER8a"
       ],
       "name": "Ingredients",
