@@ -574,12 +574,25 @@
             "author": "Emily Horner",
             "author_title": "Non-Alcoholic Drinks Influencer"
           }
+        },
+        "testimonial_Cnhen3": {
+          "type": "testimonial",
+          "settings": {
+            "quote_short": "<p>Cala Falcó at Spring is fresh, layered, and complex. An interesting balance of floral lift, with deeper savoury notes that make you want another glass!</p>",
+            "cta_label": "",
+            "cta_link": "",
+            "open_in_new_tab": true,
+            "image": "shopify://shop_images/Lemon_botanicalsbackground_atspring_50ed0cdf-3d88-402c-822d-c2b4b07db001.jpg",
+            "author": "Dr. Josh Allison",
+            "author_title": "Explorer, Adventurer and Doctor"
+          }
         }
       },
       "block_order": [
         "testimonial_JmgVwT",
         "testimonial_RxABEK",
-        "testimonial_xG3TVA"
+        "testimonial_xG3TVA",
+        "testimonial_Cnhen3"
       ],
       "name": "t:names.testimonials",
       "settings": {
@@ -1064,7 +1077,6 @@
           "type": "image",
           "disabled": true,
           "settings": {
-            "image": "shopify://shop_images/693c12bc46c694e483a7889f_CalaFalco_25-118.jpg",
             "link": "",
             "border": "none",
             "border_width": 1,
@@ -1400,7 +1412,6 @@
         "callout_Ak7DDn": {
           "type": "callout",
           "settings": {
-            "background_image": "shopify://shop_images/Frame_52.jpg",
             "icon": "<svg width=\"16\" height=\"16\" viewbox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M16 0.748212L15.5778 0L7.67967 2.51671C7.64449 2.4487 7.6269 2.38068 7.59172 2.32966C6.8705 0.901256 4.97073 0.0340096 2.85986 1.02029C0.748992 2.02357 -0.517529 4.38725 0.203684 5.79865C0.924897 7.22705 3.63384 7.72019 5.74471 6.71691C7.55654 5.86667 8.15461 4.28522 7.82039 2.94183L14.2409 1.22435C12.8337 2.72077 11.6024 4.37024 10.6349 6.15575C10.6173 6.15575 10.5821 6.13874 10.5645 6.13874C8.85824 5.66261 6.65942 6.73391 5.83266 9.53971C4.98832 12.3455 5.9382 15.4574 7.64449 15.9335C9.35077 16.4097 11.8662 14.267 12.693 11.4613C13.4142 9.04657 12.5698 7.19304 11.233 6.42782C12.4819 4.31923 14.153 2.39768 16 0.748212Z\" fill=\"currentColor\"></path>\n</svg>",
             "title": "Natural",
             "text": "<p>We are committed to sourcing the most exceptional natural ingredients, to craft sustainable botanical products that elevate mood and wellbeing.</p>"
