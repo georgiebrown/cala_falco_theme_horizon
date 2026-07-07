@@ -563,18 +563,6 @@
             "author_title": "Environmentalist, Founder of Dirt"
           }
         },
-        "testimonial_xG3TVA": {
-          "type": "testimonial",
-          "settings": {
-            "quote_short": "<p>Cala Falcó at spring is light, crisp and wonderfully thirst-quenching, with beautiful notes of rosemary and a subtle sea-water minerality that captures the essence of the Mediterranean. The perfect alcohol free drink.</p>",
-            "cta_label": "Read full testimonial",
-            "cta_link": "",
-            "open_in_new_tab": true,
-            "image": "shopify://shop_images/Cala_Falc_at_Spring_bottle_surrounded_by_rosemary.png",
-            "author": "Emily Horner",
-            "author_title": "Non-Alcoholic Drinks Influencer"
-          }
-        },
         "testimonial_RxABEK": {
           "type": "testimonial",
           "settings": {
@@ -585,6 +573,18 @@
             "image": "shopify://shop_images/Cala_Falc_at_Spring_non-alcoholic_aperitivo_drink.jpg",
             "author": "Claire Warner",
             "author_title": "Global Non-Alcoholic Drinks Industry Thought Leader"
+          }
+        },
+        "testimonial_xG3TVA": {
+          "type": "testimonial",
+          "settings": {
+            "quote_short": "<p>Cala Falcó at spring is light, crisp and wonderfully thirst-quenching, with beautiful notes of rosemary and a subtle sea-water minerality that captures the essence of the Mediterranean. The perfect alcohol free drink.</p>",
+            "cta_label": "Read full testimonial",
+            "cta_link": "",
+            "open_in_new_tab": true,
+            "image": "shopify://shop_images/Cala_Falc_at_Spring_bottle_surrounded_by_rosemary.png",
+            "author": "Emily Horner",
+            "author_title": "Non-Alcoholic Drinks Influencer"
           }
         },
         "testimonial_Cnhen3": {
@@ -615,8 +615,8 @@
       "block_order": [
         "testimonial_JmgVwT",
         "testimonial_fwiqwL",
-        "testimonial_xG3TVA",
         "testimonial_RxABEK",
+        "testimonial_xG3TVA",
         "testimonial_Cnhen3",
         "testimonial_VEVtTE"
       ],
