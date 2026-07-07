@@ -539,6 +539,18 @@
     "testimonials_6rfhgc": {
       "type": "testimonials",
       "blocks": {
+        "testimonial_fwiqwL": {
+          "type": "testimonial",
+          "settings": {
+            "quote_short": "<p>Fresh, herbal and beautifully balanced;  it had none of the cloying sweetness you often find in non-alcoholic drinks. It tasted like drinking something that actually came from healthy earth.</p>",
+            "cta_label": "",
+            "cta_link": "",
+            "open_in_new_tab": true,
+            "image": "shopify://shop_images/1b0cb630-673c-4204-8929-cf39cd8dcfd3.png",
+            "author": "Arizona Muse",
+            "author_title": "Environmentalist, Founder of Dirt"
+          }
+        },
         "testimonial_JmgVwT": {
           "type": "testimonial",
           "settings": {
@@ -601,6 +613,7 @@
         }
       },
       "block_order": [
+        "testimonial_fwiqwL",
         "testimonial_JmgVwT",
         "testimonial_xG3TVA",
         "testimonial_RxABEK",
