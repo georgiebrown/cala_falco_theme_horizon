@@ -96,9 +96,9 @@
   if section.settings.localization_position == 'left'
     if section.settings.search_position == 'left'
       if shop.customer_accounts_enabled
-        assign order = 'drawer_search,logo,search,localization,menu,actions'
+        assign order = 'drawer_search,logo,localization,search,menu,actions'
       else
-        assign order = 'logo,search,localization,menu,drawer_search,actions'
+        assign order = 'logo,localization,search,menu,drawer_search,actions'
       endif
     else
       if shop.customer_accounts_enabled
@@ -215,29 +215,24 @@
     assign color_shadow = '--color-shadow: rgb(var(--color-foreground-rgb) / var(--opacity-10-25));'
     assign form_style = localization_font | append: localization_font_size | append: color_shadow
   %}
-  {% if show_language and show_country == false %}
-    <div class="dropdown-localization mobile:hidden">
-      {% render 'localization-form',
-        show_country: show_country,
-        show_language: show_language,
-        localization_style: 'dropdown',
-        form_style: form_style,
-        form_id: section.id
-      %}
-    </div>
-  {% elsif show_country %}
+  {% if show_country or show_language %}
     <dropdown-localization-component
       class="dropdown-localization mobile:hidden"
     >
       <button
         type="button"
-        class="button dropdown-localization__button localization-selector header-actions__action"
+        class="dropdown-localization__button localization-selector header-actions__action"
         aria-expanded="false"
         aria-controls="dropdown-localization-results"
         ref="button"
         on:click="/toggleSelector"
         style="{{ localization_font }} {{ localization_font_size }}"
       >
+        {% if show_language %}
+          <span class="svg-wrapper dropdown-localization__icon-language" aria-hidden="true">
+            {{- 'icon-language.svg' | inline_asset_content -}}
+          </span>
+        {% endif %}
         {% if show_country %}
           {% if section.settings.country_selector_style == true %}
             {% liquid
@@ -270,16 +265,6 @@
         >
           {{- 'accessibility.localization_region_and_language' | t -}}
         </span>
-
-        {%- if show_country and show_language -%}
-          <span>/</span>
-        {%- endif -%}
-
-        {%- if show_language -%}
-          <span>
-            {{ localization.language.iso_code | upcase }}
-          </span>
-        {%- endif -%}
         <span class="svg-wrapper icon-caret">
           {{- 'icon-caret.svg' | inline_asset_content -}}
         </span>
@@ -290,13 +275,40 @@
         hidden
         ref="panel"
       >
-        {% render 'localization-form',
-          show_country: show_country,
-          show_language: show_language,
-          localization_style: 'dropdown',
-          form_style: form_style,
-          form_id: section.id
-        %}
+        {% if show_language and show_country == false %}
+          {% assign header_language_form_label = 'content.language' | t %}
+          {%- form 'localization',
+            id: 'HeaderLanguageForm',
+            class: 'header-language-list',
+            aria-label: header_language_form_label
+          -%}
+            <ul class="header-language-list__items list-unstyled" role="list">
+              {%- for language in localization.available_languages -%}
+                <li>
+                  <button
+                    type="submit"
+                    class="header-language-list__item"
+                    name="language_code"
+                    value="{{ language.iso_code }}"
+                    {% if language.iso_code == localization.language.iso_code %}
+                      aria-current="true"
+                    {% endif %}
+                  >
+                    {{ language.endonym_name | capitalize }}
+                  </button>
+                </li>
+              {%- endfor -%}
+            </ul>
+          {%- endform -%}
+        {% else %}
+          {% render 'localization-form',
+            show_country: show_country,
+            show_language: show_language,
+            localization_style: 'dropdown',
+            form_style: form_style,
+            form_id: section.id
+          %}
+        {% endif %}
       </div>
     </dropdown-localization-component>
   {% endif %}
@@ -1127,7 +1139,7 @@
     display: flex;
     position: relative;
     align-items: center;
-    gap: 4px;
+    gap: 2px;
     font-family: var(--menu-localization-font);
     font-size: var(--menu-localization-font-size);
     font-weight: var(--menu-top-level-font-weight);
@@ -1142,6 +1154,20 @@
     top: calc(50% - var(--padding-2xs));
     flex-shrink: 0;
     transition: transform var(--animation-speed) var(--animation-easing);
+  }
+
+  .dropdown-localization__icon-language {
+    width: calc(var(--icon-size-xs) * 1.1);
+    height: calc(var(--icon-size-xs) * 1.1);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .dropdown-localization__icon-language svg {
+    width: 100%;
+    height: 100%;
   }
 
   .dropdown-localization__button .icon-flag {
@@ -1229,6 +1255,38 @@
     z-index: calc(var(--layer-header-menu) + 1);
   }
 
+  .header-language-list {
+    width: 100%;
+    padding: var(--padding-xs);
+  }
+
+  .header-language-list__items {
+    margin: 0;
+    padding: 0;
+  }
+
+  .header-language-list__item {
+    width: 100%;
+    border: 0;
+    background: transparent;
+    color: var(--color-foreground);
+    text-align: left;
+    padding: var(--padding-sm) var(--padding-md);
+    border-radius: 8px;
+    font: inherit;
+    cursor: pointer;
+    transition: background-color var(--animation-speed) var(--animation-easing);
+  }
+
+  .header-language-list__item:hover,
+  .header-language-list__item:focus-visible {
+    outline: none;
+  }
+
+  .header-language-list__item[aria-current='true'] {
+    font-weight: 500;
+  }
+
   dropdown-localization-component .localization-wrapper.right-bound {
     right: 0;
     left: unset;
@@ -1273,8 +1331,9 @@
   }
 
   .dropdown-localization:not(dropdown-localization-component) .language-selector {
-    font-family: var(--menu-localization-font);
-    font-size: var(--menu-localization-font-size);
+    font-size:var(--menu-top-level-font-size-desktop);
+    font-family: var(--menu-top-level-font-family);
+    text-transform: uppercase;
   }
 {% endstylesheet %}
 

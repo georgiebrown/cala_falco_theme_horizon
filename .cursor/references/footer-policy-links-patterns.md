@@ -23,6 +23,19 @@ Add these settings on the footer section:
   - `menu`: `footer_links_menu` is selected
 - For menu mode iterate `section.settings.footer_links_menu.links`.
 - For policy mode iterate `shop.policies`.
+- Optional footer language selector:
+  - Add section setting `footer_show_language_selector` (checkbox).
+  - Only render when the setting is on **and** `localization.available_languages.size > 1`.
+  - Render with `localization-form` using `show_country: false`, `show_language: true`, `localization_style: 'footer'`.
+  - Footer style (`localization_style: 'footer'`) should show full language names (for example `English`).
+  - Insert selector immediately before the first privacy link (`url contains 'privacy'`) in either policy or menu source.
+  - If no privacy link exists, append selector as the last item in the policy-links list.
+
+## Header Language Selector
+
+- Header language trigger should be icon-only (globe + caret), with no visible language code/label.
+- For language-only mode in header, clicking the icon should open a direct clickable language list (no nested select control).
+- Keep country/language combined behavior using existing localization form when country selection is enabled.
 
 ## Layout Rules
 
